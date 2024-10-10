@@ -15,3 +15,4 @@ public class BomberF15 : MonoBehaviour
         transform.position = new Vector3(0, 10);
     }
 }
+//He who looks at this script shall be bombed in the name of Ching Don Coon, YOU ALL ARE BANNED!!!
