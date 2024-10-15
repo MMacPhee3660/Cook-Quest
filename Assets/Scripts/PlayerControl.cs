@@ -20,7 +20,7 @@ private Vector3 input;
     void FixedUpdate(){
         Move();
     }
-    
+     
     void GatherInput(){
         input = new Vector3(Input.GetAxisRaw("Horizontal"),0,Input.GetAxisRaw("Vertical"));
      }
