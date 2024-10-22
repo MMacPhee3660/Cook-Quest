@@ -1,13 +1,7 @@
 using UnityEngine;
-[CreateAssetMenu(fileName = "SceneInfo", menuName = "Travel Between Scenes", order = 0)]
+
 public class SceneInfo : ScriptableObject {
-
+    [CreateAssetMenu(fileName = "SceneInfo", menuName = "Persistence")]
+    public bool isNextScene = true;
 }
-{
-    void Start()
-    {
-        
-    }
-}
-
 
