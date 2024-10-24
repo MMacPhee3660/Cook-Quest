@@ -1,69 +1,70 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    private float speed; // Player movement speed
+    Rigidbody rb;
+    
+    [SerializeField] float speed = 5f;
+    public float baseSpeed = 5f;
 
-    void Awake()
+    public bool isSprinting = false;
+    public float sprintingMulti = 1.5f;
+    public bool slowWalk;
+    public bool isDash = false;
+
+
+   void Start(){
+        rb = GetComponent<Rigidbody>();
+   }
+    void FixedUpdate()
     {
-        speed = 5;
+        float horzInput = Input.GetAxisRaw("Horizontal");
+        float vertInput = Input.GetAxisRaw("Vertical"); 
+
+    
+         Vector3 movement = new(horzInput, 0, vertInput);
+         movement.Normalize();
+
+         rb.MovePosition(rb.position + movement * Time.fixedDeltaTime * speed);
+         transform.forward = new Vector3(movement.x,0,movement.z);
+         if( Input.GetKey(KeyCode.LeftShift)){
+            isSprinting = true;
+        }
+        else{
+
+            isSprinting = false;
+        }
+
+        if(isSprinting == true) {
+            speed = baseSpeed * 1.5f;
+
+        }
+
+        if(isSprinting == false){
+            speed = baseSpeed;
+        }
+
+        if(slowWalk){
+            baseSpeed = 3;
+        }
+        else{
+            baseSpeed = 5f;
+        }
+
+        if(Input.GetKey(KeyCode.Space)){
+            isDash = true;
+
+        }
+
+
     }
-    void Update()
-    {
-        if(Input.GetKey(KeyCode.W)) { // Controls movements in all four directions
-            transform.Translate(Vector3.up * testVert(Vector2.up));
-        }
-        if(Input.GetKey(KeyCode.A)) {
-            transform.Translate(Vector3.left * testHor(Vector2.left));
-        }
-        if(Input.GetKey(KeyCode.S)) {
-            transform.Translate(Vector3.down * testVert(Vector2.down));
-        } 
-        if(Input.GetKey(KeyCode.D)) {
-            transform.Translate(Vector3.right * testHor(Vector2.right));
-        }
-    }
-
-    private float testHor(Vector2 dir) {
-        Vector2 origin = transform.position;
-        float offset;
-        if (dir.Equals(Vector2.left)) {
-            offset = -0.125f; // Offset for left side of character
-        } else {
-            offset = 0.125f; // Offset for right side of character
-        }
-            origin.x += offset;
-        RaycastHit2D raycast = Physics2D.Raycast(origin, dir, speed * Time.deltaTime);
-
-        if(raycast.collider != null && raycast.collider.gameObject.tag == "Collidable") { // If raycast hits something tagged "Collidable"
-            float distance = Math.Abs(raycast.point.x - origin.x);
-            return distance;
-        }
-
-        return speed * Time.deltaTime;
-    }
-
-    private float testVert(Vector2 dir) {
-        Vector2 origin = transform.position;
-        float offset;
-        if (dir.Equals(Vector2.up)) {
-            offset = .1f; // Offset for top side of character
-        } else {
-            offset = -0.5f; // Offset for bottom side of character
-        }
-        origin.y += offset;
-        RaycastHit2D raycast = Physics2D.Raycast(origin, dir, speed * Time.deltaTime);
-
-        if (raycast.collider != null && raycast.collider.gameObject.tag == "Collidable") { // If raycast hits something tagged "Collidable"
-            float distance = Math.Abs(raycast.point.y - origin.y);
-            return distance;
-        }
-
-        return speed * Time.deltaTime;
-    }
+    
+    
+    
 }
      
    
