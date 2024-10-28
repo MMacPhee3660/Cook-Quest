@@ -6,9 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Menu.unity
-    guid: ec845681c004f4417b37d35833cd00dd
+    path: Assets/Scenes/LiamsScene.unity
+    guid: 008ac341371f446dab3250264fbe7b2e
   - enabled: 1
-    path: Assets/Scenes/MainScene.unity
-    guid: 9fc0d4010bbf28b4594072e72b8655ab
+    path: Assets/Scenes/Liams2ndScene.unity
+    guid: 2bbc251a8147e43838fb2e7929dffb59
   m_configObjects: {}
