@@ -1,44 +1,70 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Animations;
 
-public class PlayerControl : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
-
-[SerializeField] private Rigidbody rb;
-[SerializeField] private float speed = 5;
-private Vector3 input;
-
-
-    void Update() {
-        GatherInput();
-        Look();
-    }
+    Rigidbody rb;
     
-    
-    void FixedUpdate(){
-        Move();
-    }
-     
-    void GatherInput(){
-        input = new Vector3(Input.GetAxisRaw("Horizontal"),0,Input.GetAxisRaw("Vertical"));
-     }
-     
-     void Look(){
-        if (input !=Vector3.zero){
-            var relative = (transform.position + input) - transform.position;
-        var rot = Quaternion.LookRotation(relative,Vector3.up);
+    [SerializeField] float speed = 5f;
+    public float baseSpeed = 5f;
 
-        transform.rotation = rot;
+    public bool isSprinting = false;
+    public float sprintingMulti = 1.5f;
+    public bool slowWalk;
+    public bool isDash = false;
+
+
+   void Start(){
+        rb = GetComponent<Rigidbody>();
+   }
+    void FixedUpdate()
+    {
+        float horzInput = Input.GetAxisRaw("Horizontal");
+        float vertInput = Input.GetAxisRaw("Vertical"); 
+
+    
+         Vector3 movement = new(horzInput, 0, vertInput);
+         movement.Normalize();
+
+         rb.MovePosition(rb.position + movement * Time.fixedDeltaTime * speed);
+         transform.forward = new Vector3(movement.x,0,movement.z);
+         if( Input.GetKey(KeyCode.LeftShift)){
+            isSprinting = true;
+        }
+        else{
+
+            isSprinting = false;
+        }
+
+        if(isSprinting == true) {
+            speed = baseSpeed * 1.5f;
 
         }
 
-        
+        if(isSprinting == false){
+            speed = baseSpeed;
+        }
 
-     }
-     
-   void Move(){
-        rb.MovePosition(transform.position + (transform.forward * input.magnitude) * speed * Time.deltaTime);
-   }
+        if(slowWalk){
+            baseSpeed = 3;
+        }
+        else{
+            baseSpeed = 5f;
+        }
+
+        if(Input.GetKey(KeyCode.Space)){
+            isDash = true;
+
+        }
+
+
+    }
+    
+    
+    
 }
+     
+   
