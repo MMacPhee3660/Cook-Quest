@@ -1,27 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Rendering;
 
-public class QuickBuy : MonoBehaviour
+public class Quickbuy : MonoBehaviour
 {
-    // Start is called before the first frame update
-    public GameObject Capsule
-    public GameObject E
-    public GameObject "Lower Left Object"
-    float dist = Vector3.Distance(Capsule.position, "Lower Left Object".position);
 
+    private bool isNear = false;
+    private float distance = 5f;
+
+
+
+    [SerializeField] Transform obj1;
+    GameObject player;
     void Start()
     {
-        print(dist)
-        // E.disable()
-        // if Capsule.trasform position < 10f{
-        //     E.enable()
-        // }
+        player = GameObject.Find("Player");
     }
-
-    // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.E))
+        float distance = Vector3.Distance(player.transform.position, obj1.transform.position);
+        Debug.DrawLine(transform.position, obj1.transform.position, Color.green);
+        
     }
 }
