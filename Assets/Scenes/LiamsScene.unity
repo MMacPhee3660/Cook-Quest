@@ -321,9 +321,8 @@ GameObject:
   - component: {fileID: 1788416150}
   - component: {fileID: 1788416149}
   - component: {fileID: 1788416148}
-  - component: {fileID: 1788416152}
   m_Layer: 0
-  m_Name: Go to Different Scene
+  m_Name: Portal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -415,19 +414,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1788416152
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1788416147}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 176149ed40eb74fa88eeac808a98414b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scenename: Liams 2nd Scene
 --- !u!1 &1981265952
 GameObject:
   m_ObjectHideFlags: 0
@@ -442,7 +428,7 @@ GameObject:
   - component: {fileID: 1981265955}
   - component: {fileID: 1981265960}
   m_Layer: 0
-  m_Name: Player
+  m_Name: TestCube
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
