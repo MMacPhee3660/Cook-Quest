@@ -6,26 +6,19 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    Rigidbody rb;
-    
     [SerializeField] float speed = 5f;
     public float baseSpeed = 5f;
 
     public bool isSprinting = false;
     public float sprintingMulti = 1.5f;
     public bool slowWalk;
-    public bool isDodge = false;
-    private float dodgeTime = 2;
-    private float dodgeCD;
-    private float dodgeDist = 10f;
-    private Animator animator;
     [SerializeField] float velocity;
+    private Animator animator;
 
    void Start(){
         rb = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
    }
-
     void FixedUpdate()
     {
         if(!isDodge){
@@ -41,49 +34,64 @@ public class PlayerController : MonoBehaviour
             }
 
             animator.SetFloat("Velocity",velocity);
-        
             Vector3 movement = new(horzInput, 0, vertInput);
             movement.Normalize();
-            
+        if (isDash){
+            Dash();
+            transform.position += (transform.forward * speed * Time.deltaTime);
+        }
+        else if (horzInput != 0 || vertInput != 0){
+            transform.forward = new Vector3(input.x,0,input.z);
+            transform.position += (input * Time.fixedDeltaTime * speed);
+        }
+        
+        if( Input.GetKey(KeyCode.LeftShift)){
+            isSprinting = true;
+        }
+        else{
 
 
-            rb.MovePosition(rb.position + movement * Time.fixedDeltaTime * speed);
-            transform.forward = new Vector3(movement.x,0,movement.z);
+        if(isSprinting) {
+            speed = baseSpeed * 1.5f;
 
 
-            if( Input.GetKey(KeyCode.LeftShift)){
-                isSprinting = true;
-            }
-            else{
-                isSprinting = false;
-            }
-            if(isSprinting == true) {
-                speed = baseSpeed * 1.5f;
-            }
-            if(isSprinting == false){
-                speed = baseSpeed;
-            }
-            if(slowWalk){
-                baseSpeed = 3;
-            }
-            else{
-                baseSpeed = 5f;
-            }
+        if(!isSprinting && !isDash){
+            speed = baseSpeed;
+        }
 
             
         }
 
-        if(Input.GetKey(KeyCode.Space)){
-                isDodge = true;
-                transform.Translate(10,0,0);
-            }
-
+        if(Input.GetKey(KeyCode.Space) && timeSinceDash >= 0.15){
+            isDash = true;
+            dashComplete = false;
+        }
+        if (timeSinceDash > 0.15){
+            slowWalk = false;
+        }
+        else{
+            timeSinceDash += Time.deltaTime;
+        }
     }
-
-
-    public void DodgeRoll(){
-        isDodge = true;
-        
+    private void Dash(){
+        int dashAcceleration = 300;
+        int dashSpeed = 35;
+        timeSinceDash = 0;
+        if (speed < dashSpeed && !dashComplete){
+            speed += Time.deltaTime * dashAcceleration;
+        }
+        else {
+            dashComplete = true;
+        }
+        if (dashComplete){
+            if (speed > 0){
+                speed -= Time.deltaTime * dashAcceleration;
+            }
+            else {
+                isDash = false;
+                slowWalk = true;
+            }
+        }
     }
     
     
