@@ -227,7 +227,7 @@ GameObject:
   - component: {fileID: 1360041510}
   - component: {fileID: 1360041509}
   - component: {fileID: 1360041508}
-  - component: {fileID: 1360041506}
+  - component: {fileID: 1360041512}
   m_Layer: 0
   m_Name: Cube (1)
   m_TagString: Untagged
@@ -235,21 +235,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1360041506
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1360041505}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac66f29380d0e442fa964c043cdb60bf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  destination1: {x: 0, y: 0, z: 0}
-  destination2: {x: 10, y: 0, z: 10}
-  destination3: {x: 20, y: 0, z: -10}
 --- !u!65 &1360041508
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -336,6 +321,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1360041512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1360041505}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a8c17dd25e204d9ba2f42554222b075, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 5
+  baseSpeed: 5
+  isSprinting: 0
+  sprintingMulti: 1.5
+  slowWalk: 0
+  isDash: 0
 --- !u!1 &1360531172
 GameObject:
   m_ObjectHideFlags: 0
