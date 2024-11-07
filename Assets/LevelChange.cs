@@ -6,7 +6,10 @@ using UnityEngine.SceneManagement;
 
 public class LevelChange : MonoBehaviour
 {
-   
+   public bool isNextScene = true;
+
+   [SerializeField]
+   public SceneInfo sceneInfo;
     void OnTriggerEnter(Collider other)
     {
         if(other.tag == "Player")
