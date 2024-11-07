@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -20,14 +21,19 @@ public class PlayerController : MonoBehaviour
     private float dodgeDist = 10f;
     private Animator animator;
     [SerializeField] float velocity;
+    public bool inShop = false;
 
    void Start(){
         rb = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
+        
    }
 
     void FixedUpdate()
     {
+        Scene currentScene = SceneManager.GetActiveScene ();
+        string sceneName = currentScene.name;
+        
         if(!isDodge){
             float horzInput = Input.GetAxisRaw("Horizontal");
             float vertInput = Input.GetAxisRaw("Vertical"); 
@@ -40,6 +46,7 @@ public class PlayerController : MonoBehaviour
                 velocity = 0f;
             }
 
+
             animator.SetFloat("Velocity",velocity);
         
             Vector3 movement = new(horzInput, 0, vertInput);
@@ -49,9 +56,12 @@ public class PlayerController : MonoBehaviour
 
             rb.MovePosition(rb.position + movement * Time.fixedDeltaTime * speed);
             transform.forward = new Vector3(movement.x,0,movement.z);
+            
+            Debug.Log(vertInput);
+            Debug.Log(horzInput);
 
 
-            if( Input.GetKey(KeyCode.LeftShift)){
+            if( Input.GetKey(KeyCode.LeftShift) && !inShop){
                 isSprinting = true;
             }
             else{
@@ -69,14 +79,24 @@ public class PlayerController : MonoBehaviour
             else{
                 baseSpeed = 5f;
             }
+            if(inShop){
+                baseSpeed = 2;
+            }
+            else{
+                baseSpeed = 5f;
+            }
 
             
         }
 
-        if(Input.GetKey(KeyCode.Space)){
+        if(Input.GetKey(KeyCode.Space) && !inShop){
                 isDodge = true;
                 transform.Translate(10,0,0);
-            }
+        }
+        
+        if(sceneName == "MaywensScene"){
+            inShop = true; 
+        }
 
     }
 
