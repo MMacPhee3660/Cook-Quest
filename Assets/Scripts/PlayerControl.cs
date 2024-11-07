@@ -12,30 +12,20 @@ public class PlayerController : MonoBehaviour
     public bool isSprinting = false;
     public float sprintingMulti = 1.5f;
     public bool slowWalk;
-    [SerializeField] float velocity;
-    private Animator animator;
+    public bool isDash = false;
+    private bool dashComplete = false;
+    private float timeSinceDash = 0.5f;
 
-   void Start(){
-        rb = GetComponent<Rigidbody>();
-        animator = GetComponent<Animator>();
-   }
     void FixedUpdate()
     {
-        if(!isDodge){
-            float horzInput = Input.GetAxisRaw("Horizontal");
-            float vertInput = Input.GetAxisRaw("Vertical"); 
-            velocity = 1f;
-        
-            animator.SetFloat("Xinput",horzInput);
-            animator.SetFloat("Yinput",vertInput);
+        //Debug.Log(speed);
+        float horzInput = Input.GetAxisRaw("Horizontal");
+        float vertInput = Input.GetAxisRaw("Vertical"); 
 
-            if(horzInput == 0 && vertInput == 0){
-                velocity = 0f;
-            }
+    
+        Vector3 input = new(horzInput, 0, vertInput);
+        input.Normalize();
 
-            animator.SetFloat("Velocity",velocity);
-            Vector3 movement = new(horzInput, 0, vertInput);
-            movement.Normalize();
         if (isDash){
             Dash();
             transform.position += (transform.forward * speed * Time.deltaTime);
@@ -50,16 +40,23 @@ public class PlayerController : MonoBehaviour
         }
         else{
 
+            isSprinting = false;
+        }
 
         if(isSprinting) {
             speed = baseSpeed * 1.5f;
 
+        }
 
         if(!isSprinting && !isDash){
             speed = baseSpeed;
         }
 
-            
+        if(slowWalk){
+            baseSpeed = 3;
+        }
+        else{
+            baseSpeed = 5f;
         }
 
         if(Input.GetKey(KeyCode.Space) && timeSinceDash >= 0.15){
@@ -94,10 +91,6 @@ public class PlayerController : MonoBehaviour
         }
     }
     
-    
-
-
-
     
 }
      
