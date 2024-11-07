@@ -1,44 +1,97 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Animations;
 
-public class PlayerControl : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
+    [SerializeField] float speed = 5f;
+    public float baseSpeed = 5f;
 
-[SerializeField] private Rigidbody rb;
-[SerializeField] private float speed = 5;
-private Vector3 input;
+    public bool isSprinting = false;
+    public float sprintingMulti = 1.5f;
+    public bool slowWalk;
+    public bool isDash = false;
+    private bool dashComplete = false;
+    private float timeSinceDash = 0.5f;
 
+    void FixedUpdate()
+    {
+        //Debug.Log(speed);
+        float horzInput = Input.GetAxisRaw("Horizontal");
+        float vertInput = Input.GetAxisRaw("Vertical"); 
 
-    void Update() {
-        GatherInput();
-        Look();
-    }
     
-    
-    void FixedUpdate(){
-        Move();
-    }
-     
-    void GatherInput(){
-        input = new Vector3(Input.GetAxisRaw("Horizontal"),0,Input.GetAxisRaw("Vertical"));
-     }
-     
-     void Look(){
-        if (input !=Vector3.zero){
-            var relative = (transform.position + input) - transform.position;
-        var rot = Quaternion.LookRotation(relative,Vector3.up);
+        Vector3 input = new(horzInput, 0, vertInput);
+        input.Normalize();
 
-        transform.rotation = rot;
+        if (isDash){
+            Dash();
+            transform.position += (transform.forward * speed * Time.deltaTime);
+        }
+        else if (horzInput != 0 || vertInput != 0){
+            transform.forward = new Vector3(input.x,0,input.z);
+            transform.position += (input * Time.fixedDeltaTime * speed);
+        }
+        
+        if( Input.GetKey(KeyCode.LeftShift)){
+            isSprinting = true;
+        }
+        else{
+
+            isSprinting = false;
+        }
+
+        if(isSprinting) {
+            speed = baseSpeed * 1.5f;
 
         }
 
-        
+        if(!isSprinting && !isDash){
+            speed = baseSpeed;
+        }
 
-     }
-     
-   void Move(){
-        rb.MovePosition(transform.position + (transform.forward * input.magnitude) * speed * Time.deltaTime);
-   }
+        if(slowWalk){
+            baseSpeed = 3;
+        }
+        else{
+            baseSpeed = 5f;
+        }
+
+        if(Input.GetKey(KeyCode.Space) && timeSinceDash >= 0.15){
+            isDash = true;
+            dashComplete = false;
+        }
+        if (timeSinceDash > 0.15){
+            slowWalk = false;
+        }
+        else{
+            timeSinceDash += Time.deltaTime;
+        }
+    }
+    private void Dash(){
+        int dashAcceleration = 300;
+        int dashSpeed = 35;
+        timeSinceDash = 0;
+        if (speed < dashSpeed && !dashComplete){
+            speed += Time.deltaTime * dashAcceleration;
+        }
+        else {
+            dashComplete = true;
+        }
+        if (dashComplete){
+            if (speed > 0){
+                speed -= Time.deltaTime * dashAcceleration;
+            }
+            else {
+                isDash = false;
+                slowWalk = true;
+            }
+        }
+    }
+    
+    
 }
+     
+   
