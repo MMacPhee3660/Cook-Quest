@@ -15,6 +15,12 @@ public class PlayerController : MonoBehaviour
     public bool isDash = false;
     private bool dashComplete = false;
     private float timeSinceDash = 0.5f;
+    public Animator animator;
+    [SerializeField] float velocity;
+    void Start(){
+        animator = GetComponent<Animator>();
+
+    }
 
     void FixedUpdate()
     {
@@ -22,9 +28,21 @@ public class PlayerController : MonoBehaviour
         float horzInput = Input.GetAxisRaw("Horizontal");
         float vertInput = Input.GetAxisRaw("Vertical"); 
 
-    
+        if(horzInput == 0 && vertInput == 0){
+            velocity = 0;
+        }
+        else{
+            velocity = 1;
+        }
+
+        animator.SetFloat("Velocity", velocity);
+        animator.SetFloat("Xinput",horzInput);
+        animator.SetFloat("Yinput",vertInput);
         Vector3 input = new(horzInput, 0, vertInput);
         input.Normalize();
+
+
+
 
         if (isDash){
             Dash();
