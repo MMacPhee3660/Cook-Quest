@@ -15,7 +15,7 @@ public class Quickbuy : MonoBehaviour
     }
     void Update()
     {
-        float distance = Vector3.Distance(player.transform.position, player.transform.position);
+        float distance = Vector3.Distance(transform.position, player.transform.position);
         if(distance <= 5f){
             Debug.DrawLine(transform.position, player.transform.position, Color.green);
         }
