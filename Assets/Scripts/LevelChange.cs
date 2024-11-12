@@ -12,6 +12,7 @@ public class LevelChange : MonoBehaviour
    public SceneInfo sceneInfo;
     void OnTriggerEnter(Collider other)
     {
+        Debug.Log(other.tag);
         if(other.tag == "Player")
         {
             SceneManager.LoadScene("Scene2");

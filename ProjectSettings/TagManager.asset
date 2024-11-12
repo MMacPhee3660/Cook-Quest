@@ -13,11 +13,11 @@ TagManager:
   - Water
   - UI
   - UI+
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Walls
+  - Floor
+  - Displays
+  - NoEntry
+  - Player
   - 
   - 
   - 
@@ -41,4 +41,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Room
+    uniqueID: 1291884717
     locked: 0
