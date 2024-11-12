@@ -9,6 +9,7 @@ public class LevelChange : MonoBehaviour
    
     void OnTriggerEnter(Collider other)
     {
+        Debug.Log(other.tag);
         if(other.tag == "Player")
         {
             SceneManager.LoadScene("Scene2");
