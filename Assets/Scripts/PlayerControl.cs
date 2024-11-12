@@ -9,7 +9,6 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] float speed = 5f;
     public float baseSpeed = 5f;
-
     public bool isSprinting = false;
     public float sprintingMulti = 1.5f;
     public bool slowWalk;
@@ -41,16 +40,6 @@ public class PlayerController : MonoBehaviour
             animator.SetFloat("Xinput",horzInput);
             animator.SetFloat("Yinput",vertInput);
 
-        if(horzInput == 0 && vertInput == 0){
-            velocity = 0;
-        }
-        else{
-            velocity = 1;
-        }
-
-        animator.SetFloat("Velocity", velocity);
-        animator.SetFloat("Xinput",horzInput);
-        animator.SetFloat("Yinput",vertInput);
         Vector3 input = new(horzInput, 0, vertInput);
         input.Normalize();
 
@@ -85,11 +74,11 @@ public class PlayerController : MonoBehaviour
             }
         if (isDash){
             Dash();
-            transform.position += (transform.forward * speed * Time.deltaTime);
+            transform.position += speed * Time.deltaTime * transform.forward;
         }
         else if (horzInput != 0 || vertInput != 0){
-            transform.forward = new Vector3(input.x,0,input.z);
-            transform.position += (input * Time.fixedDeltaTime * speed);
+            transform.forward = new Vector3(input.x, 0, input.z);
+            transform.position += speed * Time.fixedDeltaTime * input;
         }
         
         if( Input.GetKey(KeyCode.LeftShift)){
@@ -135,6 +124,7 @@ public class PlayerController : MonoBehaviour
             timeSinceDash += Time.deltaTime;
         }
     }
+    
     private void Dash(){
         int dashAcceleration = 300;
         int dashSpeed = 35;
