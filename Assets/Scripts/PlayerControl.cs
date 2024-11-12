@@ -18,11 +18,12 @@ public class PlayerController : MonoBehaviour
     public Animator animator;
     [SerializeField] float velocity;
     public bool inShop = false;
+    public bool isDodge = false;
     void Start(){
         animator = GetComponent<Animator>();
    }
 
-    }
+
 
     void FixedUpdate()
     {
@@ -33,8 +34,8 @@ public class PlayerController : MonoBehaviour
         string sceneName = currentScene.name;
         
         if(!isDodge){
-            float horzInput = Input.GetAxisRaw("Horizontal");
-            float vertInput = Input.GetAxisRaw("Vertical"); 
+            //float horzInput = Input.GetAxisRaw("Horizontal");
+            //float vertInput = Input.GetAxisRaw("Vertical"); 
             velocity = 1f;
         
             animator.SetFloat("Xinput",horzInput);
@@ -125,7 +126,7 @@ public class PlayerController : MonoBehaviour
         }
     }
     
-    private void Dash(){
+    void Dash(){
         int dashAcceleration = 300;
         int dashSpeed = 35;
         timeSinceDash = 0;
@@ -146,7 +147,7 @@ public class PlayerController : MonoBehaviour
         }
     }
     
-    
+    }
 }
      
    
