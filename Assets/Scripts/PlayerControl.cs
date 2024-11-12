@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     public bool isSprinting = false;
     public float sprintingMulti = 1.5f;
     public bool slowWalk;
+    private bool stunned;
     public bool isDash = false;
     private bool dashComplete = false;
     private float timeSinceDash = 0.5f;
@@ -39,7 +40,7 @@ public class PlayerController : MonoBehaviour
             transform.position += speed * Time.fixedDeltaTime * input;
         }
         
-        if( Input.GetKey(KeyCode.LeftShift)){
+        if( Input.GetKey(KeyCode.LeftShift) && !isDash ){
             isSprinting = true;
         }
         else{
@@ -59,7 +60,7 @@ public class PlayerController : MonoBehaviour
         if(slowWalk){
             baseSpeed = 3;
         }
-        else{
+        else if (timeSinceDash > 0.15){
             baseSpeed = 5f;
         }
 
@@ -67,12 +68,7 @@ public class PlayerController : MonoBehaviour
             isDash = true;
             dashComplete = false;
         }
-        if (timeSinceDash > 0.15){
-            slowWalk = false;
-        }
-        else{
-            timeSinceDash += Time.deltaTime;
-        }
+        timeSinceDash += Time.deltaTime;
     }
     
     private void Dash(){
@@ -91,7 +87,7 @@ public class PlayerController : MonoBehaviour
             }
             else {
                 isDash = false;
-                slowWalk = true;
+                baseSpeed = 0;
             }
         }
     }
