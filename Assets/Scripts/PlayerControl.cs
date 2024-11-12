@@ -15,12 +15,10 @@ public class PlayerController : MonoBehaviour
     public bool isDash = false;
     private bool dashComplete = false;
     private float timeSinceDash = 0.5f;
-    public Animator animator;
     [SerializeField] float velocity;
     public bool inShop = false;
     public bool isDodge = false;
     void Start(){
-        animator = GetComponent<Animator>();
    }
 
 
@@ -34,12 +32,9 @@ public class PlayerController : MonoBehaviour
         string sceneName = currentScene.name;
         
         if(!isDodge){
-            //float horzInput = Input.GetAxisRaw("Horizontal");
-            //float vertInput = Input.GetAxisRaw("Vertical"); 
+            horzInput = Input.GetAxisRaw("Horizontal");
+            vertInput = Input.GetAxisRaw("Vertical"); 
             velocity = 1f;
-        
-            animator.SetFloat("Xinput",horzInput);
-            animator.SetFloat("Yinput",vertInput);
 
         Vector3 input = new(horzInput, 0, vertInput);
         input.Normalize();
