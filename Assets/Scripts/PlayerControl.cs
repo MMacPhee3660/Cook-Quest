@@ -38,7 +38,9 @@ public class PlayerController : MonoBehaviour
 
         Vector3 input = new(horzInput, 0, vertInput);
         input.Normalize();
-
+        if(sceneName == "MaywensScene"){
+            inShop = true; 
+        }
 
             Debug.Log(vertInput);
             Debug.Log(horzInput);
@@ -90,9 +92,7 @@ public class PlayerController : MonoBehaviour
                 transform.Translate(10,0,0);
         }
         
-        if(sceneName == "MaywensScene"){
-            inShop = true; 
-        }
+
         if(isSprinting) {
             speed = baseSpeed * 1.5f;
 
