@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -15,22 +16,59 @@ public class PlayerController : MonoBehaviour
     public bool isDash = false;
     private bool dashComplete = false;
     private float timeSinceDash = 0.5f;
+    [SerializeField] float velocity;
+    public bool inShop = false;
+    public bool isDodge = false;
     void Start(){
+   }
 
-    }
+
 
     void FixedUpdate()
     {
         //Debug.Log(speed);
         float horzInput = Input.GetAxisRaw("Horizontal");
         float vertInput = Input.GetAxisRaw("Vertical"); 
+        Scene currentScene = SceneManager.GetActiveScene ();
+        string sceneName = currentScene.name;
+        
+        if(!isDodge){
+            horzInput = Input.GetAxisRaw("Horizontal");
+            vertInput = Input.GetAxisRaw("Vertical"); 
+            velocity = 1f;
 
         Vector3 input = new(horzInput, 0, vertInput);
         input.Normalize();
 
 
- 
+            Debug.Log(vertInput);
+            Debug.Log(horzInput);
 
+
+            if( Input.GetKey(KeyCode.LeftShift) && !inShop){
+                isSprinting = true;
+            }
+            else{
+                isSprinting = false;
+            }
+            if(isSprinting == true) {
+                speed = baseSpeed * 1.5f;
+            }
+            if(isSprinting == false){
+                speed = baseSpeed;
+            }
+            if(slowWalk){
+                baseSpeed = 3;
+            }
+            else{
+                baseSpeed = 5f;
+            }
+            if(inShop){
+                baseSpeed = 2;
+            }
+            else{
+                baseSpeed = 5f;
+            }
         if (isDash){
             Dash();
             transform.position += speed * Time.deltaTime * transform.forward;
@@ -48,6 +86,14 @@ public class PlayerController : MonoBehaviour
             isSprinting = false;
         }
 
+        if(Input.GetKey(KeyCode.Space) && !inShop){
+                isDodge = true;
+                transform.Translate(10,0,0);
+        }
+        
+        if(sceneName == "MaywensScene"){
+            inShop = true; 
+        }
         if(isSprinting) {
             speed = baseSpeed * 1.5f;
 
@@ -71,7 +117,7 @@ public class PlayerController : MonoBehaviour
         timeSinceDash += Time.deltaTime;
     }
     
-    private void Dash(){
+    void Dash(){
         int dashAcceleration = 300;
         int dashSpeed = 35;
         timeSinceDash = 0;
@@ -92,7 +138,7 @@ public class PlayerController : MonoBehaviour
         }
     }
     
-    
+    }
 }
      
    
