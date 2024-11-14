@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
+using System;
 
 public class Wallet : MonoBehaviour
 {
     private int money = 100;
-    public Text Wallet;
+    public TMP_Text inWallet;
     
     // Start is called before the first frame update
     void Start()
@@ -16,7 +19,7 @@ public class Wallet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Wallet.text = "$: " + money;
+        inWallet.text = "$: " + money;
         
         if(Input.GetKeyDown(KeyCode.E)){
             money--;
