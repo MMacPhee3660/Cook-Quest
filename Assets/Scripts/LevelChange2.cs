@@ -15,7 +15,6 @@ public class LevelChange2 : MonoBehaviour
         if(other.tag == "Player")
         {
             SceneManager.LoadScene("LiamsScene");
-            DontDestroyOnLoad(gameObject);
         }
     }
 }

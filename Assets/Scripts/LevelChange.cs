@@ -16,7 +16,6 @@ public class LevelChange : MonoBehaviour
         if(other.tag == "Player")
         {
             SceneManager.LoadScene("Scene2");
-            DontDestroyOnLoad(gameObject);
         }
     }
 }
