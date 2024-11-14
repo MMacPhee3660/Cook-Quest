@@ -40,9 +40,6 @@ public class PlayerController : MonoBehaviour
         input.Normalize();
 
 
-            Debug.Log(vertInput);
-            Debug.Log(horzInput);
-
 
             if( Input.GetKey(KeyCode.LeftShift) && !inShop){
                 isSprinting = true;
