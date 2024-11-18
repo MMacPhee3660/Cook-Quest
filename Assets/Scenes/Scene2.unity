@@ -335,7 +335,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a98007735fc184400be68a874f43774a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isNextScene: 1
+  sceneName: LiamsScene
+  isNextScene: 0
   sceneInfo: {fileID: 11400000, guid: be41db6e5297b4906b294d6b76d5fcb7, type: 2}
 --- !u!1 &1959266741
 GameObject:
@@ -461,6 +462,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eeeedea95754f4c6e9f72e4503b73ec6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneName: MainScene
   isNextScene: 1
   sceneinfo: {fileID: 11400000, guid: be41db6e5297b4906b294d6b76d5fcb7, type: 2}
 --- !u!135 &2023519073

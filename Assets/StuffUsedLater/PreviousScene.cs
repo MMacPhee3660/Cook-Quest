@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class LevelChange : MonoBehaviour
 {
+    public string sceneName;
    public bool isNextScene = true;
 
    [SerializeField]
@@ -15,7 +16,8 @@ public class LevelChange : MonoBehaviour
         Debug.Log(other.tag);
         if(other.tag == "Player")
         {
-            SceneManager.LoadScene("Scene2");
+            sceneInfo.isNextScene = isNextScene;
+            SceneManager.LoadScene(sceneName);
         }
     }
 }

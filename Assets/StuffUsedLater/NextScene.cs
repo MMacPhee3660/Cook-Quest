@@ -4,17 +4,16 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
-public class LevelChange2 : MonoBehaviour
+public class PreviousScene : MonoBehaviour
 {
+    public string sceneName;
     public bool isNextScene = true;
 
     [SerializeField]
     public SceneInfo sceneinfo;
     void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Player")
-        {
-            SceneManager.LoadScene("LiamsScene");
-        }
+            sceneinfo.isNextScene = isNextScene;
+            SceneManager.LoadScene(sceneName);
     }
 }

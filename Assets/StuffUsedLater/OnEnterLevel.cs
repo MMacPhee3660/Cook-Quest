@@ -6,8 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class OnEnterLevel : MonoBehaviour
 {
-    public GameObject entrance;
-    public GameObject exit;
+    public GameObject Entrance;
+    public GameObject Exit;
 
     [SerializeField]
     public SceneInfo sceneInfo;
@@ -23,7 +23,7 @@ public class OnEnterLevel : MonoBehaviour
 
     void Start()
     {
-        GameObject target = sceneInfo.isNextScene ? entrance : exit;
+        GameObject target = sceneInfo.isNextScene ? Entrance : Exit;
         Vector3 offset = sceneInfo.isNextScene ? offsetEntrance : offsetExit;
 
         body.position = target.transform.position + offset;
