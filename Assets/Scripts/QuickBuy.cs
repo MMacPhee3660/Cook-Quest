@@ -13,6 +13,7 @@ public class Quickbuy : MonoBehaviour
     GameObject purchase;
     [SerializeField] GameObject hitE;
     
+    
     void Start()
     {
         player = GameObject.Find("PlayerMove");
