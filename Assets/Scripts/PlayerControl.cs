@@ -43,8 +43,8 @@ public class PlayerController : MonoBehaviour
             inShop = true; 
         }
 
-            Debug.Log(vertInput);
-            Debug.Log(horzInput);
+            // Debug.Log(vertInput);
+            // Debug.Log(horzInput);
 
 
             if( Input.GetKey(KeyCode.LeftShift) && !inShop){
