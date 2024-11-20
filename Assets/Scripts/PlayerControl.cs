@@ -38,7 +38,7 @@ public class PlayerController : MonoBehaviour
             horzInput = Input.GetAxisRaw("Horizontal");
             vertInput = Input.GetAxisRaw("Vertical"); 
             velocity = 1f;
-
+        }
         Vector3 input = new(horzInput, 0, vertInput);
         input.Normalize();
         Debug.Log(input);
@@ -123,7 +123,6 @@ public class PlayerController : MonoBehaviour
     void MoveCharacter(Vector3 vector){
         rb.velocity = vector * speed;
     }
-
     void Dash(){
         int dashAcceleration = 300;
         int dashSpeed = 35;
@@ -144,8 +143,4 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
-    
-    }
 }
-     
-   
