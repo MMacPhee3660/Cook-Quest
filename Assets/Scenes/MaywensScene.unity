@@ -340,7 +340,7 @@ GameObject:
   - component: {fileID: 342413291}
   m_Layer: 0
   m_Name: obj3
-  m_TagString: Untagged
+  m_TagString: DisplayObj
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -740,7 +740,7 @@ GameObject:
   - component: {fileID: 561879867}
   m_Layer: 0
   m_Name: obj2
-  m_TagString: Untagged
+  m_TagString: DisplayObj
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1175,7 +1175,7 @@ GameObject:
   - component: {fileID: 832775707}
   m_Layer: 0
   m_Name: obj1
-  m_TagString: Untagged
+  m_TagString: DisplayObj
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1858,6 +1858,9 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 889185683401697098, guid: e60df1cf7d07e4213bec0d1cc4a81634, type: 3}
       insertIndex: -1
+      addedObject: {fileID: 1587107961}
+    - targetCorrespondingSourceObject: {fileID: 889185683401697098, guid: e60df1cf7d07e4213bec0d1cc4a81634, type: 3}
+      insertIndex: -1
       addedObject: {fileID: 1587107960}
   m_SourcePrefab: {fileID: 100100000, guid: e60df1cf7d07e4213bec0d1cc4a81634, type: 3}
 --- !u!1 &1547322647
@@ -1911,6 +1914,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inWallet: {fileID: 1547322650}
+  itemPrice: {fileID: 0}
+  DisplayObjects: []
+  nearestObj: {fileID: 0}
+  player: {fileID: 0}
 --- !u!114 &1547322650
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2040,6 +2047,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 4
   m_CollisionDetection: 0
+--- !u!114 &1587107961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1587107954}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d623399201c8452ba77bf8cf4f06e77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DisplayObjects: []
+  nearestObj: {fileID: 0}
 --- !u!1 &1614432995
 GameObject:
   m_ObjectHideFlags: 0
@@ -2054,7 +2075,7 @@ GameObject:
   - component: {fileID: 1614432999}
   m_Layer: 0
   m_Name: obj4
-  m_TagString: Untagged
+  m_TagString: DisplayObj
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
