@@ -2,16 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerInside : MonoBehaviour
+public class PlayerInsideState : PlayerBaseState
 {
     // Start is called before the first frame update
-    void Start()
+    public override void EnterState(PlayerStateManager player)
     {
         
     }
 
     // Update is called once per frame
-    void Update()
+    public override void UpdateState(PlayerStateManager player)
     {
         
     }
