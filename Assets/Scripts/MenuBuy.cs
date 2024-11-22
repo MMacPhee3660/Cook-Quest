@@ -4,11 +4,10 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering;
 
-public class Quickbuy : MonoBehaviour
+public class Menubuy : MonoBehaviour
 {
     private float distance;
     [SerializeField] GameObject E;
-    [SerializeField] float price;
     GameObject player;
     GameObject purchase;
     public GameObject testE;
@@ -24,6 +23,8 @@ public class Quickbuy : MonoBehaviour
     void Update()
     {
         float distance = Vector3.Distance(transform.position, player.transform.position);
+
+
 
         if(distance <= 2f){
             E.transform.position = transform.position;
