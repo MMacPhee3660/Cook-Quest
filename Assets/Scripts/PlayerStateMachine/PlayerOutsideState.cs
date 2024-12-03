@@ -8,24 +8,49 @@ public class PlayerOutsideState : PlayerBaseState
 {
     float speed;
     float dashCooldown = 0;
+    float dashDashCooldown = 0;
     bool dashComplete = true;
     bool isDash = false;
     // Start is called before the first frame update
     public override void EnterState(PlayerStateManager player)
     {
+        rb = player.GetComponent<Rigidbody>();
         baseSpeed = 5;
+        Debug.Log("outside");
     }
 
     // Update is called once per frame
     public override void UpdateState(PlayerStateManager player)
     {
-        speed = baseSpeed;
+        float horzInput = Input.GetAxisRaw("Horizontal");
+        float vertInput = Input.GetAxisRaw("Vertical");
+        Vector3 input = new Vector3 (horzInput, 0, vertInput);
+        input.Normalize();
+
+        if (Input.GetKey(KeyCode.Space) && dashDashCooldown <= 0)
+        {
+            isDash = true;
+            dashComplete = false;
+        }
+        if (isDash)
+        {
+            Dash(player);
+        }
+        if (dashCooldown <= 0)
+        {
+            speed = baseSpeed;
+            player.transform.forward = input;
+            player.MoveCharacter(rb, input, speed);
+        }
+        dashCooldown -= Time.deltaTime;
+        dashDashCooldown -= Time.deltaTime;
     }
 
     void Dash(PlayerStateManager player){
-        int dashAcceleration = 300;
-        int dashSpeed = 35;
-        dashCooldown = 5;
+        int dashAcceleration = 225;
+        int dashSpeed = 25;
+        dashCooldown = 0.175f;
+        dashDashCooldown = 0.4f;
         if (speed < dashSpeed && !dashComplete){
             speed += Time.deltaTime * dashAcceleration;
         }
@@ -38,9 +63,10 @@ public class PlayerOutsideState : PlayerBaseState
             }
             else {
                 isDash = false;
-                baseSpeed = 0;
+                speed = 0;
             }
         }
         player.MoveCharacter(rb, speed);
     }
+    
 }
