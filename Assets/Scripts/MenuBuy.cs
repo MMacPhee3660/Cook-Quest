@@ -4,16 +4,14 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering;
 
-public class Quickbuy : MonoBehaviour
+public class Menubuy : MonoBehaviour
 {
     private float distance;
     [SerializeField] GameObject E;
-    public float price;
     GameObject player;
     GameObject purchase;
     public GameObject testE;
     public GameObject childE;
-    private int x = 0;
     
     void Start()
     {
@@ -21,11 +19,12 @@ public class Quickbuy : MonoBehaviour
         E.SetActive(false);
         childE = Instantiate(testE, transform.position,Quaternion.identity);
         childE.transform.position += Vector3.up * 1f;
-        
     }
     void Update()
     {
         float distance = Vector3.Distance(transform.position, player.transform.position);
+
+
 
         if(distance <= 2f){
             E.transform.position = transform.position;
@@ -33,11 +32,12 @@ public class Quickbuy : MonoBehaviour
             Debug.DrawLine(transform.position, player.transform.position, Color.green);
         }
         else{
+            Debug.Log(E.transform.position);
             childE.SetActive(false);
         }
         
         if(Input.GetKeyDown(KeyCode.E)){
-            x++;
+            print("a");
         }
     }
 }

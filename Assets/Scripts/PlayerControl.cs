@@ -8,6 +8,7 @@ using UnityEngine.SceneManagement;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] float speed = 5f;
+    public Rigidbody rb;
     public float baseSpeed = 5f;
     public bool isSprinting = false;
     public float sprintingMulti = 1.5f;
@@ -20,13 +21,14 @@ public class PlayerController : MonoBehaviour
     public bool inShop = false;
     public bool isDodge = false;
     void Start(){
+        rb = this.GetComponent<Rigidbody>();
    }
 
 
 
     void FixedUpdate()
     {
-        //Debug.Log(speed);
+        
         float horzInput = Input.GetAxisRaw("Horizontal");
         float vertInput = Input.GetAxisRaw("Vertical"); 
         Scene currentScene = SceneManager.GetActiveScene ();
@@ -36,7 +38,7 @@ public class PlayerController : MonoBehaviour
             horzInput = Input.GetAxisRaw("Horizontal");
             vertInput = Input.GetAxisRaw("Vertical"); 
             velocity = 1f;
-
+        }
         Vector3 input = new(horzInput, 0, vertInput);
         input.Normalize();
         if(sceneName == "MaywensScene"){
@@ -73,11 +75,11 @@ public class PlayerController : MonoBehaviour
             }
         if (isDash){
             Dash();
-            transform.position += speed * Time.deltaTime * transform.forward;
+            MoveCharacter(transform.forward);
         }
-        else if (horzInput != 0 || vertInput != 0){
-            transform.forward = new Vector3(input.x, 0, input.z);
-            transform.position += speed * Time.fixedDeltaTime * input;
+        else{
+            transform.forward = input;
+            MoveCharacter(input);
         }
         
         if( Input.GetKey(KeyCode.LeftShift) && !isDash ){
@@ -117,6 +119,9 @@ public class PlayerController : MonoBehaviour
         timeSinceDash += Time.deltaTime;
     }
     
+    void MoveCharacter(Vector3 vector){
+        rb.velocity = vector * speed;
+    }
     void Dash(){
         int dashAcceleration = 300;
         int dashSpeed = 35;
@@ -137,8 +142,4 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
-    
-    }
 }
-     
-   
