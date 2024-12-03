@@ -16,7 +16,6 @@ public class PlayerOutsideState : PlayerBaseState
     {
         rb = player.GetComponent<Rigidbody>();
         baseSpeed = 5;
-        Debug.Log("outside");
     }
 
     // Update is called once per frame
@@ -39,8 +38,11 @@ public class PlayerOutsideState : PlayerBaseState
         if (dashCooldown <= 0)
         {
             speed = baseSpeed;
-            player.transform.forward = input;
             player.MoveCharacter(rb, input, speed);
+            if (input != new Vector3 (0,0,0))
+            {
+                player.transform.forward = input;
+            }
         }
         dashCooldown -= Time.deltaTime;
         dashDashCooldown -= Time.deltaTime;
