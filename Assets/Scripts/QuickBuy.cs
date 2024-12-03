@@ -8,11 +8,12 @@ public class Quickbuy : MonoBehaviour
 {
     private float distance;
     [SerializeField] GameObject E;
-    [SerializeField] float price;
+    public float price;
     GameObject player;
     GameObject purchase;
     public GameObject testE;
     public GameObject childE;
+    private int x = 0;
     
     void Start()
     {
@@ -20,6 +21,7 @@ public class Quickbuy : MonoBehaviour
         E.SetActive(false);
         childE = Instantiate(testE, transform.position,Quaternion.identity);
         childE.transform.position += Vector3.up * 1f;
+        
     }
     void Update()
     {
@@ -31,12 +33,11 @@ public class Quickbuy : MonoBehaviour
             Debug.DrawLine(transform.position, player.transform.position, Color.green);
         }
         else{
-            Debug.Log(E.transform.position);
             childE.SetActive(false);
         }
         
         if(Input.GetKeyDown(KeyCode.E)){
-            print("a");
+            x++;
         }
     }
 }
