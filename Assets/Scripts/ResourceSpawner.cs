@@ -28,7 +28,7 @@ public class ResourceSpawner : MonoBehaviour
               RaycastHit hit;
               if(Physics.Raycast(new Vector3(x,heightOfCheck,z), Vector3.down, out hit, rangOfCheck, layerMask)){
                   if(spawnChance > Random.Range(0,101)){
-                    Instantiate(resourcePrefab, hit.point, Quaternion.Euler(new Vector3(0,Random.Range(0,360),0)),transform);
+                    Instantiate(resourcePrefab, hit.point, Quaternion.Euler(new Vector3(0,0,0)),transform);
                   }
               }
             }
