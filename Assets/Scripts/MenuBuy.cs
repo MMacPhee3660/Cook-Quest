@@ -12,11 +12,13 @@ public class Menubuy : MonoBehaviour
     GameObject purchase;
     public GameObject testE;
     public GameObject childE;
+    public GameObject menu;
     
     void Start()
     {
         player = GameObject.Find("PlayerMove");
         E.SetActive(false);
+        menu.SetActive(false);
         childE = Instantiate(testE, transform.position,Quaternion.identity);
         childE.transform.position += Vector3.up * 1f;
     }
@@ -38,6 +40,12 @@ public class Menubuy : MonoBehaviour
         
         if(Input.GetKeyDown(KeyCode.E)){
             print("a");
+            if(menu.activeSelf == false){
+                menu.SetActive(true);
+            }
+            else{
+                menu.SetActive(false);
+            }
         }
     }
 }
