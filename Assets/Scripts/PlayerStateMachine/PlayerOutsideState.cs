@@ -11,6 +11,7 @@ public class PlayerOutsideState : PlayerBaseState
     float dashDashCooldown = 0;
     bool dashComplete = true;
     bool isDash = false;
+
     // Start is called before the first frame update
     public override void EnterState(PlayerStateManager player)
     {
@@ -31,6 +32,7 @@ public class PlayerOutsideState : PlayerBaseState
             isDash = true;
             dashComplete = false;
         }
+        
         if (isDash)
         {
             Dash(player);
@@ -38,6 +40,11 @@ public class PlayerOutsideState : PlayerBaseState
         if (dashCooldown <= 0)
         {
             speed = baseSpeed;
+            if (Input.GetKey(KeyCode.LeftShift))
+            {
+                speed *= 2f;
+            }
+            
             player.MoveCharacter(rb, input, speed);
             if (input != new Vector3 (0,0,0))
             {

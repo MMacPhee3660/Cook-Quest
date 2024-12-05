@@ -27,5 +27,9 @@ public Animator animator;
         animator.SetFloat("Velocity", velocity);
         animator.SetFloat("Xinput",horzInput);
         animator.SetFloat("Yinput",vertInput);
+
+        if(Input.GetKeyDown(KeyCode.F)){
+            animator.SetTrigger("Swing");
+        }
     }
 }

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f37cc37bb629e48f0a681463ae4f3bae
+guid: 2f3f4844e52604e99be779860e0bc324
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,43 +110,64 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: mc_idle_0
+      name: Mc Right swing_0
       rect:
         serializedVersion: 2
         x: 22
         y: 0
-        width: 19
+        width: 17
         height: 55
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.8354544, y: 0.00000001703169}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6bfe22fa0a94f4646922cbd1844d3752
-      internalID: 1342655000
+      spriteID: 8668d7dec4ada4973a204bf0a9cbefd1
+      internalID: -2085214287
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mc_idle_1
+      name: Mc Right swing_1
       rect:
         serializedVersion: 2
-        x: 85
+        x: 77
         y: 0
-        width: 21
+        width: 26
         height: 55
-      alignment: 7
+      alignment: 9
+      pivot: {x: 0.8936292, y: 0.002034102}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ed68e694535c446290f1d99bbd3405c
+      internalID: 703335195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mc Right swing_2
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 0
+        width: 25
+        height: 55
+      alignment: 9
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bff0c97e89dc04b2ab818500301035d5
-      internalID: 1501233870
+      spriteID: bbb00666dc0ee47db97034ca0dbf73b2
+      internalID: -1949509747
       vertices: []
       indices: 
       edges: []
@@ -162,8 +183,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      mc_idle_0: 1342655000
-      mc_idle_1: 1501233870
+      Mc Right swing_0: -2085214287
+      Mc Right swing_1: 703335195
+      Mc Right swing_2: -1949509747
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
