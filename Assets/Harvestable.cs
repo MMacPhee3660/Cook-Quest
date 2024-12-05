@@ -9,6 +9,8 @@ using UnityEngine;
 public class Harvestable : MonoBehaviour
 {
 
+    [SerializeField] Animator animator;
+
     [field : SerializeField] public int ResourceCount {get; private set;}
     [field : SerializeField] public GameObject ResourceNode {get; private set;}
     [field: SerializeField] public ParticleSystem ps {get; private set;}
@@ -20,6 +22,7 @@ public class Harvestable : MonoBehaviour
         if(amountToSpawn > 0){
             ps.Emit(amount);
             amountHarvested += amountToSpawn;
+            animator.SetTrigger("hit");
         }
 
         if(amountHarvested >= ResourceCount){
