@@ -34,18 +34,22 @@ public class Menubuy : MonoBehaviour
             Debug.DrawLine(transform.position, player.transform.position, Color.green);
         }
         else{
-            Debug.Log(E.transform.position);
+            // Debug.Log(E.transform.position);
             childE.SetActive(false);
         }
         
         if(Input.GetKeyDown(KeyCode.E)){
             print("a");
-            if(menu.activeSelf == false){
+            if(menu.activeSelf == false && childE.activeSelf == true){
                 menu.SetActive(true);
             }
             else{
                 menu.SetActive(false);
             }
         }
+    }
+    void OnMouseDown()
+    {
+        print("click");
     }
 }
