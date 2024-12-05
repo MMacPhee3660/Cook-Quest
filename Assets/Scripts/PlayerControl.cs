@@ -8,10 +8,12 @@ using UnityEngine.SceneManagement;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] float speed = 5f;
+    public Rigidbody rb;
     public float baseSpeed = 5f;
     public bool isSprinting = false;
     public float sprintingMulti = 1.5f;
     public bool slowWalk;
+    private bool stunned;
     public bool isDash = false;
     private bool dashComplete = false;
     private float timeSinceDash = 0.5f;
@@ -19,13 +21,14 @@ public class PlayerController : MonoBehaviour
     public bool inShop = false;
     public bool isDodge = false;
     void Start(){
+        rb = this.GetComponent<Rigidbody>();
    }
 
 
 
     void FixedUpdate()
     {
-        //Debug.Log(speed);
+        
         float horzInput = Input.GetAxisRaw("Horizontal");
         float vertInput = Input.GetAxisRaw("Vertical"); 
         Scene currentScene = SceneManager.GetActiveScene ();
@@ -35,10 +38,15 @@ public class PlayerController : MonoBehaviour
             horzInput = Input.GetAxisRaw("Horizontal");
             vertInput = Input.GetAxisRaw("Vertical"); 
             velocity = 1f;
-
+        }
         Vector3 input = new(horzInput, 0, vertInput);
         input.Normalize();
+        if(sceneName == "MaywensScene"){
+            inShop = true; 
+        }
 
+            // Debug.Log(vertInput);
+            // Debug.Log(horzInput);
 
 
             if( Input.GetKey(KeyCode.LeftShift) && !inShop){
@@ -67,14 +75,14 @@ public class PlayerController : MonoBehaviour
             }
         if (isDash){
             Dash();
-            transform.position += speed * Time.deltaTime * transform.forward;
+            MoveCharacter(transform.forward);
         }
-        else if (horzInput != 0 || vertInput != 0){
-            transform.forward = new Vector3(input.x, 0, input.z);
-            transform.position += speed * Time.fixedDeltaTime * input;
+        else{
+            transform.forward = input;
+            MoveCharacter(input);
         }
         
-        if( Input.GetKey(KeyCode.LeftShift)){
+        if( Input.GetKey(KeyCode.LeftShift) && !isDash ){
             isSprinting = true;
         }
         else{
@@ -87,9 +95,7 @@ public class PlayerController : MonoBehaviour
                 transform.Translate(10,0,0);
         }
         
-        if(sceneName == "MaywensScene"){
-            inShop = true; 
-        }
+
         if(isSprinting) {
             speed = baseSpeed * 1.5f;
 
@@ -102,7 +108,7 @@ public class PlayerController : MonoBehaviour
         if(slowWalk){
             baseSpeed = 3;
         }
-        else{
+        else if (timeSinceDash > 0.15){
             baseSpeed = 5f;
         }
 
@@ -110,14 +116,12 @@ public class PlayerController : MonoBehaviour
             isDash = true;
             dashComplete = false;
         }
-        if (timeSinceDash > 0.15){
-            slowWalk = false;
-        }
-        else{
-            timeSinceDash += Time.deltaTime;
-        }
+        timeSinceDash += Time.deltaTime;
     }
     
+    void MoveCharacter(Vector3 vector){
+        rb.velocity = vector * speed;
+    }
     void Dash(){
         int dashAcceleration = 300;
         int dashSpeed = 35;
@@ -134,12 +138,8 @@ public class PlayerController : MonoBehaviour
             }
             else {
                 isDash = false;
-                slowWalk = true;
+                baseSpeed = 0;
             }
         }
     }
-    
-    }
 }
-     
-   
