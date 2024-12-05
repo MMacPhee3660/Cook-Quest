@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7714135249187888083}
   - component: {fileID: 5697774818244525696}
   m_Layer: 0
-  m_Name: PlayerMove
+  m_Name: John Cook Quest
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
