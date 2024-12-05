@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 7780416242964435547}
   - component: {fileID: 3361237350543399096}
   - component: {fileID: 7714135249187888083}
-  - component: {fileID: 5697774818244525696}
   m_Layer: 0
   m_Name: John Cook Quest
   m_TagString: Player
@@ -109,24 +108,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &5697774818244525696
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 889185683401697098}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a8c17dd25e204d9ba2f42554222b075, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 5
-  baseSpeed: 5
-  isSprinting: 0
-  sprintingMulti: 1.5
-  slowWalk: 0
-  isDash: 0
 --- !u!1 &5214489773521578825
 GameObject:
   m_ObjectHideFlags: 0
