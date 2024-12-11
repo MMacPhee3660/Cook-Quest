@@ -27,6 +27,7 @@ public class NPCPathing : MonoBehaviour
         if (generatePath && !pathGenerated)
         {
             GenerateGrid();
+            FindPath(new Vector2(0,0), new Vector2(9,9));
             pathGenerated = true;
         }
         else if (!generatePath)
@@ -67,7 +68,66 @@ public class NPCPathing : MonoBehaviour
 
         while (cellsToSearch.Count > 0)
         {
+            Vector2 cellToSearch = cellsToSearch[0];
+            foreach (Vector2 pos in cellsToSearch)
+            {
+                Cell c = cells[pos];
+                if (c.fCost < cells[cellToSearch].fCost || c.fCost == cells[cellToSearch].fCost && c.hCost == cells[cellToSearch].hCost)
+                {
+                    cellToSearch = pos;
+                }
+            }
             
+            cellsToSearch.Remove(cellToSearch);
+            searchedCells.Add(cellToSearch);
+
+            if (cellToSearch == endPos)
+            {
+
+                Cell pathCell = cells[endPos];
+
+                while (pathCell.position != startPos)
+                {
+                    finalPath.Add(pathCell.position);
+                    pathCell = cells[pathCell.connection];
+                }
+
+                finalPath.Add(startPos);
+                return;
+            }
+
+            SearchCellNeighbors(cellToSearch,endPos);
+        }
+    }
+
+    private void SearchCellNeighbors(Vector2 cellPos, Vector2 endPos)
+    {
+        for (float x = cellPos.x - cellWidth; x <= cellWidth + cellPos.x; x += cellWidth)
+        {
+            for (float y = cellPos.y - cellHeight; y <= cellHeight + cellPos.y; y += cellHeight)
+            {
+                Vector2 neighborPos = new Vector2(x, y);
+
+                if (cells.TryGetValue(neighborPos, out Cell c) && !searchedCells.Contains(neighborPos) && !cells[neighborPos].isWall)
+                {
+                    int GcostToNeighbor = cells[cellPos].gCost + GetDistance(cellPos, neighborPos);
+
+                    if (GcostToNeighbor < cells[neighborPos].gCost)
+                    {
+                        Cell neighborNode = cells[neighborPos];
+
+                        neighborNode.connection = cellPos;
+                        neighborNode.gCost = GcostToNeighbor;
+                        neighborNode.hCost = GetDistance(neighborPos, endPos);
+                        neighborNode.fCost = neighborNode.gCost + neighborNode.hCost;
+
+                        if (!cellsToSearch.Contains(neighborPos))
+                        {
+                            cellsToSearch.Add(neighborPos);
+                        }
+                    }
+                }
+            }
         }
     }
 
@@ -98,6 +158,11 @@ public class NPCPathing : MonoBehaviour
             else
             {
                 Gizmos.color = Color.black;
+            }
+
+            if (finalPath.Contains(kvp.Key))
+            {
+                Gizmos.color = Color.magenta;
             }
 
             Gizmos.DrawCube(kvp.Key + (Vector2)transform.position, new Vector3(cellWidth,cellHeight));
