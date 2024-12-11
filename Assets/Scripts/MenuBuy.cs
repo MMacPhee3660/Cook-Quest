@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering;
-using TMPro;
 
 public class Menubuy : MonoBehaviour
 {
@@ -15,8 +14,6 @@ public class Menubuy : MonoBehaviour
     public GameObject childE;
     public GameObject menu;
     public GameObject menuObject;
-    private int itemCount = 0;
-    public TMP_Text countText;
     
     void Start()
     {
@@ -31,9 +28,6 @@ public class Menubuy : MonoBehaviour
     {
         float distance = Vector3.Distance(transform.position, player.transform.position);
 
-        countText.text = itemCount + "";
-
-
         if(distance <= 2f){
             E.transform.position = transform.position;
             childE.SetActive(true);
@@ -45,7 +39,6 @@ public class Menubuy : MonoBehaviour
         }
         
         if(Input.GetKeyDown(KeyCode.E)){
-            print("a");
             if(menu.activeSelf == false && childE.activeSelf == true){
                 menu.SetActive(true);
                 menuObject.SetActive(true);

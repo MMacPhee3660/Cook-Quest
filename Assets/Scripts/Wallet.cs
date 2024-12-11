@@ -38,7 +38,7 @@ public class Wallet : MonoBehaviour
             }
         }
         // if(Input.GetKeyDown(KeyCode.E)){
-        //     money -= itemPrice;
+        //     money -= 1;
         // }
     }
 }
