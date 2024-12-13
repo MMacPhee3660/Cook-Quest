@@ -10,7 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8752616658861775992}
   - component: {fileID: 4027289712336900927}
-  - component: {fileID: 349989038151716995}
+  - component: {fileID: 2860122232895971019}
+  - component: {fileID: 5642448063713191764}
   m_Layer: 0
   m_Name: Resource_Rock_Basic
   m_TagString: Untagged
@@ -85,7 +86,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &349989038151716995
+--- !u!114 &2860122232895971019
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -98,3 +99,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   freezeXZAxis: 0
+--- !u!114 &5642448063713191764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5473365627420122481}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2276452d4fa5f4499aed6e0db953c166, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventoryManager: {fileID: 0}
+  item: {fileID: 11400000, guid: c2c66de5b27b04e22abf0413f2746fd8, type: 2}

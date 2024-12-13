@@ -3,36 +3,13 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
-public class InventorySlot : MonoBehaviour, IPointerClickHandler
+public class InventorySlot : MonoBehaviour, IDropHandler
 {
-    public InventoryItem myItem {get; set; }
-    public SlotTag myTag;
+    
+        public void OnDrop(PointerEventData eventData){
+            GameObject dropped = eventData.pointerDrag;
+            DraggableItem draggableItem = dropped.GetComponent<DraggableItem>();
+            draggableItem.parentAfterDrag = transform;
 
-    public void OnPointerClick(PointerEventData eventData){
-        if(eventData.button == PointerEventData.InputButton.Left){
-            if(Inventory.carriedItem == null) return;
-            if(myTag != SlotTag.None && Inventory.carriedItem.myItem.itemTag != myTag) return;
-            SetItem(Inventory.carriedItem);
-        }
-    }
-
-    public void SetItem(InventoryItem item){
-        Inventory.carriedItem = null;
-        item.activeSlot.myItem = null;
-        
-
-        myItem = item;
-        myItem.activeSlot = this;
-        myItem.transform.SetParent(transform);
-        myItem.canvasGroup.blocksRaycasts = true;
-        if(myTag != SlotTag.None){
-            Inventory.Singleton.EquipEquipment(myTag,myItem);
-        }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
