@@ -4,7 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Timeline;
 
-public class Pathfinding : MonoBehaviour
+public class Pathfinder : MonoBehaviour
 {
     [SerializeField] private int gridHeight = 10;
     [SerializeField] private int gridWidth = 10;
@@ -27,13 +27,31 @@ public class Pathfinding : MonoBehaviour
         if (generatePath && !pathGenerated)
         {
             GenerateGrid();
-            FindPath(new Vector2(0,0), new Vector2(9,9));
+            RandomObstacles();
+            FindPath(new Vector2(0,0), new Vector2(gridWidth-1,gridHeight-1));
             pathGenerated = true;
         }
         else if (!generatePath)
         {
             pathGenerated = false;
         }
+    }
+
+    public Pathfinder(int gridHeight, int gridWidth, float cellHeight, float cellWidth)
+    {
+        this.gridHeight = gridHeight;
+        this.gridWidth = gridWidth;
+        this.cellHeight = cellHeight;
+        this.cellWidth = cellWidth;
+        generatePath = true;
+        visualizeGrid = false;
+    }
+
+    public List<Vector2> Pathfind()
+    {
+        GenerateGrid();
+        FindPath(new Vector2(0,0), new Vector2(gridWidth-1,gridHeight-1));
+        return finalPath;
     }
     private void GenerateGrid()
     {
@@ -47,7 +65,9 @@ public class Pathfinding : MonoBehaviour
                 cells.Add(pos, new Cell(pos));
             }
         }
-        
+    }
+    private void RandomObstacles()
+    {
         for (int i = 0; i < 40; i++)
         {
             Vector2 pos = new Vector2(Random.Range(0, gridWidth), Random.Range(0, gridHeight));
@@ -60,7 +80,6 @@ public class Pathfinding : MonoBehaviour
         searchedCells = new List<Vector2>();
         cellsToSearch = new List<Vector2> {startPos};
         finalPath = new List<Vector2>();
-
         Cell startCell = cells[startPos];
         startCell.gCost = 0;
         startCell.hCost = GetDistance(startPos, endPos);
