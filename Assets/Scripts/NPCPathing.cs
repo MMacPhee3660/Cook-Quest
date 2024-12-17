@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -12,23 +13,28 @@ public class NPCPathing : MonoBehaviour
     [SerializeField] Vector2 destination = new Vector2(0,0);
     int destIndex = 0;
     Vector3 currentDest;
+    Boolean isMoving = false;
 
     void Start()
     {
-        Pathfinder pathfinder = new Pathfinder((int)(transform.position.x-destination.x)+1, (int)(transform.position.y-destination.y)+1, 1, 1);
+        Vector2 startPos = new Vector2((int)Math.Abs(transform.position.x), (int)Math.Abs(transform.position.z));
+        Vector2 endPos = new Vector2(0,0);
+        Pathfinder pathfinder = new Pathfinder();
         rb = this.GetComponent<Rigidbody>();
-        dests = pathfinder.Pathfind();
+        dests = pathfinder.Pathfind(startPos,endPos);
     }
     void Update()
     {
-       /* currentDest = new Vector3(dests[destIndex].x, 0, dests[destIndex].y);
-        if (currentDest != transform.position)
+        currentDest = new Vector3(dests[destIndex].x, 0, dests[destIndex].y);
+        if (currentDest != transform.position && !isMoving)
         {
             rb.velocity = (currentDest-transform.position).normalized;
+            isMoving = true;
         }
         else
         {
             destIndex++;
-        }*/
+            isMoving = false;
+        }
     }
 }

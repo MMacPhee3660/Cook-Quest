@@ -6,22 +6,23 @@ using UnityEngine.Timeline;
 
 public class Pathfinder : MonoBehaviour
 {
-    [SerializeField] private int gridHeight = 10;
-    [SerializeField] private int gridWidth = 10;
-    [SerializeField] private float cellHeight = 1f;
-    [SerializeField] private float cellWidth = 1f;
+    private int gridHeight = 201;
+    private int gridWidth = 201;
+    private float cellHeight = 1f;
+    private float cellWidth = 1f;
 
-    [SerializeField] private bool generatePath;
-    [SerializeField] private bool visualizeGrid;
+    private bool generatePath;
+    private bool visualizeGrid;
     
     private bool pathGenerated;
 
     private Dictionary<Vector2, Cell> cells;
 
-    [SerializeField] private List<Vector2> cellsToSearch;
-    [SerializeField] private List<Vector2> searchedCells;
-    [SerializeField] private List<Vector2> finalPath;
-
+    private List<Vector2> cellsToSearch;
+    private List<Vector2> searchedCells;
+    private List<Vector2> finalPath;
+    
+    /*
     private void Update()
     {
         if (generatePath && !pathGenerated)
@@ -36,21 +37,18 @@ public class Pathfinder : MonoBehaviour
             pathGenerated = false;
         }
     }
+    */
 
-    public Pathfinder(int gridHeight, int gridWidth, float cellHeight, float cellWidth)
+    public Pathfinder()
     {
-        this.gridHeight = gridHeight;
-        this.gridWidth = gridWidth;
-        this.cellHeight = cellHeight;
-        this.cellWidth = cellWidth;
         generatePath = true;
         visualizeGrid = false;
     }
 
-    public List<Vector2> Pathfind()
+    public List<Vector2> Pathfind(Vector2 startPos, Vector2 endPos)
     {
         GenerateGrid();
-        FindPath(new Vector2(0,0), new Vector2(gridWidth-1,gridHeight-1));
+        FindPath(startPos,endPos);
         return finalPath;
     }
     private void GenerateGrid()
@@ -184,7 +182,7 @@ public class Pathfinder : MonoBehaviour
                 Gizmos.color = Color.magenta;
             }
 
-            Gizmos.DrawCube(kvp.Key + (Vector2)transform.position, new Vector3(cellWidth,cellHeight));
+            //Gizmos.DrawCube(kvp.Key + (Vector2)transform.position, new Vector3(cellWidth,cellHeight));
         }
     }
 
