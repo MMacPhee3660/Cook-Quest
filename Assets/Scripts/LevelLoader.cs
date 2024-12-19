@@ -18,7 +18,7 @@ public class LevelLoader : MonoBehaviour{
     }
 
     public void LoadNext(){
-
+        // SceneStoring();
         StartCoroutine(LoadScene(SceneManager.GetActiveScene().buildIndex + 1));
     }
 
