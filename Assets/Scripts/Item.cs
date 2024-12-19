@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using Microsoft.Unity.VisualStudio.Editor;
 using UnityEngine;
 
-public enum SlotTag{Material, Tool, Head, Chest, Legs, Boots}
+public enum ItemType{Material, Tool, Head, Chest, Legs, Boots}
 public enum ActionType{None, Attack, Chop, Mine}
 
-[CreateAssetMenu(menuName = "Scriptable Object/Item")]
+[CreateAssetMenu(menuName = "Scriptable object/Item")]
 public class Item : ScriptableObject
 {
    
@@ -14,7 +14,7 @@ public class Item : ScriptableObject
    
     [Header("Only Gameplay")]
     public ActionType actionType;
-    public SlotTag itemType;
+    public ItemType itemType;
     public Vector3Int range = new Vector3Int(2,3);
 
     [Header("Only UI")]
