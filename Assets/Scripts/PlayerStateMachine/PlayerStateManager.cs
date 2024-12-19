@@ -9,7 +9,6 @@ public class PlayerStateManager : MonoBehaviour
     public PlayerOutsideState outsideState = new PlayerOutsideState();
     public PlayerInsideState insideState = new PlayerInsideState();
     public PlayerVillageState villageState = new PlayerVillageState();
-    public PlayerMenuState menuState = new PlayerMenuState();
 
     // Start is called before the first frame update
     void Start()
@@ -21,7 +20,7 @@ public class PlayerStateManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //currentState.UpdateState(this);
+        currentState.UpdateState(this);
     }
     
     public void MoveCharacter(Rigidbody rb, Vector3 vector, float speed){
