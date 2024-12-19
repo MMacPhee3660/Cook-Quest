@@ -2451,8 +2451,7 @@ MonoBehaviour:
   testE: {fileID: 970285419536332687, guid: 322d6c306fbca45ef8741650693a0a18, type: 3}
   childE: {fileID: 970285419536332687, guid: 322d6c306fbca45ef8741650693a0a18, type: 3}
   mover: {x: 0, y: 0, z: 0}
-  returnx: 0
-  returnz: 0
+  returnPoint: 0
 --- !u!212 &1838180728
 SpriteRenderer:
   m_ObjectHideFlags: 0
