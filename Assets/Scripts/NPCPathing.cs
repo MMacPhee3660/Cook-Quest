@@ -7,10 +7,10 @@ using UnityEngine.UIElements;
 
 public class NPCPathing : MonoBehaviour
 {
-    private int gridHeight = 201;
-    private int gridWidth = 201;
-    private float cellHeight = 1f;
-    private float cellWidth = 1f;
+    private int gridHeight = 200;
+    private int gridWidth = 200;
+    private float cellHeight = 5f;
+    private float cellWidth = 5f;
 
     private bool generatePath;
     private bool visualizeGrid;
@@ -27,50 +27,53 @@ public class NPCPathing : MonoBehaviour
     List<Vector2> dests;
     Rigidbody rb;
     [SerializeField] Vector2 destination = new Vector2(0,0);
+    [SerializeField] float speed = 1f;
     int destIndex = 0;
     Vector3 currentDest;
-    Boolean isMoving = false;
 
     void Start()
     {
-        Vector2 playerPos = new Vector2((int)Math.Abs(transform.position.x), (int)Math.Abs(transform.position.z));
-        Vector2 startPos = new Vector2 (0,0);
-        Vector2 endPos = playerPos-destination;
-        Pathfinder pathfinder = new Pathfinder();
         rb = this.GetComponent<Rigidbody>();
-        dests = pathfinder.Pathfind(startPos,endPos);
     }
     void Update()
     {
-        currentDest = new Vector3(dests[destIndex].x, 0, dests[destIndex].y);
-        if (currentDest != transform.position && !isMoving)
+        if (!pathGenerated)
         {
-            rb.velocity = (currentDest-transform.position).normalized;
-            isMoving = true;
+            Pathfind(new Vector2 (transform.position.x, transform.position.z), destination);
+            pathGenerated = true;
+            currentDest = new Vector3(finalPath[destIndex].x, 0, finalPath[destIndex].y);
+            rb.velocity = (currentDest - transform.position).normalized * speed;
         }
-        else
+        if (currentDest == transform.position)
         {
-            destIndex++;
-            isMoving = false;
+            if(destIndex < finalPath.Count)
+            {
+                destIndex++;
+                currentDest = new Vector3(finalPath[destIndex].x, 0, finalPath[destIndex].y);
+                rb.velocity = (currentDest - transform.position).normalized * speed;
+            }
+            else
+            {
+                rb.velocity = new Vector3(0,0,0);
+            }
         }
+        
+
     }
-    public List<Vector2> Pathfind(Vector2 startPos, Vector2 endPos)
+    public void Pathfind(Vector2 startPos, Vector2 endPos)
     {
         GenerateGrid();
         FindPath(startPos,endPos);
-        return finalPath;
     }
-    private void GenerateGrid(Vector2 endPos)
+    private void GenerateGrid()
     {
         cells = new Dictionary<Vector2, Cell>();
-        float xDirection = Math.Abs(endPos.x) / endPos.x;
-        float yDirection = Math.Abs(endPos.y) / endPos.y;
 
-        for (float x = 0; Math.Abs(x) < Math.Abs(gridWidth); x += xDirection)
+        for (float x = 0; x < Math.Abs(gridWidth); x += 1)
         {
-            for (float y = 0; Math.Abs(y) < gridHeight; y += yDirection)
+            for (float y = 0; y < Math.Abs(gridHeight); y += 1)
             {
-                Vector2 pos = new Vector2(x,y);
+                Vector2 pos = new Vector2(x - gridWidth/2, y - gridHeight/2);
                 cells.Add(pos, new Cell(pos));
             }
         }
