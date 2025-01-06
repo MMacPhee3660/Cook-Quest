@@ -5,8 +5,12 @@ using System.Linq;
 
 public class DataPersistenceManager : MonoBehaviour
 {
+    [Header("File Storage Config")]
+    [SerializeField] private string fileName;
+    [SerializeField] private bool useEncryption;
     private GameData gameData;
     private List<IDataPersistence> dataPersistenceObjects;
+    private FileDataHandler dataHandler;
 
     public static DataPersistenceManager instance { get; private set;}
 
@@ -21,6 +25,7 @@ public class DataPersistenceManager : MonoBehaviour
 
     private void Start()
     {
+        this.dataHandler = new FileDataHandler(Application.persistentDataPath, fileName);
         this.dataPersistenceObjects = FindAllDataPersistenceObjects();
         LoadGame();
     }
@@ -32,6 +37,7 @@ public class DataPersistenceManager : MonoBehaviour
 
     public void LoadGame()
     {
+        this.gameData = dataHandler.Load();
         if (this.gameData == null)
         {
             Debug.Log("No data was found. Initializing data to Defaults.");
@@ -42,8 +48,6 @@ public class DataPersistenceManager : MonoBehaviour
         {
             dataPersistenceObj.LoadData(gameData);
         }
-
-        Debug.Log("Loaded death count = " + gameData.deathCount);
     }
 
 
@@ -53,8 +57,7 @@ public class DataPersistenceManager : MonoBehaviour
         {
             dataPersistenceObj.SaveData(ref gameData);
         }   
-
-        Debug.Log("Saved death count = " + gameData.deathCount);
+        dataHandler.Save(gameData);
     }
 
     private void OnApplicationQuit()
