@@ -6,6 +6,10 @@ using UnityEngine.Rendering;
 
 public class Quickbuy : MonoBehaviour
 {
+
+    public InventoryManager inventoryManager;
+    [Header("Type")]
+    public int ID;
     private float distance;
     [SerializeField] GameObject E;
     public float price;
@@ -38,6 +42,10 @@ public class Quickbuy : MonoBehaviour
         
         if(Input.GetKeyDown(KeyCode.E)){
             x++;
+            GetItem(ID);
         }
+    }
+
+    void GetItem(int id){
     }
 }
