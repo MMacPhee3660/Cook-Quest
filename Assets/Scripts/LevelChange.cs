@@ -1,52 +1,52 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.SceneManagement; 
+using Unity.VisualScripting;
 using UnityEngine.Rendering;
 
-public class Menubuy : MonoBehaviour
+public class LevelChange : MonoBehaviour
 {
-    private float distance;
+   public string scene;
     [SerializeField] GameObject E;
-    GameObject player;
-    GameObject purchase;
     public GameObject testE;
     public GameObject childE;
-    public GameObject menu;
-    public GameObject menuObject;
-    
-    void Start()
+    private float distance;
+    GameObject player;
+    public Vector3 mover = new Vector3(0,0,0);
+    public int returnPoint;
+
+    void OnTriggerEnter(Collider other)
     {
+        Debug.Log(other.tag);
+        if(other.tag == "Player")
+        {
+            SceneManager.LoadScene("Scene2");
+        }
+    }
+    
+    void Start(){
         player = GameObject.Find("PlayerMove");
         E.SetActive(false);
-        menu.SetActive(false);
-        menuObject.SetActive(false);
         childE = Instantiate(testE, transform.position,Quaternion.identity);
         childE.transform.position += Vector3.up * 1f;
+        childE.transform.position += Vector3.back * .5f;
+
     }
-    void Update()
-    {
+    void Update(){
+         if(Input.GetKeyDown(KeyCode.E)){
+            SceneManager.LoadScene(scene);
+        }
         float distance = Vector3.Distance(transform.position, player.transform.position);
 
-        if(distance <= 2f){
+        if(distance <= 1.5f){
             E.transform.position = transform.position;
             childE.SetActive(true);
             Debug.DrawLine(transform.position, player.transform.position, Color.green);
         }
         else{
-            // Debug.Log(E.transform.position);
             childE.SetActive(false);
-        }
-        
-        if(Input.GetKeyDown(KeyCode.E)){
-            if(menu.activeSelf == false && childE.activeSelf == true){
-                menu.SetActive(true);
-                menuObject.SetActive(true);
-            }
-            else{
-                menu.SetActive(false);
-                menuObject.SetActive(false);
-            }
         }
     }
 }

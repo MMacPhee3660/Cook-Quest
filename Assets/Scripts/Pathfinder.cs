@@ -1,16 +1,15 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UIElements;
+using UnityEngine.Timeline;
 
-public class NPCPathing : MonoBehaviour
+public class Pathfinder : MonoBehaviour
 {
-    private int gridHeight = 200;
-    private int gridWidth = 200;
-    private float cellHeight = 5f;
-    private float cellWidth = 5f;
+    private int gridHeight = 201;
+    private int gridWidth = 201;
+    private float cellHeight = 1f;
+    private float cellWidth = 1f;
 
     private bool generatePath;
     private bool visualizeGrid;
@@ -22,60 +21,55 @@ public class NPCPathing : MonoBehaviour
     private List<Vector2> cellsToSearch;
     private List<Vector2> searchedCells;
     private List<Vector2> finalPath;
-
-
-    List<Vector2> dests;
-    Rigidbody rb;
-    [SerializeField] Vector2 destination = new Vector2(0,0);
-    [SerializeField] float speed = 1f;
-    int destIndex = 0;
-    Vector3 currentDest;
-
-    void Start()
+    
+    /*
+    private void Update()
     {
-        rb = this.GetComponent<Rigidbody>();
-    }
-    void Update()
-    {
-        if (!pathGenerated)
+        if (generatePath && !pathGenerated)
         {
-            Pathfind(new Vector2 (transform.position.x, transform.position.z), destination);
+            GenerateGrid();
+            RandomObstacles();
+            FindPath(new Vector2(0,0), new Vector2(gridWidth-1,gridHeight-1));
             pathGenerated = true;
-            currentDest = new Vector3(finalPath[destIndex].x, 0, finalPath[destIndex].y);
-            rb.velocity = (currentDest - transform.position).normalized * speed;
         }
-        if (currentDest == transform.position)
+        else if (!generatePath)
         {
-            if(destIndex < finalPath.Count)
-            {
-                destIndex++;
-                currentDest = new Vector3(finalPath[destIndex].x, 0, finalPath[destIndex].y);
-                rb.velocity = (currentDest - transform.position).normalized * speed;
-            }
-            else
-            {
-                rb.velocity = new Vector3(0,0,0);
-            }
+            pathGenerated = false;
         }
-        
-
     }
-    public void Pathfind(Vector2 startPos, Vector2 endPos)
+    */
+
+    public Pathfinder()
+    {
+        generatePath = true;
+        visualizeGrid = false;
+    }
+
+    public List<Vector2> Pathfind(Vector2 startPos, Vector2 endPos)
     {
         GenerateGrid();
         FindPath(startPos,endPos);
+        return finalPath;
     }
     private void GenerateGrid()
     {
         cells = new Dictionary<Vector2, Cell>();
 
-        for (float x = 0; x < Math.Abs(gridWidth); x += 1)
+        for (float x = 0; x < gridWidth; x += cellWidth)
         {
-            for (float y = 0; y < Math.Abs(gridHeight); y += 1)
+            for (float y = 0; y < gridHeight; y += cellHeight)
             {
-                Vector2 pos = new Vector2(x - gridWidth/2, y - gridHeight/2);
+                Vector2 pos = new Vector2(x,y);
                 cells.Add(pos, new Cell(pos));
             }
+        }
+    }
+    private void RandomObstacles()
+    {
+        for (int i = 0; i < 40; i++)
+        {
+            Vector2 pos = new Vector2(Random.Range(0, gridWidth), Random.Range(0, gridHeight));
+            cells[pos].isWall = true;
         }
     }
 
@@ -164,6 +158,32 @@ public class NPCPathing : MonoBehaviour
         int horizontalMovesRequired = highest - lowest;
 
         return lowest * 14 + horizontalMovesRequired * 10;
+    }
+
+    private void OnDrawGizmos()
+    {
+        if(!visualizeGrid || cells == null)
+        {
+            return;
+        }
+        foreach (KeyValuePair<Vector2, Cell> kvp in cells)
+        {
+            if (!kvp.Value.isWall)
+            {
+                Gizmos.color = Color.white;
+            }
+            else
+            {
+                Gizmos.color = Color.black;
+            }
+
+            if (finalPath.Contains(kvp.Key))
+            {
+                Gizmos.color = Color.magenta;
+            }
+
+            //Gizmos.DrawCube(kvp.Key + (Vector2)transform.position, new Vector3(cellWidth,cellHeight));
+        }
     }
 
     private class Cell
