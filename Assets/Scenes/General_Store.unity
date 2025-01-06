@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028405, g: 0.2257141, b: 0.30692255, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028389, g: 0.22571401, b: 0.30692202, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -809,6 +809,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30a2618f50e404c1d98fc106ae985bcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inventoryManager: {fileID: 0}
+  item: {fileID: 0}
   E: {fileID: 1742022249}
   price: 0
   testE: {fileID: 1742022249}
@@ -1041,6 +1043,7 @@ MonoBehaviour:
   testE: {fileID: 1742022249}
   childE: {fileID: 1742022249}
   mover: {x: 0, y: 0, z: 0}
+  returnPoint: 0
 --- !u!1 &549925334
 GameObject:
   m_ObjectHideFlags: 0
@@ -1233,6 +1236,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30a2618f50e404c1d98fc106ae985bcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inventoryManager: {fileID: 0}
+  item: {fileID: 0}
   E: {fileID: 1742022249}
   price: 2
   testE: {fileID: 1742022249}
@@ -1804,6 +1809,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30a2618f50e404c1d98fc106ae985bcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inventoryManager: {fileID: 0}
+  item: {fileID: 0}
   E: {fileID: 1742022249}
   price: 0
   testE: {fileID: 1742022249}
@@ -2905,7 +2912,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a89303862138a4a6cafe10433d04a2de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  villageState: {fileID: 0}
 --- !u!1 &1614432995
 GameObject:
   m_ObjectHideFlags: 0
@@ -3017,10 +3023,87 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30a2618f50e404c1d98fc106ae985bcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inventoryManager: {fileID: 0}
+  item: {fileID: 0}
   E: {fileID: 1742022249}
   price: 3
   testE: {fileID: 1742022249}
   childE: {fileID: 1742022249}
+--- !u!1 &1620608097
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1620608099}
+  - component: {fileID: 1620608098}
+  m_Layer: 0
+  m_Name: Inventory Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1620608098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1620608097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cc551c2375624f28915109db261c1c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InventorySlots:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  inventoryItemPrefab: {fileID: 728393287377653420, guid: e47e6384ad5124396abd0b4ec8b31280, type: 3}
+  itemsToPickup:
+  - {fileID: 11400000, guid: c2c66de5b27b04e22abf0413f2746fd8, type: 2}
+  - {fileID: 11400000, guid: 95481f7a3e06f4257b58e3e507fee06d, type: 2}
+--- !u!4 &1620608099
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1620608097}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1059.9033, y: 396.8746, z: 5.29751}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1651038351
 GameObject:
   m_ObjectHideFlags: 0
@@ -4216,3 +4299,4 @@ SceneRoots:
   - {fileID: 1514913181}
   - {fileID: 1841981566}
   - {fileID: 261821144}
+  - {fileID: 1620608099}

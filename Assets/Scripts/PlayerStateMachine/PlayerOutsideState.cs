@@ -42,7 +42,7 @@ public class PlayerOutsideState : PlayerBaseState
             speed = baseSpeed;
             if (Input.GetKey(KeyCode.LeftShift))
             {
-                speed *= 2f;
+                speed *= 1.5f;
             }
             
             player.MoveCharacter(rb, input, speed);

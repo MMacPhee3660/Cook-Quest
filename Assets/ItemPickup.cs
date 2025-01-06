@@ -6,12 +6,12 @@ using UnityEngine;
 public class ItemPickup : MonoBehaviour
 {   
     public InventoryManager inventoryManager;
-    [Header("Type")]
-    public int ID;
+    [Header("Item")]
+    public Item item;
 
     public void OnTriggerEnter(Collider other){
         if(other.tag == "Player"){
-            PickupItem(ID); 
+            PickupItem(item.ID); 
             
         }
     }
