@@ -26,8 +26,9 @@ public class NPCPathing : MonoBehaviour
 
     List<Vector2> dests;
     Rigidbody rb;
-    [SerializeField] Vector2 destination = new Vector2(0,0);
-    Vector2 newDestination;
+    [SerializeField] GameObject point;
+    Vector2 destination;
+    Vector3 pointPos;
     [SerializeField] float speed = 1f;
     int destIndex;
     Vector3 currentDest;
@@ -36,23 +37,33 @@ public class NPCPathing : MonoBehaviour
     void Start()
     {
         rb = this.GetComponent<Rigidbody>();
+        destination = new Vector2((int)(point.transform.position.x + 0.5f),(int)(point.transform.position.z + 0.5f));
+        pointPos = point.transform.position;
+        GenerateGrid();
     }
     void Update()
     {
-        
+        if (Vector3.Distance(pointPos,point.transform.position) >= 1)
+        {
+            pointPos = point.transform.position;
+            destination = new Vector2((int)(point.transform.position.x + 0.5f),(int)(point.transform.position.z + 0.5f));
+            pathGenerated = false;
+            destinationReached = false;
+        }
         PathToPoint(destination);
     }
     public void PathToPoint(Vector2 destination)
     {
         if (!pathGenerated)
         {
+            finalPath = new List<Vector2>();
             Pathfind(new Vector2 ((int)(transform.position.x + 0.5), (int)(transform.position.z + 0.5)), destination);
             pathGenerated = true;
+            finalPath.RemoveRange(finalPath.Count-1,1);
             destIndex = finalPath.Count-1;
             currentDest = new Vector3(finalPath[destIndex].x, 0, finalPath[destIndex].y);
             rb.velocity = (currentDest - transform.position).normalized * speed;
         }
-
         if (Vector3.Distance(currentDest, transform.position) <= 0.1 && !destinationReached)
         {
             if(destIndex > 0)
