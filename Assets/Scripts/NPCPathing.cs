@@ -9,8 +9,8 @@ public class NPCPathing : MonoBehaviour
 {
     private int gridHeight = 200;
     private int gridWidth = 200;
-    private float cellHeight = 5f;
-    private float cellWidth = 5f;
+    private float cellHeight = 1f;
+    private float cellWidth = 1f;
 
     private bool generatePath;
     private bool visualizeGrid;
@@ -28,8 +28,9 @@ public class NPCPathing : MonoBehaviour
     Rigidbody rb;
     [SerializeField] Vector2 destination = new Vector2(0,0);
     [SerializeField] float speed = 1f;
-    int destIndex = 0;
+    int destIndex;
     Vector3 currentDest;
+    bool destinationReached = false;
 
     void Start()
     {
@@ -39,22 +40,24 @@ public class NPCPathing : MonoBehaviour
     {
         if (!pathGenerated)
         {
-            Pathfind(new Vector2 (transform.position.x, transform.position.z), destination);
+            Pathfind(new Vector2 ((int)(transform.position.x + 0.5), (int)(transform.position.z + 0.5)), destination);
             pathGenerated = true;
+            destIndex = finalPath.Count-1;
             currentDest = new Vector3(finalPath[destIndex].x, 0, finalPath[destIndex].y);
             rb.velocity = (currentDest - transform.position).normalized * speed;
         }
-        if (currentDest == transform.position)
+        if (Vector3.Distance(currentDest, transform.position) <= 0.1 && !destinationReached)
         {
-            if(destIndex < finalPath.Count)
+            if(destIndex > 0)
             {
-                destIndex++;
+                destIndex--;
                 currentDest = new Vector3(finalPath[destIndex].x, 0, finalPath[destIndex].y);
                 rb.velocity = (currentDest - transform.position).normalized * speed;
             }
             else
             {
                 rb.velocity = new Vector3(0,0,0);
+                destinationReached = true;
             }
         }
         
