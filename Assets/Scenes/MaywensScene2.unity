@@ -1939,7 +1939,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a89303862138a4a6cafe10433d04a2de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  villageState: {fileID: 0}
 --- !u!4 &1587107972 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 910730596042908480, guid: e60df1cf7d07e4213bec0d1cc4a81634, type: 3}
@@ -2446,7 +2445,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a98007735fc184400be68a874f43774a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scene: MaywensScene
+  scene: General_Store
   E: {fileID: 970285419536332687, guid: 322d6c306fbca45ef8741650693a0a18, type: 3}
   testE: {fileID: 970285419536332687, guid: 322d6c306fbca45ef8741650693a0a18, type: 3}
   childE: {fileID: 970285419536332687, guid: 322d6c306fbca45ef8741650693a0a18, type: 3}

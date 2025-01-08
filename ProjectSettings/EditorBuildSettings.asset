@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu.unity
     guid: ec845681c004f4417b37d35833cd00dd
   - enabled: 1
-    path: Assets/Scenes/Town_Square.unity
+    path: Assets/Scenes/MaywensScene2.unity
     guid: 5311353a78b67459da69a1caad719247
   - enabled: 1
     path: Assets/Scenes/Tomas's scene.unity
