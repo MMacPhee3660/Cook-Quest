@@ -10,7 +10,8 @@ public enum ActionType{None, Attack, Chop, Mine}
 public class Item : ScriptableObject
 {
    
-    
+    [Header("Internal")] 
+    public int ID;
    
     [Header("Only Gameplay")]
     public ActionType actionType;

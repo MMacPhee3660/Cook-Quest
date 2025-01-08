@@ -1,15 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Data.Common;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering;
 
 public class Quickbuy : MonoBehaviour
 {
-
     public InventoryManager inventoryManager;
     [Header("Type")]
-    public int ID;
+    public Item item;
+
     private float distance;
     [SerializeField] GameObject E;
     public float price;
@@ -42,10 +43,12 @@ public class Quickbuy : MonoBehaviour
         
         if(Input.GetKeyDown(KeyCode.E)){
             x++;
-            GetItem(ID);
+            Debug.Log("getitem");
+            GetItem(item.ID);
         }
     }
-
-    void GetItem(int id){
+    public void GetItem(int id){
+        inventoryManager.AddItem(inventoryManager.itemsToPickup[id]);
+        
     }
 }
