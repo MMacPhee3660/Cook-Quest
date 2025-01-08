@@ -27,6 +27,7 @@ public class NPCPathing : MonoBehaviour
     List<Vector2> dests;
     Rigidbody rb;
     [SerializeField] Vector2 destination = new Vector2(0,0);
+    Vector2 newDestination;
     [SerializeField] float speed = 1f;
     int destIndex;
     Vector3 currentDest;
@@ -38,6 +39,11 @@ public class NPCPathing : MonoBehaviour
     }
     void Update()
     {
+        
+        PathToPoint(destination);
+    }
+    public void PathToPoint(Vector2 destination)
+    {
         if (!pathGenerated)
         {
             Pathfind(new Vector2 ((int)(transform.position.x + 0.5), (int)(transform.position.z + 0.5)), destination);
@@ -46,6 +52,7 @@ public class NPCPathing : MonoBehaviour
             currentDest = new Vector3(finalPath[destIndex].x, 0, finalPath[destIndex].y);
             rb.velocity = (currentDest - transform.position).normalized * speed;
         }
+
         if (Vector3.Distance(currentDest, transform.position) <= 0.1 && !destinationReached)
         {
             if(destIndex > 0)
@@ -60,8 +67,6 @@ public class NPCPathing : MonoBehaviour
                 destinationReached = true;
             }
         }
-        
-
     }
     public void Pathfind(Vector2 startPos, Vector2 endPos)
     {
