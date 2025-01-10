@@ -12,12 +12,15 @@ public class PlayerSpawner : MonoBehaviour
     void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        player.transform.position = new Vector3(spawnpoint.transform.position.x,spawnpoint.transform.position.y,spawnpoint.transform.position.z);
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    void SwapScene(GameObject spawnpoint){
+        player.transform.position = new Vector3(spawnpoint.transform.position.x,spawnpoint.transform.position.y,spawnpoint.transform.position.z);
     }
 }

@@ -2742,7 +2742,7 @@ GameObject:
   - component: {fileID: 1103378578}
   - component: {fileID: 1103378577}
   - component: {fileID: 1103378576}
-  - component: {fileID: 1103378575}
+  - component: {fileID: 1103378580}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -2750,24 +2750,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1103378575
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1103378574}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a98007735fc184400be68a874f43774a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scene: General_Store
-  E: {fileID: 0}
-  testE: {fileID: 0}
-  childE: {fileID: 0}
-  mover: {x: 0, y: 0, z: 0}
-  returnPoint: 0
 --- !u!65 &1103378576
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2848,12 +2830,30 @@ Transform:
   m_GameObject: {fileID: 1103378574}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.4918313, y: -0.66599035, z: 0.26502705}
+  m_LocalPosition: {x: -5.98, y: -0.55, z: 0.26502705}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1103378580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1103378574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a98007735fc184400be68a874f43774a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scene: MaywensScene2
+  E: {fileID: 0}
+  testE: {fileID: 0}
+  childE: {fileID: 0}
+  mover: {x: 0, y: 0, z: 0}
+  returnPoint: 0
 --- !u!224 &1122634600 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 604095297530680574, guid: b60b649067d6542ff9af7656af3b18c5, type: 3}
