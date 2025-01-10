@@ -5,10 +5,17 @@ using UnityEngine;
 
 public class constant : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+
+    public static GameObject instance;
+    void Awake()
     {
-        DontDestroyOnLoad(gameObject);
+        if(instance == null){
+            instance = this.gameObject;
+            DontDestroyOnLoad(gameObject);
+        }
+        else if(instance !=this){
+            Destroy(gameObject);
+        }
     }
 
     // Update is called once per frame

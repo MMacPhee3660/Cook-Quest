@@ -15,4 +15,15 @@ public class CameraController : MonoBehaviour
     {
         transform.position = Player.position;
     }
+     public static GameObject instance;
+    void Awake()
+    {
+        if(instance == null){
+            instance = this.gameObject;
+            DontDestroyOnLoad(gameObject);
+        }
+        else if(instance !=this){
+            Destroy(gameObject);
+        }
+    }
 }
