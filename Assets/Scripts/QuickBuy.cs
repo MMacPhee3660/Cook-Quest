@@ -10,7 +10,7 @@ public class Quickbuy : MonoBehaviour
     public InventoryManager inventoryManager;
     [Header("Type")]
     public Item item;
-
+    public Wallet wallet;
     private float distance;
     [SerializeField] GameObject E;
     public float price;
@@ -41,7 +41,7 @@ public class Quickbuy : MonoBehaviour
             childE.SetActive(false);
         }
         
-        if(Input.GetKeyDown(KeyCode.E)){
+        if(Input.GetKeyDown(KeyCode.E) && childE.activeSelf){
             x++;
             Debug.Log("getitem");
             GetItem(item.ID);
