@@ -13,7 +13,7 @@ public static GameEventsManager instance { get; private set; }
         instance = this;
     }
     public event Action onPlayerDeath;
-    public void PlayerDeath();
+    public void PlayerDeath()
     {
         if (onPlayerDeath != null)
         {
