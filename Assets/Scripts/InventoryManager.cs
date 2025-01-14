@@ -41,4 +41,15 @@ public class InventoryManager : MonoBehaviour
         InventoryItem inventoryItem = newItemGo.GetComponent<InventoryItem>();
         inventoryItem.InitialiseItem(item);
     }
+     public static GameObject instance;
+    void Awake()
+    {
+        if(instance == null){
+            instance = this.gameObject;
+            DontDestroyOnLoad(gameObject);
+        }
+        else if(instance !=this){
+            Destroy(gameObject);
+        }
+    }
 }

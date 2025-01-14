@@ -8,14 +8,12 @@ using UnityEngine.Rendering;
 
 public class LevelChange : MonoBehaviour
 {
-   public string scene;
+    public string scene;
     [SerializeField] GameObject E;
-    public GameObject testE;
-    public GameObject childE;
+    GameObject testE;
+    GameObject childE;
     private float distance;
     GameObject player;
-    public Vector3 mover = new Vector3(0,0,0);
-    public int returnPoint;
 
     void OnTriggerEnter(Collider other)
     {
@@ -27,6 +25,8 @@ public class LevelChange : MonoBehaviour
     }
     
     void Start(){
+        testE = E;
+        childE = E;
         player = GameObject.Find("PlayerMove");
         E.SetActive(false);
         childE = Instantiate(testE, transform.position,Quaternion.identity);
@@ -35,7 +35,7 @@ public class LevelChange : MonoBehaviour
 
     }
     void Update(){
-         if(Input.GetKeyDown(KeyCode.E)){
+         if(Input.GetKeyDown(KeyCode.E) && childE.activeSelf){
             SceneManager.LoadScene(scene);
         }
         float distance = Vector3.Distance(transform.position, player.transform.position);

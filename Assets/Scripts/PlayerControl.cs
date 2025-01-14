@@ -36,7 +36,7 @@ public class PlayerController : MonoBehaviour, IDataPersistence
 
     void FixedUpdate()
     {
-        
+        Debug.Log(baseSpeed);
         float horzInput = Input.GetAxisRaw("Horizontal");
         float vertInput = Input.GetAxisRaw("Vertical"); 
         Scene currentScene = SceneManager.GetActiveScene ();
@@ -52,10 +52,6 @@ public class PlayerController : MonoBehaviour, IDataPersistence
         if(sceneName == "MaywensScene"){
             inShop = true; 
         }
-
-            // Debug.Log(vertInput);
-            // Debug.Log(horzInput);
-
 
             if( Input.GetKey(KeyCode.LeftShift) && !inShop){
                 isSprinting = true;

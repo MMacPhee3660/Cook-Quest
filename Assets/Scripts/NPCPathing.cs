@@ -9,8 +9,8 @@ public class NPCPathing : MonoBehaviour
 {
     private int gridHeight = 200;
     private int gridWidth = 200;
-    private float cellHeight = 5f;
-    private float cellWidth = 5f;
+    private float cellHeight = 1f;
+    private float cellWidth = 1f;
 
     private bool generatePath;
     private bool visualizeGrid;
@@ -26,39 +26,72 @@ public class NPCPathing : MonoBehaviour
 
     List<Vector2> dests;
     Rigidbody rb;
-    [SerializeField] Vector2 destination = new Vector2(0,0);
+    [SerializeField] GameObject point;
+    Vector2 destination;
+    Vector3 pointPos;
     [SerializeField] float speed = 1f;
-    int destIndex = 0;
+    int destIndex;
     Vector3 currentDest;
+    bool destinationReached = false;
 
     void Start()
     {
         rb = this.GetComponent<Rigidbody>();
+        destination = new Vector2((int)(point.transform.position.x + 0.5f),(int)(point.transform.position.z + 0.5f));
+        pointPos = point.transform.position;
+        GenerateGrid();
     }
     void Update()
     {
+        if (Vector3.Distance(pointPos,point.transform.position) >= 1)
+        {
+            pointPos = point.transform.position;
+            destination = new Vector2((int)(point.transform.position.x + 0.5f),(int)(point.transform.position.z + 0.5f));
+            pathGenerated = false;
+            destinationReached = false;
+        }
+        PathToPoint(destination);
+    }
+
+    private Vector2 RoundToVector2(Vector2 subject, Vector2 target, float step)
+    {
+        Vector2 direction = target - subject;
+        if (direction.x != 0)
+        {
+            direction.x = direction.x / Mathf.Abs(direction.x);
+        }
+        if (direction.y != 0)
+        {
+            direction.y = direction.y / Mathf.Abs(direction.y);
+        }
+        direction *= step;
+        return new Vector2((int)(subject.x + direction.x),(int)(subject.y+direction.y));
+    }
+    public void PathToPoint(Vector2 destination)
+    {
         if (!pathGenerated)
         {
-            Pathfind(new Vector2 (transform.position.x, transform.position.z), destination);
+            finalPath = new List<Vector2>();
+            Pathfind(RoundToVector2(new Vector2(transform.position.x,transform.position.z),destination,cellHeight), destination);
             pathGenerated = true;
+            destIndex = finalPath.Count-1;
             currentDest = new Vector3(finalPath[destIndex].x, 0, finalPath[destIndex].y);
             rb.velocity = (currentDest - transform.position).normalized * speed;
         }
-        if (currentDest == transform.position)
+        if (Vector3.Distance(currentDest, transform.position) <= 0.1 && !destinationReached)
         {
-            if(destIndex < finalPath.Count)
+            if(destIndex > 0)
             {
-                destIndex++;
+                destIndex--;
                 currentDest = new Vector3(finalPath[destIndex].x, 0, finalPath[destIndex].y);
                 rb.velocity = (currentDest - transform.position).normalized * speed;
             }
             else
             {
                 rb.velocity = new Vector3(0,0,0);
+                destinationReached = true;
             }
         }
-        
-
     }
     public void Pathfind(Vector2 startPos, Vector2 endPos)
     {
