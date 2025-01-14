@@ -12,6 +12,7 @@ public class PlayerSpawner : MonoBehaviour
     void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        SwapScene(spawnpoint);
     }
 
     // Update is called once per frame
