@@ -52,14 +52,28 @@ public class NPCPathing : MonoBehaviour
         }
         PathToPoint(destination);
     }
+
+    private Vector2 RoundToVector2(Vector2 subject, Vector2 target, float step)
+    {
+        Vector2 direction = target - subject;
+        if (direction.x != 0)
+        {
+            direction.x = direction.x / Mathf.Abs(direction.x);
+        }
+        if (direction.y != 0)
+        {
+            direction.y = direction.y / Mathf.Abs(direction.y);
+        }
+        direction *= step;
+        return new Vector2((int)(subject.x + direction.x),(int)(subject.y+direction.y));
+    }
     public void PathToPoint(Vector2 destination)
     {
         if (!pathGenerated)
         {
             finalPath = new List<Vector2>();
-            Pathfind(new Vector2 ((int)(transform.position.x + 0.5), (int)(transform.position.z + 0.5)), destination);
+            Pathfind(RoundToVector2(new Vector2(transform.position.x,transform.position.z),destination,cellHeight), destination);
             pathGenerated = true;
-            finalPath.RemoveRange(finalPath.Count-1,1);
             destIndex = finalPath.Count-1;
             currentDest = new Vector3(finalPath[destIndex].x, 0, finalPath[destIndex].y);
             rb.velocity = (currentDest - transform.position).normalized * speed;
