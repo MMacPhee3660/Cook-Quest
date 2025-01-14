@@ -1,3 +1,5 @@
+using UnityEngine;
+
 public class Damage : MonoBehaviour
 {
     public playerHealth pHealth;
