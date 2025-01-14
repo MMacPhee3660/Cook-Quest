@@ -36,6 +36,10 @@ public class FileDataHandler : MonoBehaviour
                         dataToLoad = reader.ReadToEnd();
                     }
                 }
+                if(useEncryption)
+                {
+                    dataToLoad = EncryptDecrypt(dataToLoad);
+                }
 
                 loadedData = JsonUtility.FromJson<GameData>(dataToLoad);
             }
@@ -54,6 +58,10 @@ public class FileDataHandler : MonoBehaviour
         {
             Directory.CreateDirectory(Path.GetDirectoryName(fullPath));
             string dataToStore =  JsonUtility.ToJson(data, true);
+            if (useEncryption)
+            {
+                dataToStore = EncryptDecrypt(dataToStore);
+            }
             using (FileStream stream = new FileStream(fullPath, FileMode.Create))
             {
                 using (StreamWriter writer = new StreamWriter(stream))
@@ -68,12 +76,18 @@ public class FileDataHandler : MonoBehaviour
         }
     }
 
+    private string EncryptDecrypt(string dataToStore)
+    {
+        throw new NotImplementedException();
+    }
+
     private string EcryptionDecrypt(string data)
     {
         string modifiedData = "";
         for (int i = 0; i < data.Length; i++)
         {
-            modifiedData += (char (data[i]) )
+            modifiedData += (char) (data[i] ^ encryptionCodeWord[i % encryptionCodeWord.Length]);
         }
+        return modifiedData;
     }
 }
