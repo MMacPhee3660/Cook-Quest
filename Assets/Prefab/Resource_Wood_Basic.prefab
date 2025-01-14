@@ -134,5 +134,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryManager: {fileID: 0}
-  ID: 1
-  StackSize: 0
+  item: {fileID: 11400000, guid: 95481f7a3e06f4257b58e3e507fee06d, type: 2}

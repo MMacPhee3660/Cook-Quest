@@ -113,8 +113,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryManager: {fileID: 0}
-  ID: 0
-  StackSize: 0
+  item: {fileID: 11400000, guid: c2c66de5b27b04e22abf0413f2746fd8, type: 2}
 --- !u!135 &2857262935115917215
 SphereCollider:
   m_ObjectHideFlags: 0
