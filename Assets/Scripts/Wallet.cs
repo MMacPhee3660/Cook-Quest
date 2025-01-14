@@ -37,8 +37,8 @@ public class Wallet : MonoBehaviour
                 nearestDist = distance;
             }
         }
-        // if(Input.GetKeyDown(KeyCode.E)){
-        //     money -= 1;
-        // }
+        if(Input.GetKeyDown(KeyCode.E)){
+            money -= 1;
+        }
     }
 }
