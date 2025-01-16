@@ -6812,7 +6812,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scene: General_Store
   E: {fileID: 2070518386}
-  transition: {fileID: 0}
+  transition: {fileID: 237172710}
   animTime: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
