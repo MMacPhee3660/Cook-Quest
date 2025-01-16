@@ -5,10 +5,18 @@ using UnityEngine;
 
 public class ItemPickup : MonoBehaviour
 {   
-    public InventoryManager inventoryManager;
     [Header("Item")]
     public Item item;
 
+
+    public InventoryManager inventoryManager;
+    
+
+
+    void Awake(){
+        GameObject inventoryManagerObj = GameObject.FindGameObjectWithTag("InventoryManager");
+        inventoryManager = inventoryManagerObj.GetComponent<InventoryManager>();
+    }
     public void OnTriggerEnter(Collider other){
         if(other.tag == "Player"){
             PickupItem(item.ID); 
