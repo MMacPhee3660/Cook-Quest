@@ -7,7 +7,7 @@ using UnityEngine.Rendering;
 
 public class Quickbuy : MonoBehaviour
 {
-    public InventoryManager inventoryManager;
+
     [Header("Type")]
     public Item item;
     public Wallet wallet;
@@ -19,6 +19,15 @@ public class Quickbuy : MonoBehaviour
     public GameObject testE;
     public GameObject childE;
     private int x = 0;
+
+     public InventoryManager inventoryManager;
+    
+
+
+    void Awake(){
+        GameObject inventoryManagerObj = GameObject.FindGameObjectWithTag("InventoryManager");
+        inventoryManager = inventoryManagerObj.GetComponent<InventoryManager>();
+    }
     
     void Start()
     {
