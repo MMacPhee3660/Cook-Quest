@@ -5,7 +5,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviour, IDataPersistence
 {
     [SerializeField] float speed = 5f;
     public Rigidbody rb;
@@ -24,7 +24,15 @@ public class PlayerController : MonoBehaviour
         rb = this.GetComponent<Rigidbody>();
    }
 
+    public void LoadData(GameData data)
+    {
+        this.transform.position = data.playerPosition;
+    }
 
+    public void SaveData(ref GameData data)
+    {
+        data.playerPosition = this.transform.position;
+    }
 
     void FixedUpdate()
     {
