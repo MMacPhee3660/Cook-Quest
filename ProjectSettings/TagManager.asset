@@ -8,6 +8,7 @@ TagManager:
   - DisplayObj
   - Resource
   - InventoryManager
+  - PriceBook
   layers:
   - Default
   - TransparentFX

@@ -9,7 +9,7 @@ public class LevelLoader : MonoBehaviour{
 
     public Animator transition;
     public float animTime = 1f;
-    public int scene;
+    public String scene;
     GameObject spawnpoint;
 
     void Update()
@@ -24,9 +24,9 @@ public class LevelLoader : MonoBehaviour{
     }
 
 
-    IEnumerator LoadScene(int levelIndex){
+    IEnumerator LoadScene(string levelName){
         transition.SetTrigger("Start");
         yield return new WaitForSeconds(animTime);
-        SceneManager.LoadScene(levelIndex);
+        SceneManager.LoadScene(levelName);
     }
 }

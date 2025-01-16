@@ -36,7 +36,7 @@ public class LevelChange : MonoBehaviour
     }
     void Update(){
          if(Input.GetKeyDown(KeyCode.E) && childE.activeSelf){
-            SceneManager.LoadScene(scene);
+            StartCoroutine(LoadScene(scene));
         }
         float distance = Vector3.Distance(transform.position, player.transform.position);
 
@@ -48,5 +48,12 @@ public class LevelChange : MonoBehaviour
         else{
             childE.SetActive(false);
         }
+    }
+    public Animator transition;
+    public float animTime = 1f;
+    IEnumerator LoadScene(string levelName){
+        transition.SetTrigger("Start");
+        yield return new WaitForSeconds(animTime);
+        SceneManager.LoadScene(levelName);
     }
 }
