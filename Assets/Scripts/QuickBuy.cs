@@ -54,6 +54,7 @@ public class Quickbuy : MonoBehaviour
             x++;
             Debug.Log("getitem");
             GetItem(item.ID);
+            wallet.money = wallet.money - item.price;
         }
     }
     public void GetItem(int id){

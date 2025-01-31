@@ -7,7 +7,7 @@ using System;
 
 public class Wallet : MonoBehaviour
 {
-    private int money = 100;
+    public int money = 100;
     public TMP_Text inWallet;
     public Quickbuy itemPrice;
     public GameObject[] DisplayObjects;
@@ -36,9 +36,6 @@ public class Wallet : MonoBehaviour
                 nearestObj = DisplayObjects[i];
                 nearestDist = distance;
             }
-        }
-        if(Input.GetKeyDown(KeyCode.E)){
-            money -= 1;
         }
     }
 }
