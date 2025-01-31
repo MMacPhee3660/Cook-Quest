@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,6 +9,12 @@ public class playerHealth : MonoBehaviour
     public float health;
     public float maxhealth;
     public Image HealthBar;
+
+    internal void TakeDamage(int damage)
+    {
+       
+    }
+
     void Start()
     {
         maxhealth = health;

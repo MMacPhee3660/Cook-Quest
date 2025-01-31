@@ -6,7 +6,7 @@ using UnityEngine;
 public class Damage : MonoBehaviour
 {
     public int damage = 2;
-    private Health playerHealth;
+    public playerHealth playerHealth;
 
     void Start()
     {
@@ -18,23 +18,20 @@ public class Damage : MonoBehaviour
 
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionEnter(Collider collision)
     {
         if(collision.gameObject.tag == "Player")
         {
             if(playerHealth == null)
             {
-            playerHealth = collision.gameObject.GetComponent<Health>();
             }
             playerHealth.TakeDamage(damage);
         }
     }
+
+public void TakeDamage()
+{
+    playerHealth.health = playerHealth.health - damage;
+}
 }
 
-internal class Health
-{
-    internal void TakeDamage(int damage)
-    {
-        throw new NotImplementedException();
-    }
-}
