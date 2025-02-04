@@ -4,24 +4,31 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class playerHealth : MonoBehaviour
+public class PlayerHealth : MonoBehaviour
 {
-    public float health;
-    public float maxhealth;
-    public Image HealthBar;
+    public int maxHealth = 100;
+    public int currentHealth;
 
-    internal void TakeDamage(int damage)
-    {
-       
-    }
+    public HealthBar healthBar;
 
     void Start()
     {
-        maxhealth = health;
+        currentHealth = maxHealth;
+        healthBar.SetMaxHealth(maxHealth);
     }
 
     void Update()
     {
-        HealthBar.fillAmount = Mathf.Clamp(health / maxhealth, 0,1);
+        if(Input.GetKeyDown(KeyCode.PageDown))
+        {
+            TakeDamage(20);
+        }
     }
-}
+
+    void TakeDamage(int damage)
+    {
+        currentHealth -= damage;
+
+        healthBar.SetHealth(currentHealth);
+    }
+} 
