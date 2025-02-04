@@ -23,7 +23,7 @@ public class NPCPathing : MonoBehaviour
     private List<Vector2> searchedCells;
     private List<Vector2> finalPath;
 
-
+    GameObject[] objects;
     List<Vector2> dests;
     Rigidbody rb;
     [SerializeField] GameObject point;
@@ -33,13 +33,19 @@ public class NPCPathing : MonoBehaviour
     int destIndex;
     Vector3 currentDest;
     bool destinationReached = false;
-
+//before i forget im finna tag everything as an obstacle and use the coordinates and scale for pathfinding
     void Start()
     {
         rb = this.GetComponent<Rigidbody>();
         destination = new Vector2((int)(point.transform.position.x + 0.5f),(int)(point.transform.position.z + 0.5f));
         pointPos = point.transform.position;
         GenerateGrid();
+        objects = GameObject.FindGameObjectsWithTag("Obstacle");
+
+        foreach (GameObject block in objects)
+        {
+            BoxCollider box = block.GetComponent<BoxCollider>();
+        }
     }
     void Update()
     {
