@@ -4,15 +4,24 @@ using UnityEngine;
 
 public class PlayerSpawner : MonoBehaviour
 {
-    public float X;
-    public float Y;
-    public float Z;
+    float X;
+    float Y;
+    float Z;
     GameObject player;
     public GameObject spawnpoint;
+    public static GameObject instance;
     void Awake()
     {
+        if(instance == null){
+            instance = this.gameObject;
+            DontDestroyOnLoad(gameObject);
+        }
+        else if(instance !=this){
+            Destroy(gameObject);
+        }
+        spawnpoint = GameObject.FindGameObjectWithTag("spawnPoint");
         player = GameObject.FindGameObjectWithTag("Player");
-        SwapScene(spawnpoint);
+        TeleportTo(spawnpoint);
     }
 
     // Update is called once per frame
@@ -21,7 +30,7 @@ public class PlayerSpawner : MonoBehaviour
         
     }
 
-    void SwapScene(GameObject spawnpoint){
+    void TeleportTo(GameObject spawnpoint){
         player.transform.position = new Vector3(spawnpoint.transform.position.x,spawnpoint.transform.position.y,spawnpoint.transform.position.z);
     }
 }

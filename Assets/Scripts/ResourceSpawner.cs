@@ -7,6 +7,7 @@ public class ResourceSpawner : MonoBehaviour
 {
   [Header("Spawn Settings")]
   public GameObject[] resourcePrefabs; 
+  public GameObject[] decorativeObjectsPrefab;
   public float spawnChance;
 
   [Header("Raycast Settings")]
@@ -19,6 +20,7 @@ public class ResourceSpawner : MonoBehaviour
     resourcePrefabs = GameObject.FindGameObjectsWithTag("Resource");
     print(resourcePrefabs.Length);
     SpawnResources();
+    SpawnCosResources();
   }
 
 
@@ -31,6 +33,22 @@ public class ResourceSpawner : MonoBehaviour
               if(Physics.Raycast(new Vector3(x,heightOfCheck,z), Vector3.down, out hit, rangOfCheck, layerMask)){
                   if(spawnChance > Random.Range(0,101)){
                     Instantiate(resourcePrefabs[Random.Range(0,2)], hit.point, Quaternion.Euler(new Vector3(0,0,0)),transform);
+                  }
+              }
+            }
+
+         }
+    }
+
+    void SpawnCosResources(){
+
+         for( float x = negativePosition.x; x < positivePosition.x; x += distanceBetweenChecks){
+             for( float z = negativePosition.y; z < positivePosition.y; z += distanceBetweenChecks){
+
+              RaycastHit hit;
+              if(Physics.Raycast(new Vector3(x,heightOfCheck,z), Vector3.down, out hit, rangOfCheck, layerMask)){
+                  if(spawnChance > Random.Range(0,26)){
+                    Instantiate(decorativeObjectsPrefab[Random.Range(0,3)], hit.point, Quaternion.Euler(new Vector3(0,0,0)),transform);
                   }
               }
             }

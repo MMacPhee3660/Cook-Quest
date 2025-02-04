@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fcbbd225286904fbe8e88a79ab6be999, type: 3}
-  m_Name: 0_Rock Basic
+  m_Name: 4_Axe
   m_EditorClassIdentifier: 
-  ID: 0
-  actionType: 3
-  itemType: 0
+  ID: 4
+  actionType: 2
+  itemType: 1
   range: {x: 2, y: 3, z: 0}
-  stackable: 1
-  image: {fileID: 21300000, guid: 9422e61cab3d34384a46e3e4d469b777, type: 3}
+  stackable: 0
+  image: {fileID: 1501233870, guid: f37cc37bb629e48f0a681463ae4f3bae, type: 3}
