@@ -344,7 +344,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0.9000244, y: 0}
+  m_AnchoredPosition: {x: 0.89990234, y: 0}
   m_SizeDelta: {x: 2.0574, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &168580054
@@ -581,6 +581,18 @@ MonoBehaviour:
   Exit: {fileID: 1788416147}
   sceneInfo: {fileID: 11400000, guid: be41db6e5297b4906b294d6b76d5fcb7, type: 2}
   offset: {x: 1, y: 0.5, z: 0}
+--- !u!114 &259677051
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 259677032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b18449a31d6a941bfbf5d585d59f3e56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &596168622
 GameObject:
   m_ObjectHideFlags: 0
@@ -862,29 +874,14 @@ GameObject:
   - component: {fileID: 1161597739}
   - component: {fileID: 1161597738}
   - component: {fileID: 1161597737}
-  - component: {fileID: 1161597735}
   - component: {fileID: 1161597741}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1161597735
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1161597734}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec8813e993507482e874bc578a17d62f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 2
-  playerHealth: {fileID: 0}
 --- !u!65 &1161597737
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -983,8 +980,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b18449a31d6a941bfbf5d585d59f3e56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 2
-  maxhealth: 3
 --- !u!1 &1188672599
 GameObject:
   m_ObjectHideFlags: 0
@@ -1104,7 +1099,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneName: LiamsScene
-  isNextScene: 1
+  isNextScene: 0
   sceneinfo: {fileID: 11400000, guid: be41db6e5297b4906b294d6b76d5fcb7, type: 2}
 --- !u!1001 &1245056127
 PrefabInstance:
@@ -1176,6 +1171,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 889185683401697098, guid: e60df1cf7d07e4213bec0d1cc4a81634, type: 3}
       insertIndex: -1
       addedObject: {fileID: 259677045}
+    - targetCorrespondingSourceObject: {fileID: 889185683401697098, guid: e60df1cf7d07e4213bec0d1cc4a81634, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 259677051}
   m_SourcePrefab: {fileID: 100100000, guid: e60df1cf7d07e4213bec0d1cc4a81634, type: 3}
 --- !u!1 &1509870846
 GameObject:

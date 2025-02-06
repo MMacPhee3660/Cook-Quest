@@ -10,7 +10,7 @@ public class PlayerHealth : MonoBehaviour
     public int currentHealth;
 
     public HealthBar healthBar;
-
+    
     void Start()
     {
         currentHealth = maxHealth;
@@ -21,7 +21,7 @@ public class PlayerHealth : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.PageDown))
         {
-            TakeDamage(20);
+           TakeDamage(20);
         }
     }
 
