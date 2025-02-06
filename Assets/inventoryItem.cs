@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class inventoryItem : MonoBehaviour
+public class inventor : MonoBehaviour
 {
    [Header("UI")]
    public Image image;

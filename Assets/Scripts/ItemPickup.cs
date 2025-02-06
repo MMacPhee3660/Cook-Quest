@@ -4,12 +4,10 @@ using System.Data.Common;
 using UnityEngine;
 
 public class ItemPickup : MonoBehaviour
-{
-
-      
+{   
     [Header("Item")]
     public Item item;
-    public enum resourceType{Ston,Wood} 
+
 
     public InventoryManager inventoryManager;
     

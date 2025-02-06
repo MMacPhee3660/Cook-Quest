@@ -390,7 +390,7 @@ MonoBehaviour:
   - {fileID: 1391026325}
   - {fileID: 1623242844}
   - {fileID: 1236809182}
-  inventoryItemPrefab: {fileID: 7446376274358533908, guid: f530075703fbc4a34a2f3a202728aa51, type: 3}
+  inventoryItemPrefab: {fileID: 728393287377653420, guid: e47e6384ad5124396abd0b4ec8b31280, type: 3}
   itemsToPickup:
   - {fileID: 11400000, guid: c2c66de5b27b04e22abf0413f2746fd8, type: 2}
   - {fileID: 11400000, guid: 95481f7a3e06f4257b58e3e507fee06d, type: 2}

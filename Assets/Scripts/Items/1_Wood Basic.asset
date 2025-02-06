@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 1_Wood Basic
   m_EditorClassIdentifier: 
   ID: 1
-  actionType: 0
+  actionType: 2
   itemType: 0
   range: {x: 2, y: 3, z: 0}
   stackable: 1

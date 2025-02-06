@@ -3128,7 +3128,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4683bc642b6b04e2b8a437c6b9d3f4bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inventoryManager: {fileID: 0}
   animator: {fileID: 1281302598}
+  droppedItem: {fileID: 11400000, guid: 95481f7a3e06f4257b58e3e507fee06d, type: 2}
   <ResourceCount>k__BackingField: 5
   <ResourceNode>k__BackingField: {fileID: 1281302596}
   <ps>k__BackingField: {fileID: 2094735156}
@@ -10028,7 +10030,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4683bc642b6b04e2b8a437c6b9d3f4bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inventoryManager: {fileID: 0}
   animator: {fileID: 8747512372127376781}
+  droppedItem: {fileID: 11400000, guid: c2c66de5b27b04e22abf0413f2746fd8, type: 2}
   <ResourceCount>k__BackingField: 5
   <ResourceNode>k__BackingField: {fileID: 8747512372127376780}
   <ps>k__BackingField: {fileID: 6321581787426783633}
@@ -14885,8 +14889,8 @@ Animator:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 1605952039}
   - {fileID: 1386541321}
+  - {fileID: 1605952039}
   - {fileID: 1684567710}
   - {fileID: 140103293}
   - {fileID: 1128343014}

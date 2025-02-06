@@ -25,7 +25,7 @@ public class InventoryManager : MonoBehaviour
     public void Start(){
         ChangeSelectedSlot(0);
         foreach (var item in startItems){
-            AddItem(item);
+            AddItem(item);  
         }
     }
 
@@ -78,5 +78,14 @@ public class InventoryManager : MonoBehaviour
         else if(instance !=this){
             Destroy(gameObject);
         }
+    }
+
+    public Item GetSelectedItem(){
+        InventorySlot slot = InventorySlots[selectedSlot];
+        InventoryItem itemInSlot = slot.GetComponentInChildren<InventoryItem>();
+        if(itemInSlot != null){
+            return itemInSlot.item;
+        }
+        return null;
     }
 }
