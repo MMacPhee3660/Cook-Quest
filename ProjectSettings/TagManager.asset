@@ -9,7 +9,7 @@ TagManager:
   - Resource
   - InventoryManager
   - PriceBook
-  - Obstacle
+  - spawnPoint
   layers:
   - Default
   - TransparentFX
