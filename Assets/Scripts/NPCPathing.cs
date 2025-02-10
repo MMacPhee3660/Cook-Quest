@@ -29,12 +29,13 @@ public class NPCPathing : MonoBehaviour
     Rigidbody rb;
     [SerializeField] GameObject target;
     Vector2 destination;
+    Vector3 myPos;
     Vector3 targetPos;
     [SerializeField] float speed = 1f;
     int destIndex;
     Vector3 currentDest;
     bool destinationReached = false;
-
+    
     void Start()
     {
         // Runs once at compilation
@@ -71,14 +72,21 @@ public class NPCPathing : MonoBehaviour
         // If so, makes the destination equal to the target's position (rounded) and declares that a path has not been generated
         // Calls PathLoop method
 
+        myPos = transform.position;
+
         if (Vector3.Distance(targetPos,target.transform.position) >= 0.5)
         {
             targetPos = target.transform.position;
-            destination = new Vector2((int)(target.transform.position.x + 0.5f),(int)(target.transform.position.z + 0.5f));
+            destination = new Vector2((int)(targetPos.x + 0.5f),(int)(targetPos.z + 0.5f));
             pathGenerated = false;
             destinationReached = false;
         }
-        PathLoop(destination);
+
+        if (!destinationReached)
+        {
+            PathLoop(destination);
+        }
+        
     }
 
     private Vector2 RoundToVector2(Vector2 subject, Vector2 target, float step)
@@ -86,6 +94,7 @@ public class NPCPathing : MonoBehaviour
         // Rounds a given vector in the direction of another vector
         // Meant to work with a variable step but only rounds to nearest int
 
+        print("rounding");
         Vector2 direction = target - subject;
         if (direction.x != 0)
         {
@@ -99,6 +108,7 @@ public class NPCPathing : MonoBehaviour
         direction *= step;
         Vector2 output = new Vector2((int)(subject.x + direction.x),(int)(subject.y+direction.y));
         return output;
+        
     }
     public void PathLoop(Vector2 destination)
     {
@@ -110,16 +120,13 @@ public class NPCPathing : MonoBehaviour
 
         if (pathGenerated)
         {
-            currentDest = new Vector3(finalPath[destIndex].x, 0, finalPath[destIndex].y);
-            rb.velocity = (currentDest - transform.position).normalized * speed;
-
-            if (Vector3.Distance(currentDest, transform.position) <= 0.1 && !destinationReached)
+            if (Vector3.Distance(currentDest, myPos) <= 0.1 && !destinationReached)
             {
                 if(destIndex > 0)
                 {
                     destIndex--;
                     currentDest = new Vector3(finalPath[destIndex].x, 0, finalPath[destIndex].y);
-                    rb.velocity = (currentDest - transform.position).normalized * speed;
+                    rb.velocity = (currentDest - myPos).normalized * speed;
                 }
                 else
                 {
@@ -130,17 +137,20 @@ public class NPCPathing : MonoBehaviour
         }
         else
         {
-            finalPath = new List<Vector2>();
-            Vector2 roundedPos = RoundToVector2(new Vector2(transform.position.x,transform.position.z),destination,cellHeight);
+            Vector2 roundedPos = RoundToVector2(new Vector2(myPos.x,myPos.z),destination,cellHeight);
             FindPath(roundedPos, destination);
-            if(finalPath.Count > 0)
+            pathGenerated = true;
+            if (finalPath.Count > 1)
             {
-                pathGenerated = true;
                 destIndex = finalPath.Count-1;
+                currentDest = new Vector3(finalPath[destIndex].x, 0, finalPath[destIndex].y);
+                rb.velocity = (currentDest - myPos).normalized * speed;
             }
-            
+            else{
+                destIndex = 0;
+            }
         }
-        
+        print("pathing " + destIndex);
         
     }
     private void GenerateGrid()
@@ -156,23 +166,25 @@ public class NPCPathing : MonoBehaviour
             for (float y = 0; y < Math.Abs(gridHeight); y += 1)
             {
                 Vector2 pos = new Vector2(x - gridWidth/2, y - gridHeight/2);
-                //if (avoid.Contains(pos))
+                if (avoid.Contains(pos))
                 {
-                    //cells.Add(pos, new Cell(pos, true));
+                    cells.Add(pos, new Cell(pos, true));
                 }
-                //else
+                else
                 {
                     cells.Add(pos, new Cell(pos, false));
                 }
             }
         }
+        print("generating");
     }
 
     private void FindPath(Vector2 startPos, Vector2 endPos)
     {
         // A* pathfinding system creates a list of points to follow to reach a destination
-
-        searchedCells = new List<Vector2>();
+        if (!(startPos == endPos))
+        {
+            searchedCells = new List<Vector2>();
         cellsToSearch = new List<Vector2> {startPos};
         finalPath = new List<Vector2>();
         Cell startCell = cells[startPos];
@@ -212,6 +224,9 @@ public class NPCPathing : MonoBehaviour
 
             SearchCellNeighbors(cellToSearch,endPos);
         }
+        }
+        
+        print("finding path" + finalPath.Count);
     }
 
     private void SearchCellNeighbors(Vector2 cellPos, Vector2 endPos)
