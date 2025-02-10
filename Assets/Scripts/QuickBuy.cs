@@ -54,11 +54,16 @@ public class Quickbuy : MonoBehaviour
             x++;
             Debug.Log("getitem");
             GetItem(item.ID);
-            wallet.money = wallet.money - item.price;
+            
+            moneyReduce(item.price);
         }
     }
     public void GetItem(int id){
         inventoryManager.AddItem(inventoryManager.itemsToPickup[id]);
         
+    }
+
+    public void moneyReduce(int price){
+        wallet.money = wallet.money - price;
     }
 }

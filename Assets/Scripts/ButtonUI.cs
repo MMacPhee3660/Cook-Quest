@@ -24,9 +24,13 @@ public class ButtonUI : MonoBehaviour
     public void BuyButton(){
         buyText.text = "Bought!";
     }
-    public void firstMenuItem(){
+    public void menuItem(){
         scroll.SetActive(false);
         purchaser.SetActive(true);
         
+    }
+    public void menuBack(){
+        scroll.SetActive(true);
+        purchaser.SetActive(false);
     }
 }
