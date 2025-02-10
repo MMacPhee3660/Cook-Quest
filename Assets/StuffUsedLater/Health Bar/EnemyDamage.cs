@@ -7,26 +7,26 @@ using UnityEngine.UI;
 
 public class EnemyDamage : MonoBehaviour
 {
+
     private void OnTriggerEnter(Collider collision)
     {
-        if(collision.CompareTag("Damage"))
-        {
-            DoDamageToPlayer();
-        }
+        ProcessCollision(collision.gameObject);
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Damage"))
+        ProcessCollision(collision.gameObject);
+    }
+    void ProcessCollision(GameObject collider)
+    {
+        if (collider.CompareTag("Enemy"))
         {
             DoDamageToPlayer();
         }
     }
-
+    
     void DoDamageToPlayer()
     {
         Debug.Log("Hit!");
     }
-
-
 } 
