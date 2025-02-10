@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcbbd225286904fbe8e88a79ab6be999, type: 3}
   m_Name: 0_Rock Basic
   m_EditorClassIdentifier: 
-  actionType: 0
+  ID: 0
+  actionType: 3
   itemType: 0
   range: {x: 2, y: 3, z: 0}
   stackable: 1
   image: {fileID: 21300000, guid: 9422e61cab3d34384a46e3e4d469b777, type: 3}
+  price: 1

@@ -8,6 +8,8 @@ TagManager:
   - DisplayObj
   - Resource
   - InventoryManager
+  - PriceBook
+  - spawnPoint
   layers:
   - Default
   - TransparentFX

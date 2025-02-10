@@ -7,9 +7,7 @@ using UnityEngine.SceneManagement;
 public class LevelLoader : MonoBehaviour{
 
 
-    public Animator transition;
-    public float animTime = 1f;
-    public int scene;
+    
     GameObject spawnpoint;
 
     void Update()
@@ -23,10 +21,12 @@ public class LevelLoader : MonoBehaviour{
         StartCoroutine(LoadScene(scene));
     }
 
-
-    IEnumerator LoadScene(int levelIndex){
+    public Animator transition;
+        public float animTime = 1f;
+        public String scene;
+    IEnumerator LoadScene(string levelName){
         transition.SetTrigger("Start");
         yield return new WaitForSeconds(animTime);
-        SceneManager.LoadScene(levelIndex);
+        SceneManager.LoadScene(levelName);
     }
 }

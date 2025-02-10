@@ -14,6 +14,11 @@ public class LevelChange : MonoBehaviour
     GameObject childE;
     private float distance;
     GameObject player;
+    public float x;
+    public float y;
+    public float z;
+    public GameObject spawnPoint;
+
 
     void OnTriggerEnter(Collider other)
     {
@@ -22,6 +27,10 @@ public class LevelChange : MonoBehaviour
         {
             SceneManager.LoadScene("Scene2");
         }
+    }
+
+    void Awake(){
+        spawnPoint = GameObject.FindGameObjectWithTag("spawnPoint");
     }
     
     void Start(){
@@ -36,7 +45,10 @@ public class LevelChange : MonoBehaviour
     }
     void Update(){
          if(Input.GetKeyDown(KeyCode.E) && childE.activeSelf){
-            SceneManager.LoadScene(scene);
+            Debug.Log("pressed");
+            spawnPoint.transform.position = new Vector3 (x,y,z);
+            Debug.Log("pos set");
+            StartCoroutine(LoadScene(scene));
         }
         float distance = Vector3.Distance(transform.position, player.transform.position);
 
@@ -48,5 +60,12 @@ public class LevelChange : MonoBehaviour
         else{
             childE.SetActive(false);
         }
+    }
+    public Animator transition;
+    public float animTime = 1f;
+    IEnumerator LoadScene(string levelName){
+        transition.SetTrigger("Start");
+        yield return new WaitForSeconds(animTime);
+        SceneManager.LoadScene(levelName);
     }
 }
