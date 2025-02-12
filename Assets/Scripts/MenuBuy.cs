@@ -13,14 +13,14 @@ public class Menubuy : MonoBehaviour
     public GameObject testE;
     public GameObject childE;
     public GameObject menu;
-    public GameObject menuObject;
+    // public GameObject menuObject;
     
     void Start()
     {
         player = GameObject.Find("PlayerMove");
         E.SetActive(false);
         menu.SetActive(false);
-        menuObject.SetActive(false);
+        // menuObject.SetActive(false);
         childE = Instantiate(testE, transform.position,Quaternion.identity);
         childE.transform.position += Vector3.up * 1f;
     }
@@ -41,11 +41,11 @@ public class Menubuy : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.E)){
             if(menu.activeSelf == false && childE.activeSelf == true){
                 menu.SetActive(true);
-                menuObject.SetActive(true);
+                // menuObject.SetActive(true);
             }
             else{
                 menu.SetActive(false);
-                menuObject.SetActive(false);
+                // menuObject.SetActive(false);
             }
         }
     }
