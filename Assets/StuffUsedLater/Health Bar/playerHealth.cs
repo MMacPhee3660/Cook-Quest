@@ -23,6 +23,15 @@ public class PlayerHealth : MonoBehaviour
         {
            TakeDamage(20);
         }
+
+        if (currentHealth <= 0)
+        {
+            Dead();
+        }
+    }
+    void Dead()
+    {
+        Destroy(gameObject);
     }
 
     void TakeDamage(int damage)

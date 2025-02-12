@@ -5,7 +5,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class EnemyDamage : MonoBehaviour
+public class CollisionTester : MonoBehaviour
 {
 
     private void OnTriggerEnter(Collider collision)
