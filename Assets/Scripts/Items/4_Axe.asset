@@ -18,3 +18,4 @@ MonoBehaviour:
   range: {x: 2, y: 3, z: 0}
   stackable: 0
   image: {fileID: 1501233870, guid: f37cc37bb629e48f0a681463ae4f3bae, type: 3}
+  price: 25

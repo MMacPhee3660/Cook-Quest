@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcbbd225286904fbe8e88a79ab6be999, type: 3}
   m_Name: 6_Boar_Meat
   m_EditorClassIdentifier: 
-  ID: 0
+  ID: 6
   actionType: 0
   itemType: 0
   range: {x: 2, y: 3, z: 0}
   stackable: 1
-  image: {fileID: 0}
-  price: 0
+  image: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  price: 12

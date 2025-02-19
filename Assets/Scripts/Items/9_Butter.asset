@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcbbd225286904fbe8e88a79ab6be999, type: 3}
   m_Name: 9_Butter
   m_EditorClassIdentifier: 
-  ID: 0
+  ID: 9
   actionType: 0
   itemType: 0
   range: {x: 2, y: 3, z: 0}
   stackable: 1
-  image: {fileID: 0}
-  price: 0
+  image: {fileID: 21300000, guid: dfa2cb913a97b4655b78f2dc7089c13c, type: 3}
+  price: 5
