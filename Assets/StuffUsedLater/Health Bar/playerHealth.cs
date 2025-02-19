@@ -16,7 +16,8 @@ public class PlayerHealth : MonoBehaviour
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
     }
-
+    
+    //void Update used for testing damage
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.PageDown))
