@@ -9,11 +9,11 @@ public class Wallet : MonoBehaviour
 {
     public int money = 100;
     public TMP_Text inWallet;
-    public Quickbuy itemPrice;
+    // public Quickbuy itemPrice;
     public GameObject[] DisplayObjects;
-    public GameObject nearestObj;
+    // public GameObject nearestObj;
     float distance;
-    float nearestDist = 10000;
+    // float nearestDist = 10000;
     public GameObject player;
 
     // Start is called before the first frame update
@@ -29,13 +29,13 @@ public class Wallet : MonoBehaviour
     {
         inWallet.text = "$: " + money;
 
-        for(int i = 0; i < DisplayObjects.Length; i++){
-            distance = Vector3.Distance(player.transform.position, DisplayObjects[i].transform.position);
+        // for(int i = 0; i < DisplayObjects.Length; i++){
+        //     distance = Vector3.Distance(player.transform.position, DisplayObjects[i].transform.position);
 
-            if(distance < nearestDist){
-                nearestObj = DisplayObjects[i];
-                nearestDist = distance;
-            }
-        }
+        //     if(distance < nearestDist){
+        //         nearestObj = DisplayObjects[i];
+        //         nearestDist = distance;
+        //     }
+        // }
     }
 }
