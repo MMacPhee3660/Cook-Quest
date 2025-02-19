@@ -56,6 +56,7 @@ public class NPCPathing : MonoBehaviour
                 for (int j = (int)(-y/2); j <= (int)(y/2); j++)
                 {
                     avoid.Add(new Vector2(i,j));
+                    print( new Vector2(i,j));
                 }
             }
         }
@@ -138,7 +139,10 @@ public class NPCPathing : MonoBehaviour
         else
         {
             Vector2 roundedPos = RoundToVector2(new Vector2(myPos.x,myPos.z),destination,cellHeight);
-            FindPath(roundedPos, destination);
+            if (roundedPos != destination)
+            {
+                FindPath(roundedPos, destination);
+            }
             pathGenerated = true;
             if (finalPath.Count > 1)
             {
@@ -161,20 +165,17 @@ public class NPCPathing : MonoBehaviour
 
         cells = new Dictionary<Vector2, Cell>();
 
-        for (float x = 0; x < Math.Abs(gridWidth); x += 1)
+        for (int x = gridWidth / -2; x < gridWidth / 2; x += 1)
         {
-            for (float y = 0; y < Math.Abs(gridHeight); y += 1)
+            for (float y = gridHeight / -2; y < gridHeight / 2; y += 1)
             {
-                Vector2 pos = new Vector2(x - gridWidth/2, y - gridHeight/2);
-                if (avoid.Contains(pos))
-                {
-                    cells.Add(pos, new Cell(pos, true));
-                }
-                else
-                {
-                    cells.Add(pos, new Cell(pos, false));
-                }
+                Vector2 pos = new Vector2(x, y);
+                cells.Add(pos, new Cell(pos));
             }
+        }
+        foreach (Vector2 wall in avoid)
+        {
+            cells[wall].isWall = true;
         }
         print("generating");
     }
@@ -182,35 +183,35 @@ public class NPCPathing : MonoBehaviour
     private void FindPath(Vector2 startPos, Vector2 endPos)
     {
         // A* pathfinding system creates a list of points to follow to reach a destination
-        if (!(startPos == endPos))
+        searchedCells = new List<Vector2>(); // new list that will contain searched cells
+        cellsToSearch = new List<Vector2> {startPos}; // new list that will contain the cells that will need to be searched
+        finalPath = new List<Vector2>(); // resets the final path list
+        Cell startCell = cells[startPos]; // creates a cell that will be the starting position to path from
+        startCell.gCost = 0; // g cost is distance from cell to current position
+        startCell.hCost = GetDistance(startPos, endPos); // h cost is distance from cell to end
+        startCell.fCost = GetDistance(startPos, endPos); // f cost is g cost plus h cost
+        while (cellsToSearch.Count > 0) // while loop runs until the cells to search list is empty
         {
-            searchedCells = new List<Vector2>();
-        cellsToSearch = new List<Vector2> {startPos};
-        finalPath = new List<Vector2>();
-        Cell startCell = cells[startPos];
-        startCell.gCost = 0;
-        startCell.hCost = GetDistance(startPos, endPos);
-        startCell.fCost = GetDistance(startPos, endPos);
-
-        while (cellsToSearch.Count > 0)
-        {
-            Vector2 cellToSearch = cellsToSearch[0];
-            foreach (Vector2 pos in cellsToSearch)
+            print(cellsToSearch.Count);
+            Vector2 cellToSearch = cellsToSearch[0]; // picks the first cell in the cellstosearch list to be compared to
+            foreach (Vector2 pos in cellsToSearch) // goes through every position in the cellstosearch list
             {
-                Cell c = cells[pos];
-                if (c.fCost < cells[cellToSearch].fCost || c.fCost == cells[cellToSearch].fCost && c.hCost == cells[cellToSearch].hCost)
+                Cell c = cells[pos]; // finds the cell corresponding to the position
+                if (c.fCost <= cells[cellToSearch].fCost && c.hCost == cells[cellToSearch].hCost)
+                // if the fcost of the cell is less than or equal to the comparison cell and the hcost is equal to the comparison cell's hcost
                 {
-                    cellToSearch = pos;
+                    cellToSearch = pos; // makes the comparison cell equal to the current cell
                 }
             }
+            // that first bit found the best cell to move to in the cellstosearch list
             
-            cellsToSearch.Remove(cellToSearch);
-            searchedCells.Add(cellToSearch);
+            cellsToSearch.Remove(cellToSearch); // removes the searched cell from the cellstosearch list
+            searchedCells.Add(cellToSearch); // adds the removed cell to the searched cells list
 
-            if (cellToSearch == endPos)
+            if (cellToSearch == endPos) 
             {
 
-                Cell pathCell = cells[endPos];
+                Cell pathCell = cells[endPos]; 
 
                 while (pathCell.position != startPos)
                 {
@@ -224,8 +225,6 @@ public class NPCPathing : MonoBehaviour
 
             SearchCellNeighbors(cellToSearch,endPos);
         }
-        }
-        
         print("finding path" + finalPath.Count);
     }
 
@@ -239,7 +238,7 @@ public class NPCPathing : MonoBehaviour
             {
                 Vector2 neighborPos = new Vector2(x, y);
 
-                if (cells.TryGetValue(neighborPos, out Cell c) && !searchedCells.Contains(neighborPos) && (!cells[neighborPos].isWall || cells[neighborPos].position == endPos))
+                if (cells.TryGetValue(neighborPos, out Cell c) && !searchedCells.Contains(neighborPos) && (!cells[neighborPos].isWall))
                 {
                     int GcostToNeighbor = cells[cellPos].gCost + GetDistance(cellPos, neighborPos);
 
@@ -287,10 +286,9 @@ public class NPCPathing : MonoBehaviour
         public Vector2 connection;
         public bool isWall;
 
-        public Cell(Vector2 pos, bool isWall)
+        public Cell(Vector2 pos)
         {
             position = pos;
-            this.isWall = isWall;
         }
     }
 }
