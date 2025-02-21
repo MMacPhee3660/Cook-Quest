@@ -18,6 +18,7 @@ public class LevelChange : MonoBehaviour
     public float y;
     public float z;
     public GameObject spawnPoint;
+    public PlayerStateManager state;
 
 
     void OnTriggerEnter(Collider other)
@@ -37,6 +38,7 @@ public class LevelChange : MonoBehaviour
         testE = E;
         childE = E;
         player = GameObject.Find("PlayerMove");
+        state = player.GetComponent<PlayerStateManager>();
         E.SetActive(false);
         childE = Instantiate(testE, transform.position,Quaternion.identity);
         childE.transform.position += Vector3.up * 1f;
@@ -48,6 +50,7 @@ public class LevelChange : MonoBehaviour
             Debug.Log("pressed");
             spawnPoint.transform.position = new Vector3 (x,y,z);
             Debug.Log("pos set");
+            state.SwitchState(state.insideState);
             StartCoroutine(LoadScene(scene));
         }
         float distance = Vector3.Distance(transform.position, player.transform.position);
