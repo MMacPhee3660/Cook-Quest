@@ -192,7 +192,7 @@ public class NPCPathing : MonoBehaviour
         startCell.fCost = GetDistance(startPos, endPos); // f cost is g cost plus h cost
         while (cellsToSearch.Count > 0) // while loop runs until the cells to search list is empty
         {
-            print(cellsToSearch.Count);
+            print(searchedCells.Count);
             Vector2 cellToSearch = cellsToSearch[0]; // picks the first cell in the cellstosearch list to be compared to
             foreach (Vector2 pos in cellsToSearch) // goes through every position in the cellstosearch list
             {
@@ -238,7 +238,7 @@ public class NPCPathing : MonoBehaviour
             {
                 Vector2 neighborPos = new Vector2(x, y);
 
-                if (cells.TryGetValue(neighborPos, out Cell c) && !searchedCells.Contains(neighborPos) && (!cells[neighborPos].isWall))
+                if (cells.TryGetValue(neighborPos, out Cell c) && !searchedCells.Contains(neighborPos) && !cells[neighborPos].isWall)
                 {
                     int GcostToNeighbor = cells[cellPos].gCost + GetDistance(cellPos, neighborPos);
 
