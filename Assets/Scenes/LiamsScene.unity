@@ -421,8 +421,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23fe71da4ef574d1cb0f6af3f5a910cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slider: {fileID: 1711058351}
-  healthBar: {fileID: 168580056}
+  maxHealth: 100
+  currentHealth: 100
+  healthBar: {fileID: 1711058350}
 --- !u!1 &190672281
 GameObject:
   m_ObjectHideFlags: 0
@@ -940,18 +941,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3294402815066488407, guid: 782cbead201354ab49bfbd2f236e3178, type: 3}
   m_PrefabInstance: {fileID: 768183667}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &666513367
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 666513349}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3aa881c83198a430398f77230cc414e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &768183667
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1014,9 +1003,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7485027437932800351, guid: 782cbead201354ab49bfbd2f236e3178, type: 3}
       insertIndex: -1
       addedObject: {fileID: 666513350}
-    - targetCorrespondingSourceObject: {fileID: 7485027437932800351, guid: 782cbead201354ab49bfbd2f236e3178, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 666513367}
   m_SourcePrefab: {fileID: 100100000, guid: 782cbead201354ab49bfbd2f236e3178, type: 3}
 --- !u!1 &839510854
 GameObject:
@@ -1862,7 +1848,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -1945,11 +1931,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcca330db6cfe4bcea808cd1b77a8f60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
+  speed: 20
   target: {fileID: 666513359}
   damage: 25
   maxHealth: 100
-  currentHealth: 100
+  currentHealth: 0
   healthBar: {fileID: 1711058350}
 --- !u!1001 &1643747115485353763
 PrefabInstance:
