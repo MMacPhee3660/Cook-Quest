@@ -18,9 +18,12 @@ public class ResourceSpawner : MonoBehaviour
 
   private void Start(){
     resourcePrefabs = GameObject.FindGameObjectsWithTag("Resource");
-    print(resourcePrefabs.Length);
-    SpawnResources();
-    SpawnCosResources();
+    if (resourcePrefabs.Length > 0)
+    {
+      SpawnResources();
+      SpawnCosResources();
+    }
+    
   }
 
 
