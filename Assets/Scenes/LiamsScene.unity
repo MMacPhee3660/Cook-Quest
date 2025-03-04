@@ -1267,9 +1267,10 @@ GameObject:
   - component: {fileID: 1647369687}
   - component: {fileID: 1647369686}
   - component: {fileID: 1647369685}
+  - component: {fileID: 1647369689}
   m_Layer: 0
   m_Name: Sphere
-  m_TagString: Untagged
+  m_TagString: HealthPotion
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1289,7 +1290,7 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -1360,6 +1361,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1647369689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1647369684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 103df61168d7848c98627af3ae7b4bdd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentHealth: 0
+  health: 0
+  playerHealth: {fileID: 0}
+  player: {fileID: 666513349}
+  healthBar: {fileID: 1711058350}
 --- !u!1 &1675859821
 GameObject:
   m_ObjectHideFlags: 0

@@ -4,21 +4,31 @@
 
 //public class HealingItem : MonoBehaviour
 //{
-//    public int currentHealth;
-  //  public GameObject player;
-    //void Awake()
+   // public int health;
+
+   // PlayerHealth playerHealth;
+   // public GameObject player;
+   // void Awake()
    // {
-    //    player = GameObject.Find("PlayerMove");
-      //  player.GetComponent<PlayerHealth>();
-    //}
+   //     player = GameObject.Find("PlayerMove");
+   //     player.GetComponent<PlayerHealth>();
+   // }
 
+  //  public void Heal(int amount)
+   // {
+   //     health += amount;
+   // }
+
+  //  public HealthBar healthBar; 
    // private void OnTriggerEnter(Collider other)
-    //{
-      //  if (other.CompareTag("Player"))
-        //{
-
-          //  PlayerHealth.Heal(5);
-          //  Destroy(gameObject);
-       // }
+   // {
+    //    if (other.CompareTag("Player"))
+     //   {
+     //       playerHealth = GameObject.Find("PlayerMove").GetComponent<PlayerHealth>();
+     //       playerHealth.Heal(25);
+     //       healthBar.SetMaxHealth(currentHealth);
+    //        Debug.Log("Player healed");
+    //        Destroy(gameObject);
+    //    }
    // }
 //}
