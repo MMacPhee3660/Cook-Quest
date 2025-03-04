@@ -50,7 +50,6 @@ public class LevelChange : MonoBehaviour
             Debug.Log("pressed");
             spawnPoint.transform.position = new Vector3 (x,y,z);
             Debug.Log("pos set");
-            state.SwitchState(state.insideState);
             StartCoroutine(LoadScene(scene));
         }
         float distance = Vector3.Distance(transform.position, player.transform.position);

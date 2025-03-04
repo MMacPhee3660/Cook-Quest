@@ -2075,6 +2075,91 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 604095297530680574, guid: b60b649067d6542ff9af7656af3b18c5, type: 3}
   m_PrefabInstance: {fileID: 509324141}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &548323123
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1087902515251946115, guid: d6067a62a156b4673aa218542b110a46, type: 3}
+      propertyPath: E
+      value: 
+      objectReference: {fileID: 2070518386}
+    - target: {fileID: 1087902515251946115, guid: d6067a62a156b4673aa218542b110a46, type: 3}
+      propertyPath: x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1087902515251946115, guid: d6067a62a156b4673aa218542b110a46, type: 3}
+      propertyPath: y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1087902515251946115, guid: d6067a62a156b4673aa218542b110a46, type: 3}
+      propertyPath: z
+      value: -8.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1087902515251946115, guid: d6067a62a156b4673aa218542b110a46, type: 3}
+      propertyPath: scene
+      value: Restaurant
+      objectReference: {fileID: 0}
+    - target: {fileID: 1087902515251946115, guid: d6067a62a156b4673aa218542b110a46, type: 3}
+      propertyPath: spawnPoint
+      value: 
+      objectReference: {fileID: 1298788589}
+    - target: {fileID: 1087902515251946115, guid: d6067a62a156b4673aa218542b110a46, type: 3}
+      propertyPath: transition
+      value: 
+      objectReference: {fileID: 237172710}
+    - target: {fileID: 2644868241442967509, guid: d6067a62a156b4673aa218542b110a46, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.14
+      objectReference: {fileID: 0}
+    - target: {fileID: 2644868241442967509, guid: d6067a62a156b4673aa218542b110a46, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.807
+      objectReference: {fileID: 0}
+    - target: {fileID: 2644868241442967509, guid: d6067a62a156b4673aa218542b110a46, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 31.34
+      objectReference: {fileID: 0}
+    - target: {fileID: 2644868241442967509, guid: d6067a62a156b4673aa218542b110a46, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.70705837
+      objectReference: {fileID: 0}
+    - target: {fileID: 2644868241442967509, guid: d6067a62a156b4673aa218542b110a46, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.008274664
+      objectReference: {fileID: 0}
+    - target: {fileID: 2644868241442967509, guid: d6067a62a156b4673aa218542b110a46, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.70705837
+      objectReference: {fileID: 0}
+    - target: {fileID: 2644868241442967509, guid: d6067a62a156b4673aa218542b110a46, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.008274664
+      objectReference: {fileID: 0}
+    - target: {fileID: 2644868241442967509, guid: d6067a62a156b4673aa218542b110a46, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2644868241442967509, guid: d6067a62a156b4673aa218542b110a46, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 2644868241442967509, guid: d6067a62a156b4673aa218542b110a46, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -1.341
+      objectReference: {fileID: 0}
+    - target: {fileID: 3297090075723323099, guid: d6067a62a156b4673aa218542b110a46, type: 3}
+      propertyPath: m_Name
+      value: Restaurant_Door
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d6067a62a156b4673aa218542b110a46, type: 3}
 --- !u!114 &603844966 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2878458444214880228, guid: b60b649067d6542ff9af7656af3b18c5, type: 3}
@@ -2797,37 +2882,6 @@ MonoBehaviour:
   m_Spacing: {x: 5, y: 5}
   m_Constraint: 0
   m_ConstraintCount: 2
---- !u!1 &823792637
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 823792638}
-  m_Layer: 0
-  m_Name: sceneHistory
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &823792638
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 823792637}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10, y: 10, z: 10}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &824597590
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6555,11 +6609,11 @@ SceneRoots:
   - {fileID: 1047173315}
   - {fileID: 2070518385}
   - {fileID: 1083202025}
-  - {fileID: 823792638}
   - {fileID: 2043705651}
   - {fileID: 181697677}
   - {fileID: 237172709}
   - {fileID: 824597590}
+  - {fileID: 548323123}
   - {fileID: 276393161}
   - {fileID: 1608465687}
   - {fileID: 15991644}
