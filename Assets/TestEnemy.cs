@@ -16,6 +16,7 @@ public class TestEnemy : MonoBehaviour
     Vector3 pos;
     Vector3 targetPos;
     Vector3 dest;
+    float targetDistance;
     [SerializeField] float aggroRange = 10;
     [SerializeField] float specialRange = 5;
     float pi;
@@ -26,6 +27,7 @@ public class TestEnemy : MonoBehaviour
     [SerializeField] float maxPause = 2f;
     [SerializeField] float specialCooldown = 5f;
     float speed;
+    bool isSpecial = false;
 
     // Start is called before the first frame update
     void Start()
@@ -42,30 +44,29 @@ public class TestEnemy : MonoBehaviour
     void Update()
     {
         specialTime += Time.deltaTime;
-        agent.speed = speed;
         pos = transform.position;
         targetPos = target.transform.position;
-        float distance = Vector3.Distance(pos, targetPos);
-        print(distance);
+        targetDistance = Vector3.Distance(pos, targetPos);
+        //print(targetDistance);
+        
 
-        if (distance > aggroRange)
+        if ((!isSpecial) && targetDistance > aggroRange)
         {
             Patrol();
+            print("patrolling");
         }
         else
         {
-            if (distance > specialRange && specialTime >= specialCooldown)
-            {
-                Special();
-            }
-            dest = targetPos;
+            TrySpecial();
+            print("trying special");
         }
         agent.SetDestination(dest);
     }
     private void Patrol()
     {
-        if (Vector3.Distance(pos, dest) <= agent.stoppingDistance)
+        if (agent.remainingDistance < 0.1)
         {
+            print("stop patrol");
             patrolTime += Time.deltaTime;
             float dir = Random.Range(0, 2 * pi);
             int mag = Random.Range(0, patrolRadius);
@@ -83,9 +84,23 @@ public class TestEnemy : MonoBehaviour
         }
     }
 
-    private void Special()
+    private void TrySpecial()
     {
-        agent.speed += 10f;
-        specialTime = 0f;
+        if (isSpecial)
+        {
+            if (agent.remainingDistance < 0.1)
+            {
+                isSpecial = false;
+                specialTime = 0f;
+                agent.speed = speed;
+                print("stop special");
+            }
+        }
+        if ((!isSpecial) && (targetDistance > specialRange && specialTime >= specialCooldown))
+        {
+            isSpecial = true;
+            dest = targetPos;
+            agent.speed = speed + 30f;
+        }
     }
 }
