@@ -2,11 +2,12 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
-    public int maxHealth = 100;
+    public int maxHealth;
     public int currentHealth;
 
     public HealthBar healthBar;
@@ -17,9 +18,20 @@ public class PlayerHealth : MonoBehaviour
         healthBar.SetMaxHealth(maxHealth);
     }
 
+    void Update()
+    {
+        if (currentHealth <= 0)
+        {
+            Destroy(gameObject);
+        }
+    }
+
         public void Heal(int amount)
     {
         currentHealth += amount;
-        healthBar.SetMaxHealth(currentHealth);        
+        if (currentHealth > maxHealth)
+        {
+            currentHealth = maxHealth;
+        }       
     }
 } 
