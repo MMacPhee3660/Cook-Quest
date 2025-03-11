@@ -10,39 +10,45 @@ using Random = UnityEngine.Random;
 public class TestEnemy : MonoBehaviour
 {
     NavMeshAgent agent;
-    [SerializeField] GameObject target;
+    [SerializeField] public GameObject target;
     Vector3 origin;
-    [SerializeField] int patrolRadius = 10;
+    [SerializeField] public int patrolRadius = 10;
     Vector3 pos;
     Vector3 targetPos;
     Vector3 dest;
     float targetDistance;
-    [SerializeField] float aggroRange = 10;
-    [SerializeField] float specialRange = 5;
-    float pi;
+    [SerializeField] public float aggroRange = 10;
+    [SerializeField] public float specialRange = 5;
     NavMeshPath path;
-    private float patrolTime = 0f;
-    private float specialTime = 0f;
-    [SerializeField] float minPause = 3f;
-    [SerializeField] float maxPause = 2f;
-    [SerializeField] float specialCooldown = 5f;
+    float patrolTime = 0f;
+    float specialTime = 0f;
+    float specialPause = 0f;
+    [SerializeField] public float minPause = 3f;
+    [SerializeField] public float maxPause = 2f;
+    [SerializeField] public float specialCooldown = 5f;
+    [SerializeField] public float specialWindup = 0.5f;
     float speed;
     bool isSpecial = false;
 
     // Start is called before the first frame update
-    void Start()
+    public void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         origin = transform.position;
         dest = origin;
-        pi = (float) Math.PI;
         path = new NavMeshPath();
         speed = agent.speed;
     }
 
     // Update is called once per frame
-    void Update()
+    public void Update()
     {
+        PathLoop();
+    }
+    
+    public void PathLoop()
+    {
+        agent.speed = speed;
         specialTime += Time.deltaTime;
         pos = transform.position;
         targetPos = target.transform.position;
@@ -53,22 +59,24 @@ public class TestEnemy : MonoBehaviour
         if ((!isSpecial) && targetDistance > aggroRange)
         {
             Patrol();
-            print("patrolling");
         }
         else
         {
             TrySpecial();
-            print("trying special");
+
+            if (!isSpecial)
+            {
+                Chase();
+            }
         }
         agent.SetDestination(dest);
     }
-    private void Patrol()
+    public void Patrol()
     {
         if (agent.remainingDistance < 0.1)
         {
-            print("stop patrol");
             patrolTime += Time.deltaTime;
-            float dir = Random.Range(0, 2 * pi);
+            float dir = Random.Range(0, 2 * (float) Math.PI);
             int mag = Random.Range(0, patrolRadius);
             int x = (int)(Math.Cos(dir) * mag);
             int y = (int)(Math.Sin(dir) * mag);
@@ -84,23 +92,32 @@ public class TestEnemy : MonoBehaviour
         }
     }
 
-    private void TrySpecial()
+    public void TrySpecial()
     {
         if (isSpecial)
         {
+            agent.speed = 0f;
+            specialPause += Time.deltaTime;
+            if (specialPause >= specialWindup)
+            {
+                agent.speed = speed + 500f;
+            }
             if (agent.remainingDistance < 0.1)
             {
                 isSpecial = false;
                 specialTime = 0f;
-                agent.speed = speed;
-                print("stop special");
+                specialPause = 0f;
             }
         }
         if ((!isSpecial) && (targetDistance > specialRange && specialTime >= specialCooldown))
         {
             isSpecial = true;
-            dest = targetPos;
-            agent.speed = speed + 30f;
+            dest = targetPos + (targetPos - pos).normalized * 3f;
         }
+    }
+
+    public void Chase()
+    {
+        dest = targetPos;
     }
 }
