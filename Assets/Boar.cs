@@ -1,13 +1,14 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Security.Cryptography;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 using Random = UnityEngine.Random;
 
-public class TestEnemy : MonoBehaviour
+public class Boar : MonoBehaviour
 {
     NavMeshAgent agent;
     [SerializeField] public GameObject target;
@@ -20,6 +21,7 @@ public class TestEnemy : MonoBehaviour
     [SerializeField] public float aggroRange = 10;
     [SerializeField] public float specialRange = 5;
     NavMeshPath path;
+    public LayerMask obstacleLayer;
     float patrolTime = 0f;
     float specialTime = 0f;
     float specialPause = 0f;
@@ -28,6 +30,7 @@ public class TestEnemy : MonoBehaviour
     [SerializeField] public float specialCooldown = 5f;
     [SerializeField] public float specialWindup = 0.5f;
     float speed;
+    bool isAggro = false;
     bool isSpecial = false;
 
     // Start is called before the first frame update
@@ -55,11 +58,21 @@ public class TestEnemy : MonoBehaviour
         targetDistance = Vector3.Distance(pos, targetPos);
         //print(targetDistance);
         
+        if (isSpecial || (targetDistance <= aggroRange && LineOfSight()))
+        {
+            isAggro = true;
+        }
+        else if (targetDistance > aggroRange)
+        {
+            isAggro = false;
+        }
+        
 
-        if ((!isSpecial) && targetDistance > aggroRange)
+        if (!isAggro)
         {
             Patrol();
         }
+        
         else
         {
             TrySpecial();
@@ -100,24 +113,31 @@ public class TestEnemy : MonoBehaviour
             specialPause += Time.deltaTime;
             if (specialPause >= specialWindup)
             {
-                agent.speed = speed + 500f;
+                agent.speed = speed + 100f;
             }
-            if (agent.remainingDistance < 0.1)
-            {
-                isSpecial = false;
-                specialTime = 0f;
-                specialPause = 0f;
-            }
+            if (agent.velocity == Vector3.zero && specialPause >= specialWindup + 0.5f)
+                {
+                    isSpecial = false;
+                    specialTime = 0f;
+                    specialPause = 0f;
+                }
         }
-        if ((!isSpecial) && (targetDistance > specialRange && specialTime >= specialCooldown))
+        if ((!isSpecial) && (targetDistance > specialRange && specialTime >= specialCooldown) && LineOfSight())
         {
             isSpecial = true;
-            dest = targetPos + (targetPos - pos).normalized * 3f;
+            dest = targetPos + (targetPos - pos).normalized * 5f;
         }
     }
 
     public void Chase()
     {
         dest = targetPos;
+    }
+
+    public bool LineOfSight()
+    {
+        RaycastHit hitInfo;
+        Physics.Raycast(pos, (targetPos - pos).normalized, out hitInfo, aggroRange, obstacleLayer);
+        return hitInfo.collider.gameObject == target;
     }
 }
