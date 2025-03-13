@@ -3243,9 +3243,9 @@ MonoBehaviour:
   productItem: {fileID: 11400000, guid: dec088066b50849a5b541797d2f60ab3, type: 2}
   inventoryManager: {fileID: 0}
   itemsReq:
-  - {fileID: 11400000, guid: 8b0f42283a4b54dda8c21f6ebae43d4e, type: 2}
-  - {fileID: 11400000, guid: e355158cd04514909822513705df6e5b, type: 2}
-  amounts: 0100000001000000
+  - {fileID: 11400000, guid: 95481f7a3e06f4257b58e3e507fee06d, type: 2}
+  - {fileID: 11400000, guid: c2c66de5b27b04e22abf0413f2746fd8, type: 2}
+  amounts: 0200000003000000
 --- !u!114 &771946260
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4813,9 +4813,9 @@ MonoBehaviour:
   productItem: {fileID: 11400000, guid: 432f2a5438a75495cb6ec0dbd85ef066, type: 2}
   inventoryManager: {fileID: 0}
   itemsReq:
-  - {fileID: 11400000, guid: 8b0f42283a4b54dda8c21f6ebae43d4e, type: 2}
-  - {fileID: 11400000, guid: e355158cd04514909822513705df6e5b, type: 2}
-  amounts: 0100000001000000
+  - {fileID: 11400000, guid: c2c66de5b27b04e22abf0413f2746fd8, type: 2}
+  - {fileID: 11400000, guid: 95481f7a3e06f4257b58e3e507fee06d, type: 2}
+  amounts: 0200000003000000
 --- !u!114 &1326602807
 MonoBehaviour:
   m_ObjectHideFlags: 0
