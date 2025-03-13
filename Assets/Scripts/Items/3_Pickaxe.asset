@@ -17,5 +17,5 @@ MonoBehaviour:
   itemType: 1
   range: {x: 2, y: 3, z: 0}
   stackable: 0
-  image: {fileID: 21300000, guid: 90a297c9c4fac41298d6ee91e1cfeb7f, type: 3}
+  image: {fileID: 21300000, guid: a79d15e1720ca47c38f971dd6b91a43f, type: 3}
   price: 25
