@@ -25,18 +25,29 @@ public class CraftButton : MonoBehaviour
  
     public void craft(){
         int pos =0;
+        int haveItems = 0;
         foreach(Item currItem in itemsReq){
             Debug.Log(currItem);
-            pos += 1;
             for(int i = 0; i < inventoryManager.InventorySlots.Length; i++){
-                Debug.Log(inventoryManager.InventorySlots.Length);
+                
                 InventorySlot slot = inventoryManager.InventorySlots[i];
                 InventoryItem itemInSlot = slot.GetComponentInChildren<InventoryItem>();
-                if(itemInSlot == currItem && itemInSlot.count >= amounts[pos]){
-                Debug.Log(itemInSlot.count);
+                if(itemInSlot != null && itemInSlot.item == currItem && itemInSlot.count >= amounts[pos]){
+                    haveItems += 1;
+                    itemInSlot.count -= amounts[pos];
+                    Debug.Log(itemInSlot.count);
+                    if(itemInSlot.count == 0){
+                        Destroy(itemInSlot.gameObject);
+                        Destroy(itemInSlot.image);
+                        
+                    }
+                   
+                }
             }
+            pos += 1;
         }
-
+        if(haveItems == itemsReq.Length){
+            inventoryManager.AddItem(productItem);
         }
     }
 }
