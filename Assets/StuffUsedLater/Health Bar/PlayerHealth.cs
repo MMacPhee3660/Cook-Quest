@@ -7,31 +7,33 @@ using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
-    public int maxHealth;
+    private int MaxHealth;
     public int currentHealth;
-
     public HealthBar healthBar;
-    
     void Start()
     {
-        currentHealth = maxHealth;
-        healthBar.SetMaxHealth(maxHealth);
+        currentHealth = MaxHealth;
+        healthBar.SetMaxHealth(MaxHealth);
     }
-
-    void Update()
-    {
-        if (currentHealth <= 0)
-        {
-            Destroy(gameObject);
-        }
-    }
-
         public void Heal(int amount)
     {
         currentHealth += amount;
-        if (currentHealth > maxHealth)
+        healthBar.SetMaxHealth(currentHealth);
+    }
+    private void Update()
+    {
+         if (currentHealth > MaxHealth)
+         {
+           currentHealth = MaxHealth;
+        }   
+         if(currentHealth <=0)
         {
-            currentHealth = maxHealth;
-        }       
+            Die();
+        }
+    }
+    private void Die()
+    {
+        Debug.Log("You Died!");
+        Destroy(gameObject);
     }
 } 

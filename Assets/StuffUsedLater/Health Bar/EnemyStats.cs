@@ -8,7 +8,7 @@ public class EnemyStats : MonoBehaviour
 {
     public float speed;
     public Transform target;
-    public int damage = 25;
+    public int damage;
     public int maxHealth = 100;
     public int currentHealth;
     public HealthBar healthBar;

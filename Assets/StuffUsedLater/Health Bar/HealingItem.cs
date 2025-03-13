@@ -5,8 +5,8 @@ using UnityEngine.PlayerLoop;
 
 public class HealingItem : MonoBehaviour
 {
-    public int health;
-    public int currentHealth;
+    private int health = 25;
+    private int currentHealth;
 
     PlayerHealth playerHealth;
     public GameObject player;
@@ -16,16 +16,14 @@ public class HealingItem : MonoBehaviour
         playerHealth = player.GetComponent<PlayerHealth>();
         currentHealth = health;
     }
+        public int amount;
 
     public HealthBar healthBar; 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            playerHealth = GameObject.Find("PlayerMove").GetComponent<PlayerHealth>();
-            playerHealth.Heal(25);
-            healthBar.SetMaxHealth(currentHealth);
-            Debug.Log("Player healed");
+            other.GetComponent<PlayerHealth>().Heal(currentHealth);
             Destroy(gameObject);
         }
     }
