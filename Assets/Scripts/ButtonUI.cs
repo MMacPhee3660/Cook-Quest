@@ -11,18 +11,25 @@ public class ButtonUI : MonoBehaviour
     public TMP_Text buyText;
     public GameObject scroll;
     public GameObject purchaser;
+
     public void AddItemButton(){
+        Debug.Log("Add");
+        Debug.Log(itemCount);
         itemCount++;
+        Debug.Log(itemCount);
         countText.text = "" + itemCount;
+       
     }
     public void SubtractItemButton(){
         if(itemCount > 0){
             itemCount--;
             countText.text = "" + itemCount;
+            Debug.Log("minus");
         }
     }
     public void BuyButton(){
         buyText.text = "Bought!";
+        Debug.Log("bought");
     }
     public void menuItem(){
         scroll.SetActive(false);
@@ -32,5 +39,6 @@ public class ButtonUI : MonoBehaviour
     public void menuBack(){
         scroll.SetActive(true);
         purchaser.SetActive(false);
+        Debug.Log("back");
     }
 }
