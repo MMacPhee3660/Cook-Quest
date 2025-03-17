@@ -6,12 +6,17 @@ using TMPro;
 using UnityEditor;
 using UnityEngine;
 
+
+
 public class Harvestable : MonoBehaviour
 {
+    public enum ResourceType{Rock, Tree, Enemy}
+    [SerializeField] ResourceType resourceType;
     public InventoryManager inventoryManager;
     [SerializeField] Animator animator;
     Item receivedItem; //the item that is currently selected in the players inventory
     public Item droppedItem; //the item that the resource drops, used to check if the tool type is equal to the resource type (set in inspector currently)
+    public int toDrop = 0;
 
     [field : SerializeField] public int ResourceCount {get; private set;}
     [field : SerializeField] public GameObject ResourceNode {get; private set;}
@@ -22,10 +27,33 @@ public class Harvestable : MonoBehaviour
         int amountToSpawn = Mathf.Min(amount, ResourceCount - amountHarvested);
         GetSelectedItem();
         Debug.Log(receivedItem.actionType + " " + droppedItem.actionType);
-        if(amountToSpawn > 0 && receivedItem.actionType == droppedItem.actionType && receivedItem.itemType == ItemType.Tool){
-            ps.Emit(amount);
-            amountHarvested += amountToSpawn;
-            animator.SetTrigger("hit");
+
+        switch (resourceType){
+            case ResourceType.Rock:
+                if(amountToSpawn > 0 && receivedItem.actionType == droppedItem.actionType && receivedItem.itemType == ItemType.Tool){
+                ps.Emit(amount);
+                amountHarvested += amountToSpawn;
+                animator.SetTrigger("hit");
+                }
+            break;
+            case ResourceType.Tree:
+            if(amountToSpawn > 0 && receivedItem.actionType == droppedItem.actionType && receivedItem.itemType == ItemType.Tool){
+                ps.Emit(amount);
+                amountHarvested += amountToSpawn;
+                animator.SetTrigger("hit");
+                }
+            break;
+            case ResourceType.Enemy:
+            if(amountToSpawn > 0 && receivedItem.actionType == droppedItem.actionType && receivedItem.itemType == ItemType.Tool){
+                toDrop = toDrop + 1;
+                amountHarvested += amountToSpawn;
+                // animator.SetTrigger("hit");
+                if(amountHarvested >= ResourceCount){
+                    ps.Emit(toDrop);
+                    toDrop = 0;
+                }
+            }
+            break;
         }
 
         if(amountHarvested >= ResourceCount){

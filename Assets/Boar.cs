@@ -10,6 +10,7 @@ using Random = UnityEngine.Random;
 
 public class Boar : MonoBehaviour
 {
+    public Animator animator;
     NavMeshAgent agent;
     [SerializeField] public GameObject target;
     Vector3 origin;
@@ -118,6 +119,7 @@ public class Boar : MonoBehaviour
             if (agent.velocity == Vector3.zero && specialPause >= specialWindup + 0.5f)
                 {
                     isSpecial = false;
+                    animator.SetBool("Rush",false);
                     specialTime = 0f;
                     specialPause = 0f;
                 }
@@ -125,6 +127,7 @@ public class Boar : MonoBehaviour
         if ((!isSpecial) && (targetDistance > specialRange && specialTime >= specialCooldown) && LineOfSight())
         {
             isSpecial = true;
+            animator.SetBool("Rush",true);
             dest = targetPos + (targetPos - pos).normalized * 5f;
         }
     }

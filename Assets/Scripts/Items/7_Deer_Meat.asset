@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 7_Deer_Meat
   m_EditorClassIdentifier: 
   ID: 7
-  actionType: 0
+  actionType: 1
   itemType: 0
   range: {x: 2, y: 3, z: 0}
   stackable: 1
