@@ -7,21 +7,29 @@ using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
-    private int MaxHealth;
+    public int MaxHealth;
     public int currentHealth;
     public HealthBar healthBar;
     void Start()
     {
-        currentHealth = MaxHealth;
+        // Initializes currentHealth to a specific value instead of MaxHealth
+        currentHealth = 100; // Can be set to whatever value wanted
         healthBar.SetMaxHealth(MaxHealth);
+        healthBar.SetHealth(currentHealth);
     }
         public void Heal(int amount)
-    {
-        currentHealth += amount;
-        healthBar.SetMaxHealth(currentHealth);
-    }
+        {
+            currentHealth += amount;
+            if (currentHealth > MaxHealth)
+            {
+                currentHealth = MaxHealth;
+            }
+            healthBar.SetHealth(currentHealth);
+        }
+        
     private void Update()
     {
+        Debug.Log(currentHealth);
          if (currentHealth > MaxHealth)
          {
            currentHealth = MaxHealth;
@@ -35,5 +43,14 @@ public class PlayerHealth : MonoBehaviour
     {
         Debug.Log("You Died!");
         Destroy(gameObject);
+    }
+     public void TakeDamage(int damage)
+    {
+        currentHealth -= damage;
+        if(currentHealth > MaxHealth)
+        {
+            currentHealth = MaxHealth;
+        }
+        healthBar.SetHealth(currentHealth);
     }
 } 

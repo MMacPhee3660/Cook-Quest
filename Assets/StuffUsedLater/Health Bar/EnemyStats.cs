@@ -6,27 +6,28 @@ using UnityEngine.UI;
 
 public class EnemyStats : MonoBehaviour
 {
+    public int damageTaken;
     public float speed;
     public Transform target;
     public int damage;
-    public int maxHealth = 100;
     public int currentHealth;
     public HealthBar healthBar;
 
     void Start()
     {
-        currentHealth = maxHealth;
-        healthBar.SetMaxHealth(maxHealth);
+        PlayerHealth playerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
+        if (playerHealth != null)
+        {
+            int MaxHealth = playerHealth.MaxHealth;
+            currentHealth = MaxHealth;
+            healthBar.SetMaxHealth(MaxHealth);
+        }
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
     }
-
+    
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse1))
-        {
-            TakeDamage(25);
-        }
-        transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+         transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
     }
 
 
@@ -34,14 +35,14 @@ public class EnemyStats : MonoBehaviour
     {
    if (other.tag == "Player")
          {
-            TakeDamage(25);
+            PlayerHealth playerHealth = other.GetComponent<PlayerHealth>();
+            if (playerHealth != null)
+            {
+                playerHealth.TakeDamage(25);
+            }
          }
     }
-
-    public void TakeDamage(int damage)
-    {
-        currentHealth -= damage;
-        healthBar.SetHealth(currentHealth);   
-    }
 }
+
+  
 
