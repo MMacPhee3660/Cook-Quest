@@ -5010,6 +5010,7 @@ MonoBehaviour:
   <ResourceCount>k__BackingField: 5
   <ResourceNode>k__BackingField: {fileID: 8270642997957801325}
   <ps>k__BackingField: {fileID: 9091922508086786184}
+  objectToDestroy: {fileID: 6274453871170489963}
 --- !u!95 &3030236581704095183
 Animator:
   serializedVersion: 5

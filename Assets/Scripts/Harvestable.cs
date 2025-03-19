@@ -17,11 +17,15 @@ public class Harvestable : MonoBehaviour
     Item receivedItem; //the item that is currently selected in the players inventory
     public Item droppedItem; //the item that the resource drops, used to check if the tool type is equal to the resource type (set in inspector currently)
     public int toDrop = 0;
-
+    public GameObject objectToDestroy;
     [field : SerializeField] public int ResourceCount {get; private set;}
     [field : SerializeField] public GameObject ResourceNode {get; private set;}
     [field: SerializeField] public ParticleSystem ps {get; private set;}
     private int amountHarvested = 0;
+    public Boolean hasDropped = false;
+    public void Update()
+    {
+    }
     public void Harvest(int amount)
     {
         int amountToSpawn = Mathf.Min(amount, ResourceCount - amountHarvested);
@@ -40,7 +44,7 @@ public class Harvestable : MonoBehaviour
             if(amountToSpawn > 0 && receivedItem.actionType == droppedItem.actionType && receivedItem.itemType == ItemType.Tool){
                 ps.Emit(amount);
                 amountHarvested += amountToSpawn;
-                animator.SetTrigger("hit");
+                //animator.SetTrigger("hit");
                 }
             break;
             case ResourceType.Enemy:
@@ -56,10 +60,7 @@ public class Harvestable : MonoBehaviour
             break;
         }
 
-        if(amountHarvested >= ResourceCount){
-
-            Destroy(gameObject);
-        }
+        
     }
 
 
