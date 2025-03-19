@@ -760,7 +760,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: 7f6d45024819f4fbbb95e01c8e79ac4c, type: 2}
-  wallet: {fileID: 1547322649}
+  money: {fileID: 0}
   E: {fileID: 1742022249}
   price: 0
   testE: {fileID: 1742022249}
@@ -1120,7 +1120,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: 95481f7a3e06f4257b58e3e507fee06d, type: 2}
-  wallet: {fileID: 1547322649}
+  money: {fileID: 0}
   E: {fileID: 1742022249}
   price: 2
   testE: {fileID: 1742022249}
@@ -1517,7 +1517,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: 1f19813f224b847e99c672f7627b8a54, type: 2}
-  wallet: {fileID: 1547322649}
+  money: {fileID: 0}
   E: {fileID: 1742022249}
   price: 5
   testE: {fileID: 1742022249}
@@ -2522,7 +2522,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: dec088066b50849a5b541797d2f60ab3, type: 2}
-  wallet: {fileID: 1547322649}
+  money: {fileID: 0}
   E: {fileID: 1742022249}
   price: 3
   testE: {fileID: 1742022249}
@@ -3017,7 +3017,8 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 5
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4569916293728207337, guid: 9b8ac26a260d948c29e6495581bf20f2, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
