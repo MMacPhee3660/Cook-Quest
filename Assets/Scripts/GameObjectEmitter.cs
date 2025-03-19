@@ -17,6 +17,7 @@ public class GameObjectEmitter : MonoBehaviour
     }
 
     private void OnParticleTrigger(){
+        Debug.Log("detected");
         ps.GetTriggerParticles(ParticleSystemTriggerEventType.Exit, exitParticles);
 
         foreach(ParticleSystem.Particle p in exitParticles){
