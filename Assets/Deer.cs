@@ -5,9 +5,4 @@ using UnityEngine;
 public class Deer : Boar
 {
 
-    public new void PathLoop()
-    {
-    
-    }
-
 }
