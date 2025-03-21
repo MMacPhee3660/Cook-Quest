@@ -25,11 +25,6 @@ public class EnemyStats : MonoBehaviour
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
     }
     
-    void Update()
-    {
-         transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
-    }
-
 
     public void OnTriggerEnter(Collider other)
     {
