@@ -10,7 +10,7 @@ public class Quickbuy : MonoBehaviour
 
     [Header("Type")]
     public Item item;
-    public Wallet wallet;
+    public Money money;
     private float distance;
     [SerializeField] GameObject E;
     public float price;
@@ -64,6 +64,6 @@ public class Quickbuy : MonoBehaviour
     }
 
     public void moneyReduce(int price){
-        wallet.money = wallet.money - price;
+        money.moneyint = money.moneyint - price;
     }
 }

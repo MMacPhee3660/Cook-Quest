@@ -11,11 +11,14 @@ public class ItemPickup : MonoBehaviour
 
     public InventoryManager inventoryManager;
     
+    public SpriteRenderer spriteRenderer;
 
 
     void Awake(){
         GameObject inventoryManagerObj = GameObject.FindGameObjectWithTag("InventoryManager");
         inventoryManager = inventoryManagerObj.GetComponent<InventoryManager>();
+        this.spriteRenderer.sprite = item.image;
+
     }
     public void OnTriggerEnter(Collider other){
         if(other.tag == "Player"){
