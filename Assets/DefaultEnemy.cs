@@ -19,7 +19,7 @@ public class DefaultEnemy : MonoBehaviour
     Vector3 targetPos;
     Vector3 dest;
     float targetDistance;
-    [SerializeField] public float aggroRange = 10;
+    [SerializeField] public float sightRange = 10;
     [SerializeField] public float specialRange = 5;
     NavMeshPath path;
     public LayerMask obstacleLayer;
@@ -31,7 +31,7 @@ public class DefaultEnemy : MonoBehaviour
     [SerializeField] public float specialCooldown = 5f;
     [SerializeField] public float specialWindup = 0.5f;
     float speed;
-    bool isAggro = false;
+    bool canSeeTarget = false;
     bool isSpecial = false;
     public void Start()
     {
@@ -59,15 +59,15 @@ public class DefaultEnemy : MonoBehaviour
         
         if (isSpecial || LineOfSight())
         {
-            isAggro = true;
+            canSeeTarget = true;
         }
-        else if (targetDistance > aggroRange)
+        else if (targetDistance > sightRange)
         {
-            isAggro = false;
+            canSeeTarget = false;
         }
         
 
-        if (!isAggro)
+        if (!canSeeTarget)
         {
             Patrol();
         }
@@ -140,7 +140,7 @@ public class DefaultEnemy : MonoBehaviour
     public bool LineOfSight()
     {
         RaycastHit hitInfo;
-        Physics.Raycast(pos, (targetPos - pos).normalized, out hitInfo, aggroRange, obstacleLayer);
+        Physics.Raycast(pos, (targetPos - pos).normalized, out hitInfo, sightRange, obstacleLayer);
         if (hitInfo.collider != null) {
             return hitInfo.collider.gameObject == target;
         }
