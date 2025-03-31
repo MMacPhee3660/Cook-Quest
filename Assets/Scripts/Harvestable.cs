@@ -55,6 +55,7 @@ public class Harvestable : MonoBehaviour
                 if(amountHarvested >= ResourceCount){
                     ps.Emit(toDrop);
                     toDrop = 0;
+                    Destroy(this.gameObject);
                 }
             }
             break;
