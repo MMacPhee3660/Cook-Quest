@@ -59,7 +59,7 @@ public class Boar : MonoBehaviour
         targetDistance = Vector3.Distance(pos, targetPos);
         //print(targetDistance);
         
-        if (isSpecial || (targetDistance <= aggroRange && LineOfSight()))
+        if (isSpecial || LineOfSight())
         {
             isAggro = true;
         }
@@ -141,6 +141,12 @@ public class Boar : MonoBehaviour
     {
         RaycastHit hitInfo;
         Physics.Raycast(pos, (targetPos - pos).normalized, out hitInfo, aggroRange, obstacleLayer);
-        return hitInfo.collider.gameObject == target;
+        if (hitInfo.collider != null) {
+            return hitInfo.collider.gameObject == target;
+        }
+        else
+        {
+        return false;
+        }
     }
 }
