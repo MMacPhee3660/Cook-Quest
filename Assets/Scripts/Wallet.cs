@@ -8,7 +8,7 @@ using System;
 public class Wallet : MonoBehaviour
 {
     Money moneyobj;
-    public int money;
+    int money;
     public TMP_Text inWallet;
     // public Quickbuy itemPrice;
     public GameObject[] DisplayObjects;
@@ -16,21 +16,24 @@ public class Wallet : MonoBehaviour
     float distance;
     // float nearestDist = 10000;
     public GameObject player;
+    PlayerStats moneyScript;
 
     // Start is called before the first frame update
     void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
+        moneyScript = player.GetComponentInChildren<PlayerStats>();
+        money = moneyScript.money;
         // itemPrice = Quickbuy.price;
         DisplayObjects = GameObject.FindGameObjectsWithTag("DisplayObj");
-        player = GameObject.Find("PlayerMove");
-        money = moneyobj.moneyint;
+        // player = GameObject.Find("PlayerMove");
     }
 
     // Update is called once per frame
     void Update()
     {
-        
-        inWallet.text = "$: " + moneyobj.moneyint;
+        money = moneyScript.money;
+        inWallet.text = "$: " + money;
 
         // for(int i = 0; i < DisplayObjects.Length; i++){
         //     distance = Vector3.Distance(player.transform.position, DisplayObjects[i].transform.position);

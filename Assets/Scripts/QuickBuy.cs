@@ -10,7 +10,8 @@ public class Quickbuy : MonoBehaviour
 
     [Header("Type")]
     public Item item;
-    public Money money;
+    // public Money money;
+    public int money;
     private float distance;
     [SerializeField] GameObject E;
     public float price;
@@ -19,8 +20,8 @@ public class Quickbuy : MonoBehaviour
     public GameObject testE;
     public GameObject childE;
     private int x = 0;
-
-     public InventoryManager inventoryManager;
+    PlayerStats moneyScript;
+    public InventoryManager inventoryManager;
     
 
 
@@ -31,7 +32,9 @@ public class Quickbuy : MonoBehaviour
     
     void Start()
     {
-        player = GameObject.Find("PlayerMove");
+        player = GameObject.FindGameObjectWithTag("Player");
+        moneyScript = player.GetComponentInChildren<PlayerStats>();
+        money = moneyScript.money;
         E.SetActive(false);
         childE = Instantiate(testE, transform.position,Quaternion.identity);
         childE.transform.position += Vector3.up * 1f;
@@ -55,15 +58,14 @@ public class Quickbuy : MonoBehaviour
             Debug.Log("getitem");
             GetItem(item.ID);
             
-            moneyReduce(item.price);
+            moneyScript.money -= item.price;
+            
         }
     }
     public void GetItem(int id){
         inventoryManager.AddItem(inventoryManager.itemsToPickup[id]);
-        
+        moneyScript.money -= item.price;
     }
 
-    public void moneyReduce(int price){
-        money.moneyint = money.moneyint - price;
-    }
+
 }

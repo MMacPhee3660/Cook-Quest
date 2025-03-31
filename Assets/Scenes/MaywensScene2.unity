@@ -3732,6 +3732,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   freezeXZAxis: 0
+--- !u!1 &992851363 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8123195899773927105, guid: 782cbead201354ab49bfbd2f236e3178, type: 3}
+  m_PrefabInstance: {fileID: 1608465687}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &992851369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 992851363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1979e007403e4f60a1515759a40a613, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  money: 100
 --- !u!1001 &1007043753
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5736,7 +5754,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8123195899773927105, guid: 782cbead201354ab49bfbd2f236e3178, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 992851369}
   m_SourcePrefab: {fileID: 100100000, guid: 782cbead201354ab49bfbd2f236e3178, type: 3}
 --- !u!114 &1623242844 stripped
 MonoBehaviour:
