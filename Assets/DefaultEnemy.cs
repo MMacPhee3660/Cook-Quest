@@ -82,6 +82,7 @@ public class DefaultEnemy : MonoBehaviour
             }
         }
         agent.SetDestination(dest);
+        FindDirection();
     }
 
     public void Patrol()
@@ -146,6 +147,18 @@ public class DefaultEnemy : MonoBehaviour
         else
         {
         return false;
+        }
+    }
+
+    public void FindDirection()
+    {
+        if (agent.velocity.x > 0)
+        {
+
+        }
+        else 
+        {
+            
         }
     }
 }
