@@ -8,7 +8,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using Random = UnityEngine.Random;
 
-public class Boar : DefaultEnemy
+public class Deer : DefaultEnemy
 {
     
 }
