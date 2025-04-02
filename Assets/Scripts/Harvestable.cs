@@ -37,14 +37,20 @@ public class Harvestable : MonoBehaviour
                 if(amountToSpawn > 0 && receivedItem.actionType == droppedItem.actionType && receivedItem.itemType == ItemType.Tool){
                 ps.Emit(amount);
                 amountHarvested += amountToSpawn;
-                animator.SetTrigger("hit");
+                animator.SetTrigger("hit"); 
+                if(amountHarvested >= ResourceCount){
+                    Destroy(this.gameObject);
+                }
                 }
             break;
             case ResourceType.Tree:
             if(amountToSpawn > 0 && receivedItem.actionType == droppedItem.actionType && receivedItem.itemType == ItemType.Tool){
                 ps.Emit(amount);
                 amountHarvested += amountToSpawn;
-                //animator.SetTrigger("hit");
+                animator.SetTrigger("hit");
+                  if(amountHarvested >= ResourceCount){
+                    Destroy(this.gameObject);
+                }
                 }
             break;
             case ResourceType.Enemy:
