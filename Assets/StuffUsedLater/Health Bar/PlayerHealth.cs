@@ -12,8 +12,7 @@ public class PlayerHealth : MonoBehaviour
     public HealthBar healthBar;
     void Start()
     {
-        // Initializes currentHealth to a specific value instead of MaxHealth
-        currentHealth = 100; // Can be set to whatever value wanted
+        currentHealth = 100;
         healthBar.SetMaxHealth(MaxHealth);
         healthBar.SetHealth(currentHealth);
     }
@@ -29,7 +28,6 @@ public class PlayerHealth : MonoBehaviour
         
     private void Update()
     {
-        Debug.Log(currentHealth);
          if (currentHealth > MaxHealth)
          {
            currentHealth = MaxHealth;

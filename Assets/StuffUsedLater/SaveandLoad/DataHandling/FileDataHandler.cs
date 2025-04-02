@@ -76,17 +76,12 @@ public class FileDataHandler : MonoBehaviour
         }
     }
 
-    private string EncryptDecrypt(string dataToStore)
-    {
-        throw new NotImplementedException();
-    }
-
-    private string EcryptionDecrypt(string data)
+    private string EncryptDecrypt(string data)
     {
         string modifiedData = "";
         for (int i = 0; i < data.Length; i++)
         {
-            modifiedData += (char) (data[i] ^ encryptionCodeWord[i % encryptionCodeWord.Length]);
+            modifiedData += (char)(data[i] ^ encryptionCodeWord[i % encryptionCodeWord.Length]);
         }
         return modifiedData;
     }
