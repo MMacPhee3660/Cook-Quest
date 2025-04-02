@@ -6,9 +6,7 @@ using UnityEngine.UI;
 
 public class EnemyStats : MonoBehaviour
 {
-    public int damageTaken;
     public float speed;
-    public Transform target;
     public int damage;
     public int currentHealth;
     public HealthBar healthBar;
@@ -22,7 +20,6 @@ public class EnemyStats : MonoBehaviour
             currentHealth = MaxHealth;
             healthBar.SetMaxHealth(MaxHealth);
         }
-        target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
     }
     
 
