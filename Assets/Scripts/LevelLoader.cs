@@ -7,9 +7,17 @@ using UnityEngine.SceneManagement;
 public class LevelLoader : MonoBehaviour{
 
 
-    
-    GameObject spawnpoint;
-
+    public GameObject player;
+    public int X;
+    public int Y;
+    public int Z;
+    public GameObject spawnPoint;
+    public void Start(){
+        
+        spawnPoint = GameObject.FindGameObjectWithTag("spawnPoint");
+        player = GameObject.FindGameObjectWithTag("Player");
+        spawnPoint.transform.position = new Vector3 (X,Y,Z);
+    }
     void Update()
     {
         if(Input.GetMouseButtonDown(0)){
@@ -28,5 +36,8 @@ public class LevelLoader : MonoBehaviour{
         transition.SetTrigger("Start");
         yield return new WaitForSeconds(animTime);
         SceneManager.LoadScene(levelName);
+
     }
+
+    
 }

@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8dc6d0609396f46c6828133041e1511e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moneyint: 100
 --- !u!1 &1601294725349172984
 GameObject:
   m_ObjectHideFlags: 0
@@ -438,6 +439,7 @@ GameObject:
   - component: {fileID: 4938698297863789227}
   - component: {fileID: 82807651675318948}
   - component: {fileID: 6698745099333311002}
+  - component: {fileID: 3578257621100593999}
   m_Layer: 0
   m_Name: PlayerVisual
   m_TagString: Player
@@ -560,3 +562,16 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &3578257621100593999
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8123195899773927105}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1979e007403e4f60a1515759a40a613, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  money: 10

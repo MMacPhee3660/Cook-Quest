@@ -58,7 +58,7 @@ public class Quickbuy : MonoBehaviour
             Debug.Log("getitem");
             GetItem(item.ID);
             
-            moneyScript.money -= item.price;
+            
             
         }
     }
@@ -66,6 +66,7 @@ public class Quickbuy : MonoBehaviour
         inventoryManager.AddItem(inventoryManager.itemsToPickup[id]);
         moneyScript.money -= item.price;
     }
+    
 
 
 }

@@ -4881,7 +4881,7 @@ Transform:
   m_GameObject: {fileID: 1298788589}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -3.64}
+  m_LocalPosition: {x: 0, y: 1, z: -2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7583,6 +7583,38 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 357495710430154597, guid: d6ac981f49e56419f9e7031f5aa674a3, type: 3}
+      propertyPath: itemsToPickup.Array.size
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 357495710430154597, guid: d6ac981f49e56419f9e7031f5aa674a3, type: 3}
+      propertyPath: itemsToPickup.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: 8b0f42283a4b54dda8c21f6ebae43d4e, type: 2}
+    - target: {fileID: 357495710430154597, guid: d6ac981f49e56419f9e7031f5aa674a3, type: 3}
+      propertyPath: itemsToPickup.Array.data[4]
+      value: 
+      objectReference: {fileID: 11400000, guid: e355158cd04514909822513705df6e5b, type: 2}
+    - target: {fileID: 357495710430154597, guid: d6ac981f49e56419f9e7031f5aa674a3, type: 3}
+      propertyPath: itemsToPickup.Array.data[5]
+      value: 
+      objectReference: {fileID: 11400000, guid: a3795d152263e45bd8e346d723364604, type: 2}
+    - target: {fileID: 357495710430154597, guid: d6ac981f49e56419f9e7031f5aa674a3, type: 3}
+      propertyPath: itemsToPickup.Array.data[6]
+      value: 
+      objectReference: {fileID: 11400000, guid: 32fbd20f5aeb64daa9cfffa59ee53f2b, type: 2}
+    - target: {fileID: 357495710430154597, guid: d6ac981f49e56419f9e7031f5aa674a3, type: 3}
+      propertyPath: itemsToPickup.Array.data[7]
+      value: 
+      objectReference: {fileID: 11400000, guid: 432f2a5438a75495cb6ec0dbd85ef066, type: 2}
+    - target: {fileID: 357495710430154597, guid: d6ac981f49e56419f9e7031f5aa674a3, type: 3}
+      propertyPath: itemsToPickup.Array.data[8]
+      value: 
+      objectReference: {fileID: 11400000, guid: dec088066b50849a5b541797d2f60ab3, type: 2}
+    - target: {fileID: 357495710430154597, guid: d6ac981f49e56419f9e7031f5aa674a3, type: 3}
+      propertyPath: itemsToPickup.Array.data[9]
+      value: 
+      objectReference: {fileID: 11400000, guid: 7f6d45024819f4fbbb95e01c8e79ac4c, type: 2}
+    - target: {fileID: 357495710430154597, guid: d6ac981f49e56419f9e7031f5aa674a3, type: 3}
       propertyPath: InventorySlots.Array.data[0]
       value: 
       objectReference: {fileID: 1251506573}
@@ -7622,6 +7654,14 @@ PrefabInstance:
       propertyPath: InventorySlots.Array.data[9]
       value: 
       objectReference: {fileID: 268236070}
+    - target: {fileID: 357495710430154597, guid: d6ac981f49e56419f9e7031f5aa674a3, type: 3}
+      propertyPath: itemsToPickup.Array.data[10]
+      value: 
+      objectReference: {fileID: 11400000, guid: 67bc62bd3714a469f9ba3485a7c53bbf, type: 2}
+    - target: {fileID: 357495710430154597, guid: d6ac981f49e56419f9e7031f5aa674a3, type: 3}
+      propertyPath: itemsToPickup.Array.data[11]
+      value: 
+      objectReference: {fileID: 11400000, guid: 5d347de88ecb645fe9aa7cfc2ee8e7cb, type: 2}
     - target: {fileID: 357495710430154597, guid: d6ac981f49e56419f9e7031f5aa674a3, type: 3}
       propertyPath: InventorySlots.Array.data[10]
       value: 
