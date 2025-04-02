@@ -11,29 +11,29 @@ using Random = UnityEngine.Random;
 public class DefaultEnemy : MonoBehaviour
 {
     public Animator animator;
-    NavMeshAgent agent;
+    protected NavMeshAgent agent;
     [SerializeField] public GameObject target;
-    Vector3 origin;
+    protected Vector3 origin;
     [SerializeField] public int patrolRadius = 10;
-    Vector3 pos;
-    Vector3 targetPos;
-    Vector3 dest;
-    float targetDistance;
+    protected Vector3 pos;
+    protected Vector3 targetPos;
+    protected Vector3 dest;
+    protected float targetDistance;
     [SerializeField] public float sightRange = 10;
     [SerializeField] public float specialRange = 5;
-    NavMeshPath path;
+    protected NavMeshPath path;
     public LayerMask obstacleLayer;
-    float patrolTime = 0f;
-    float specialTime = 0f;
-    float specialPause = 0f;
+    protected float patrolTime = 0f;
+    protected float specialTime = 0f;
+    protected float specialPause = 0f;
     [SerializeField] public float minPause = 3f;
     [SerializeField] public float maxPause = 2f;
     [SerializeField] public float specialCooldown = 5f;
     [SerializeField] public float specialWindup = 0.5f;
-    float speed;
-    bool canSeeTarget = false;
-    bool isSpecial = false;
-    public void Start()
+    protected float speed;
+    protected bool canSeeTarget = false;
+    protected bool isSpecial = false;
+    protected void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         origin = transform.position;
@@ -43,12 +43,12 @@ public class DefaultEnemy : MonoBehaviour
     }
 
     // Update is called once per frame
-    public void Update()
+    protected void Update()
     {
         PathLoop();
     }
 
-    public void PathLoop()
+    protected void PathLoop()
     {
         agent.speed = speed;
         specialTime += Time.deltaTime;
@@ -85,7 +85,7 @@ public class DefaultEnemy : MonoBehaviour
         FindDirection();
     }
 
-    public void Patrol()
+    protected void Patrol()
     {
         if (agent.remainingDistance < 0.1)
         {
@@ -106,7 +106,7 @@ public class DefaultEnemy : MonoBehaviour
         }
     }
 
-    public void TrySpecial()
+    protected void TrySpecial()
     {
         if (isSpecial)
         {
@@ -132,7 +132,7 @@ public class DefaultEnemy : MonoBehaviour
         }
     }
 
-    public void Chase()
+    protected void Chase()
     {
         dest = targetPos;
     }
