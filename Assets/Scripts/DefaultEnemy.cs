@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
+using Unity.AI.Navigation;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
@@ -12,7 +13,7 @@ public class DefaultEnemy : MonoBehaviour
 {
     public Animator animator;
     protected NavMeshAgent agent;
-    [SerializeField] public GameObject target;
+    protected GameObject target;
     protected Vector3 origin;
     [SerializeField] public int patrolRadius = 10;
     protected Vector3 pos;
@@ -22,6 +23,7 @@ public class DefaultEnemy : MonoBehaviour
     [SerializeField] public float sightRange = 10;
     [SerializeField] public float specialRange = 5;
     protected NavMeshPath path;
+    protected NavMeshSurface surface;
     public LayerMask obstacleLayer;
     protected float patrolTime = 0f;
     protected float specialTime = 0f;
@@ -33,6 +35,7 @@ public class DefaultEnemy : MonoBehaviour
     protected float speed;
     protected bool canSeeTarget = false;
     protected bool isSpecial = false;
+    protected float patrolDir = 0f;
     protected void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -40,6 +43,7 @@ public class DefaultEnemy : MonoBehaviour
         dest = origin;
         path = new NavMeshPath();
         speed = agent.speed;
+        target = GameObject.FindGameObjectWithTag("Player");
     }
 
     // Update is called once per frame
@@ -90,10 +94,10 @@ public class DefaultEnemy : MonoBehaviour
         if (agent.remainingDistance < 0.1)
         {
             patrolTime += Time.deltaTime;
-            float dir = Random.Range(0, 2 * (float) Math.PI);
+            patrolDir += (float) Math.PI + 0.1f;
             int mag = Random.Range(0, patrolRadius);
-            int x = (int)(Math.Cos(dir) * mag);
-            int y = (int)(Math.Sin(dir) * mag);
+            float x = (float)(Math.Cos(patrolDir) * mag);
+            float y = (float)(Math.Sin(patrolDir) * mag);
             Vector3 tempDest = new Vector3(origin.x + x, origin.y, origin.z + y);
             float pause = Random.Range(minPause, maxPause);
             
