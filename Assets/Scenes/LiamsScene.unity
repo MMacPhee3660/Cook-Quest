@@ -1087,6 +1087,7 @@ GameObject:
   - component: {fileID: 480063653}
   - component: {fileID: 480063652}
   - component: {fileID: 480063651}
+  - component: {fileID: 480063655}
   m_Layer: 0
   m_Name: Plane
   m_TagString: Untagged
@@ -1180,6 +1181,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &480063655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 480063650}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AgentTypeID: 0
+  m_CollectObjects: 0
+  m_Size: {x: 10, y: 10, z: 10}
+  m_Center: {x: 0, y: 2, z: 0}
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_UseGeometry: 0
+  m_DefaultArea: 0
+  m_GenerateLinks: 0
+  m_IgnoreNavMeshAgent: 1
+  m_IgnoreNavMeshObstacle: 1
+  m_OverrideTileSize: 0
+  m_TileSize: 256
+  m_OverrideVoxelSize: 0
+  m_VoxelSize: 0.16666667
+  m_MinRegionArea: 2
+  m_NavMeshData: {fileID: 23800000, guid: db05fd30045a648c79ef15fd4f405239, type: 2}
+  m_BuildHeightMesh: 0
 --- !u!1 &596168622
 GameObject:
   m_ObjectHideFlags: 0
@@ -1609,35 +1641,35 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8049051751574107791, guid: 322d6c306fbca45ef8741650693a0a18, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1.000531
+      value: 1.0005311
       objectReference: {fileID: 0}
     - target: {fileID: 8049051751574107791, guid: 322d6c306fbca45ef8741650693a0a18, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.162
+      value: 0.16199939
       objectReference: {fileID: 0}
     - target: {fileID: 8049051751574107791, guid: 322d6c306fbca45ef8741650693a0a18, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.25
+      value: 0.2499999
       objectReference: {fileID: 0}
     - target: {fileID: 8049051751574107791, guid: 322d6c306fbca45ef8741650693a0a18, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.527
+      value: -0.52699983
       objectReference: {fileID: 0}
     - target: {fileID: 8049051751574107791, guid: 322d6c306fbca45ef8741650693a0a18, type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.99580157
+      value: -0.9958015
       objectReference: {fileID: 0}
     - target: {fileID: 8049051751574107791, guid: 322d6c306fbca45ef8741650693a0a18, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.011635837
+      value: -0.011635838
       objectReference: {fileID: 0}
     - target: {fileID: 8049051751574107791, guid: 322d6c306fbca45ef8741650693a0a18, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.09078759
+      value: -0.09078754
       objectReference: {fileID: 0}
     - target: {fileID: 8049051751574107791, guid: 322d6c306fbca45ef8741650693a0a18, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0012439466
+      value: -0.0012439467
       objectReference: {fileID: 0}
     - target: {fileID: 8049051751574107791, guid: 322d6c306fbca45ef8741650693a0a18, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2860,6 +2892,7 @@ GameObject:
   - component: {fileID: 1820235659}
   - component: {fileID: 1820235658}
   - component: {fileID: 1820235657}
+  - component: {fileID: 1820235661}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -2953,6 +2986,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!208 &1820235661
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1820235656}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &1844494024
 GameObject:
   m_ObjectHideFlags: 0
@@ -2964,7 +3013,7 @@ GameObject:
   - component: {fileID: 1844494025}
   m_Layer: 0
   m_Name: SpawnPoint
-  m_TagString: Untagged
+  m_TagString: spawnPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2978,7 +3027,7 @@ Transform:
   m_GameObject: {fileID: 1844494024}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.17, y: 0.925, z: -6.185}
+  m_LocalPosition: {x: -4.38, y: 0.925, z: -6.185}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3625,7 +3674,7 @@ GameObject:
   - component: {fileID: 2005050636}
   m_Layer: 0
   m_Name: Boar
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3751,7 +3800,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 435501833}
-  target: {fileID: 666513349}
   patrolRadius: 10
   sightRange: 10
   specialRange: 4
