@@ -13,15 +13,20 @@ public class EnemyStats : MonoBehaviour
 
     void Start()
     {
+        SphereCollider sphereCollider = gameObject.GetComponent<SphereCollider>();
+        if (sphereCollider == null)
+        {
+            sphereCollider = gameObject.AddComponent<SphereCollider>();
+        }
+        sphereCollider.isTrigger = true;
+
         PlayerHealth playerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
         if (playerHealth != null)
         {
             int MaxHealth = playerHealth.MaxHealth;
             currentHealth = MaxHealth;
-            healthBar.SetMaxHealth(MaxHealth);
         }
     }
-    
 
     public void OnTriggerEnter(Collider other)
     {
