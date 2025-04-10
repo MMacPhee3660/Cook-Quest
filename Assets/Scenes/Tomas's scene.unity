@@ -1243,6 +1243,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Boar
       objectReference: {fileID: 0}
+    - target: {fileID: 4713525200002649073, guid: 9b40cfbe6fbc34382bf292ad1a061bd2, type: 3}
+      propertyPath: m_Acceleration
+      value: 521.5
+      objectReference: {fileID: 0}
     - target: {fileID: 7222350008893248660, guid: 9b40cfbe6fbc34382bf292ad1a061bd2, type: 3}
       propertyPath: m_Enabled
       value: 1
