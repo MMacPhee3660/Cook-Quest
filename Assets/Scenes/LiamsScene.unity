@@ -1381,6 +1381,9 @@ MonoBehaviour:
   Exit: {fileID: 0}
   sceneInfo: {fileID: 11400000, guid: be41db6e5297b4906b294d6b76d5fcb7, type: 2}
   offset: {x: 1, y: 0.5, z: 0}
+  body: {fileID: 0}
+  offsetEntrance: {x: 0, y: 0, z: 0}
+  offsetExit: {x: 0, y: 0, z: 0}
 --- !u!4 &666513359 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3294402815066488407, guid: 782cbead201354ab49bfbd2f236e3178, type: 3}
@@ -8642,7 +8645,7 @@ Transform:
   m_GameObject: {fileID: 2005050625}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.79, y: 0.24, z: -22.15}
+  m_LocalPosition: {x: 9.79, y: 0.24, z: -21.44}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
