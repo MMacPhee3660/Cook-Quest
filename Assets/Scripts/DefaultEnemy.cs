@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
 using Unity.AI.Navigation;
+using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
@@ -95,7 +96,7 @@ public class DefaultEnemy : MonoBehaviour
         {
             patrolTime += Time.deltaTime;
             patrolDir += (float) Math.PI + 0.1f;
-            int mag = Random.Range(0, patrolRadius);
+            float mag = Random.Range(patrolRadius / 4, patrolRadius);
             float x = (float)(Math.Cos(patrolDir) * mag);
             float y = (float)(Math.Sin(patrolDir) * mag);
             Vector3 tempDest = new Vector3(origin.x + x, origin.y, origin.z + y);
