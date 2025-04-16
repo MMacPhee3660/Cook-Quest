@@ -10,7 +10,7 @@ using Random = UnityEngine.Random;
 
 public class Deer : DefaultEnemy
 {
-    new void TrySpecial()
+    protected override void TrySpecial()
     {
         if (isSpecial)
         {
@@ -35,9 +35,8 @@ public class Deer : DefaultEnemy
             dest = targetPos + (targetPos - pos).normalized * 5f;
         }
     }
-    new void Chase()
+    protected override void Chase()
     {
         dest = 2 * pos - targetPos;
-        print("deer chase");
     }
 }
