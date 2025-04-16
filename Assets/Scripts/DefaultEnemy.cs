@@ -66,7 +66,7 @@ public abstract class DefaultEnemy : MonoBehaviour
         {
             canSeeTarget = true;
         }
-        else if (targetDistance > sightRange && agent.velocity == Vector3.zero)
+        else if (targetDistance > sightRange)
         {
             canSeeTarget = false;
         }
