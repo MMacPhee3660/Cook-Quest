@@ -24,4 +24,10 @@ public class HealthBar : MonoBehaviour
 
         fill.color = gradient.Evaluate(slider.normalizedValue);
     }
+    
+    // Update the health bar when the screen resolution changes.
+    void OnRectTransformDimensionsChange()
+    {
+        SetHealth((int)slider.value);
+    }
 }

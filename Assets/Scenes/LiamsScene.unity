@@ -1404,6 +1404,8 @@ MonoBehaviour:
   MaxHealth: 100
   currentHealth: 100
   healthBar: {fileID: 1711058350}
+  target: {fileID: 666513359}
+  healthBarTransform: {fileID: 1711058349}
 --- !u!114 &666513369 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 284372155694864862, guid: 782cbead201354ab49bfbd2f236e3178, type: 3}
@@ -3469,6 +3471,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3591103689325717483, guid: 5047f0a8f63bd45ef8d46ed32b1e7df0, type: 3}
+      propertyPath: m_PixelPerfect
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4433799773772369699, guid: 5047f0a8f63bd45ef8d46ed32b1e7df0, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -3492,6 +3498,22 @@ PrefabInstance:
     - target: {fileID: 4433799773772369699, guid: 5047f0a8f63bd45ef8d46ed32b1e7df0, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5426386766587932671, guid: 5047f0a8f63bd45ef8d46ed32b1e7df0, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5426386766587932671, guid: 5047f0a8f63bd45ef8d46ed32b1e7df0, type: 3}
+      propertyPath: m_ScreenMatchMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5426386766587932671, guid: 5047f0a8f63bd45ef8d46ed32b1e7df0, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 5426386766587932671, guid: 5047f0a8f63bd45ef8d46ed32b1e7df0, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1080
       objectReference: {fileID: 0}
     - target: {fileID: 6037815646876949130, guid: 5047f0a8f63bd45ef8d46ed32b1e7df0, type: 3}
       propertyPath: m_AnchorMax.y
@@ -3675,6 +3697,7 @@ GameObject:
   - component: {fileID: 2005050627}
   - component: {fileID: 2005050626}
   - component: {fileID: 2005050636}
+  - component: {fileID: 2005050637}
   m_Layer: 0
   m_Name: Boar
   m_TagString: Enemy
@@ -8668,6 +8691,27 @@ MonoBehaviour:
   damage: 25
   currentHealth: 100
   healthBar: {fileID: 1711058350}
+--- !u!65 &2005050637
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2005050625}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &2043689660
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8768,11 +8812,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 671597376188189924, guid: 8ef8ed393062e4fd189aed83d2fa2487, type: 3}
       propertyPath: m_SizeDelta.x
-      value: -1896.1599
+      value: -2080.879
       objectReference: {fileID: 0}
     - target: {fileID: 671597376188189924, guid: 8ef8ed393062e4fd189aed83d2fa2487, type: 3}
       propertyPath: m_SizeDelta.y
-      value: -1340
+      value: -1361.9537
       objectReference: {fileID: 0}
     - target: {fileID: 671597376188189924, guid: 8ef8ed393062e4fd189aed83d2fa2487, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8804,11 +8848,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 671597376188189924, guid: 8ef8ed393062e4fd189aed83d2fa2487, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 935
+      value: 896
       objectReference: {fileID: 0}
     - target: {fileID: 671597376188189924, guid: 8ef8ed393062e4fd189aed83d2fa2487, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 662
+      value: 566
       objectReference: {fileID: 0}
     - target: {fileID: 671597376188189924, guid: 8ef8ed393062e4fd189aed83d2fa2487, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -8820,6 +8864,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 671597376188189924, guid: 8ef8ed393062e4fd189aed83d2fa2487, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1380415736972355937, guid: 8ef8ed393062e4fd189aed83d2fa2487, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1858712287208409597, guid: 8ef8ed393062e4fd189aed83d2fa2487, type: 3}
