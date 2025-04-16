@@ -10,7 +10,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using Random = UnityEngine.Random;
 
-public class DefaultEnemy : MonoBehaviour
+public abstract class DefaultEnemy : MonoBehaviour
 {
     public Animator animator;
     protected NavMeshAgent agent;
@@ -37,6 +37,7 @@ public class DefaultEnemy : MonoBehaviour
     protected bool canSeeTarget = false;
     protected bool isSpecial = false;
     protected float patrolDir = 0f;
+
     protected void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -46,7 +47,6 @@ public class DefaultEnemy : MonoBehaviour
         speed = agent.speed;
         target = GameObject.FindGameObjectWithTag("Player");
     }
-
     // Update is called once per frame
     protected void Update()
     {
@@ -75,6 +75,7 @@ public class DefaultEnemy : MonoBehaviour
         if (!canSeeTarget)
         {
             Patrol();
+            print("patrollin");
         }
         
         else
@@ -107,40 +108,12 @@ public class DefaultEnemy : MonoBehaviour
                 dest = tempDest;
                 patrolTime = 0f;
             }
-            
         }
     }
 
-    protected void TrySpecial()
-    {
-        if (isSpecial)
-        {
-            agent.speed = 0f;
-            specialPause += Time.deltaTime;
-            if (specialPause >= specialWindup)
-            {
-                agent.speed = speed + 100f;
-            }
-            if (agent.velocity == Vector3.zero && specialPause >= specialWindup + 0.5f)
-                {
-                    isSpecial = false;
-                    animator.SetBool("Rush",false);
-                    specialTime = 0f;
-                    specialPause = 0f;
-                }
-        }
-        if ((!isSpecial) && (targetDistance > specialRange && specialTime >= specialCooldown) && LineOfSight())
-        {
-            isSpecial = true;
-            animator.SetBool("Rush",true);
-            dest = targetPos + (targetPos - pos).normalized * 5f;
-        }
-    }
+    protected abstract void TrySpecial();
 
-    protected void Chase()
-    {
-        dest = targetPos;
-    }
+    protected abstract void Chase();
 
     public bool LineOfSight()
     {
