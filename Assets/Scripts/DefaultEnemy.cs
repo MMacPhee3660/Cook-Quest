@@ -65,6 +65,7 @@ public abstract class DefaultEnemy : MonoBehaviour
         if (isSpecial || LineOfSight())
         {
             canSeeTarget = true;
+
         }
         else if (targetDistance > sightRange)
         {
