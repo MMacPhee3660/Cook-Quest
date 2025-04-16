@@ -28,13 +28,13 @@ public class Boar : DefaultEnemy
                 {
                     isSpecial = false;
                     animator.SetBool("Rush",false);
-                    specialTime = 0f;
                     specialPause = 0f;
                 }
         }
         if ((!isSpecial) && (targetDistance > specialRange && specialTime >= specialCooldown) && LineOfSight())
         {
             isSpecial = true;
+            specialTime = 0f;
             animator.SetBool("Rush",true);
             dest = targetPos + (targetPos - pos).normalized * 5f;
         }
