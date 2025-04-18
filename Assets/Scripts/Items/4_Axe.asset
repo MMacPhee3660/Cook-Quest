@@ -17,5 +17,6 @@ MonoBehaviour:
   itemType: 1
   range: {x: 2, y: 3, z: 0}
   stackable: 0
+  itemName: Old Axe
   image: {fileID: 21300000, guid: 7ce6f52714e2f438a9a91498f9fd6f5b, type: 3}
   price: 25

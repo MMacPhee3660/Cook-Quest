@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using TMPro;
+using Microsoft.Unity.VisualStudio.Editor;
 
 public class CraftButton : MonoBehaviour
 {
@@ -10,7 +12,7 @@ public class CraftButton : MonoBehaviour
     public Item productItem;
     public InventoryManager inventoryManager;
     GameObject inventoryManagerObj;
-
+    [SerializeField]TextMeshProUGUI textToEdit;
     [SerializeField] Item[] itemsReq;
     [SerializeField] int[] amounts;
     public List<Tuple<InventoryItem, int>> slots = new List<Tuple<InventoryItem, int>>();
@@ -22,6 +24,7 @@ public class CraftButton : MonoBehaviour
     void Awake(){
         inventoryManagerObj = GameObject.FindGameObjectWithTag("InventoryManager");
         inventoryManager = inventoryManagerObj.GetComponent<InventoryManager>();
+        textToEdit.text = productItem.itemName;
     }
 
     // Update is called once per frame

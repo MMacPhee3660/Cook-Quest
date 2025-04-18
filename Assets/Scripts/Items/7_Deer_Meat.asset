@@ -17,5 +17,6 @@ MonoBehaviour:
   itemType: 0
   range: {x: 2, y: 3, z: 0}
   stackable: 1
+  itemName: Deer Venison
   image: {fileID: 21300000, guid: c406457f9b0d5417cbee8c102e84b5d0, type: 3}
   price: 8

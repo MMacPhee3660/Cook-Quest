@@ -17,5 +17,6 @@ MonoBehaviour:
   itemType: 1
   range: {x: 2, y: 3, z: 0}
   stackable: 0
+  itemName: Old Pickaxe
   image: {fileID: 21300000, guid: a79d15e1720ca47c38f971dd6b91a43f, type: 3}
   price: 25
