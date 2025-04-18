@@ -53,44 +53,7 @@ public abstract class DefaultEnemy : MonoBehaviour
         PathLoop();
     }
 
-    protected void PathLoop()
-    {
-        agent.speed = speed;
-        specialTime += Time.deltaTime;
-        pos = transform.position;
-        targetPos = target.transform.position;
-        targetDistance = Vector3.Distance(pos, targetPos);
-        //print(targetDistance);
-        
-        if (isSpecial || LineOfSight())
-        {
-            canSeeTarget = true;
-
-        }
-        else if (targetDistance > sightRange)
-        {
-            canSeeTarget = false;
-        }
-        
-
-        if (!canSeeTarget)
-        {
-            Patrol();
-            print("patrollin");
-        }
-        
-        else
-        {
-            TrySpecial();
-
-            if (!isSpecial)
-            {
-                Chase();
-            }
-        }
-        agent.SetDestination(dest);
-        FindDirection();
-    }
+    protected abstract void PathLoop();
 
     protected void Patrol()
     {
