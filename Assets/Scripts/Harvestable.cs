@@ -18,27 +18,39 @@ public class Harvestable : MonoBehaviour
     public Item droppedItem; //the item that the resource drops, used to check if the tool type is equal to the resource type (set in inspector currently)
     public int toDrop = 0;
     public GameObject objectToDestroy;
-    [field : SerializeField] public int ResourceCount {get; private set;}
+   
     [field : SerializeField] public GameObject ResourceNode {get; private set;}
     [field: SerializeField] public ParticleSystem ps {get; private set;}
     private int amountHarvested = 0;
     public Boolean hasDropped = false;
+
+    public int currentHealh;
+    [field : SerializeField] public int maxHealth {get; private set;}   
+
+
+
     public void Update()
     {
     }
+
+
     public void Harvest(int amount)
     {
-        int amountToSpawn = Mathf.Min(amount, ResourceCount - amountHarvested);
+        int amountToSpawn = Mathf.Min(amount, maxHealth - amountHarvested);
         GetSelectedItem();
-        Debug.Log(receivedItem.actionType + " " + droppedItem.actionType);
 
         switch (resourceType){
             case ResourceType.Rock:
                 if(amountToSpawn > 0 && receivedItem.actionType == droppedItem.actionType && receivedItem.itemType == ItemType.Tool){
-                ps.Emit(amount);
+                ps.Emit(amountToSpawn);
                 amountHarvested += amountToSpawn;
-                animator.SetTrigger("hit"); 
-                if(amountHarvested >= ResourceCount){
+                animator.SetTrigger("hit");
+                currentHealh -= amountToSpawn;
+
+                Debug.Log("Max health: " + maxHealth);
+                Debug.Log("Current health: " + currentHealh);
+
+                if(amountHarvested >= maxHealth){
                     Destroy(this.gameObject);
                 }
                 }
@@ -48,7 +60,7 @@ public class Harvestable : MonoBehaviour
                 ps.Emit(amount);
                 amountHarvested += amountToSpawn;
                 animator.SetTrigger("hit");
-                  if(amountHarvested >= ResourceCount){
+                  if(amountHarvested >= maxHealth){
                     Destroy(this.gameObject);
                 }
                 }
@@ -58,7 +70,7 @@ public class Harvestable : MonoBehaviour
                 toDrop = toDrop + 1;
                 amountHarvested += amountToSpawn;
                 // animator.SetTrigger("hit");
-                if(amountHarvested >= ResourceCount){
+                if(amountHarvested >= maxHealth){
                     ps.Emit(toDrop);
                     toDrop = 0;
                     Destroy(this.gameObject);
@@ -74,17 +86,12 @@ public class Harvestable : MonoBehaviour
  void Awake(){
         GameObject inventoryManagerObj = GameObject.FindGameObjectWithTag("InventoryManager");
         inventoryManager = inventoryManagerObj.GetComponent<InventoryManager>();
+        currentHealh = maxHealth;
     }
 
 
     public void GetSelectedItem(){
         receivedItem = inventoryManager.GetSelectedItem();
-        if(receivedItem != null){
-            Debug.Log("Received item:" + receivedItem);
-        }
-        else{
-            Debug.Log("Did not receive item!");
-        }
     }
 
 }

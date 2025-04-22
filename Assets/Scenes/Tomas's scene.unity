@@ -1243,6 +1243,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Boar
       objectReference: {fileID: 0}
+    - target: {fileID: 3388002248035379958, guid: 9b40cfbe6fbc34382bf292ad1a061bd2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4713525200002649073, guid: 9b40cfbe6fbc34382bf292ad1a061bd2, type: 3}
       propertyPath: m_Acceleration
       value: 521.5
@@ -3381,10 +3385,11 @@ MonoBehaviour:
   droppedItem: {fileID: 11400000, guid: c2c66de5b27b04e22abf0413f2746fd8, type: 2}
   toDrop: 0
   objectToDestroy: {fileID: 0}
-  <ResourceCount>k__BackingField: 5
   <ResourceNode>k__BackingField: {fileID: 8747512372127376780}
   <ps>k__BackingField: {fileID: 6321581787426783633}
   hasDropped: 0
+  currentHealh: 0
+  <maxHealth>k__BackingField: 5
 --- !u!4 &6301620384272779334
 Transform:
   m_ObjectHideFlags: 0

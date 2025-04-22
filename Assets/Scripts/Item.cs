@@ -18,6 +18,7 @@ public class Item : ScriptableObject
     public ActionType actionType;
     public ItemType itemType;
     public Vector3Int range = new Vector3Int(2,3);
+    public int power;
 
     [Header("Only UI")]
     public bool stackable = true;
