@@ -193,7 +193,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -225,9 +225,6 @@ MonoBehaviour:
   productItem: {fileID: 0}
   inventoryManager: {fileID: 0}
   textToEdit: {fileID: 0}
-  reqItemImage: 1
-  reqItemNum: 0
-  sprite: {fileID: 0}
   itemsReq: []
   amounts: 
 --- !u!1 &2517174518206432370
@@ -459,9 +456,6 @@ MonoBehaviour:
   productItem: {fileID: 11400000, guid: 432f2a5438a75495cb6ec0dbd85ef066, type: 2}
   inventoryManager: {fileID: 0}
   textToEdit: {fileID: 1864460916233432635}
-  reqItemImage: 0
-  reqItemNum: 0
-  sprite: {fileID: 0}
   itemsReq:
   - {fileID: 11400000, guid: c2c66de5b27b04e22abf0413f2746fd8, type: 2}
   - {fileID: 11400000, guid: 95481f7a3e06f4257b58e3e507fee06d, type: 2}
@@ -548,7 +542,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
