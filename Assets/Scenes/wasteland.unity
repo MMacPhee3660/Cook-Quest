@@ -2302,6 +2302,22 @@ PrefabInstance:
       propertyPath: <ResourceCount>k__BackingField
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 8437095204505552097, guid: a0afc151215384d098ed3892620862ea, type: 3}
+      propertyPath: m_Size.x
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8437095204505552097, guid: a0afc151215384d098ed3892620862ea, type: 3}
+      propertyPath: m_Size.y
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8437095204505552097, guid: a0afc151215384d098ed3892620862ea, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -291703633, guid: e8139f222076c4463bec1409aafe2f2d, type: 3}
+    - target: {fileID: 8437095204505552097, guid: a0afc151215384d098ed3892620862ea, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9109708719344383226, guid: a0afc151215384d098ed3892620862ea, type: 3}
       propertyPath: target
       value: 
