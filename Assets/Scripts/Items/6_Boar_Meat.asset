@@ -17,5 +17,6 @@ MonoBehaviour:
   itemType: 0
   range: {x: 2, y: 3, z: 0}
   stackable: 1
+  itemName: Boar Meat
   image: {fileID: 21300000, guid: 9d6421a55ba4446a4972be87b9b42132, type: 3}
   price: 12

@@ -1243,6 +1243,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Boar
       objectReference: {fileID: 0}
+    - target: {fileID: 3388002248035379958, guid: 9b40cfbe6fbc34382bf292ad1a061bd2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4713525200002649073, guid: 9b40cfbe6fbc34382bf292ad1a061bd2, type: 3}
       propertyPath: m_Acceleration
       value: 521.5
@@ -1686,6 +1690,10 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 357495710430154597, guid: d6ac981f49e56419f9e7031f5aa674a3, type: 3}
+      propertyPath: itemsToPickup.Array.size
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 357495710430154597, guid: d6ac981f49e56419f9e7031f5aa674a3, type: 3}
       propertyPath: startItems.Array.data[2]
       value: 
       objectReference: {fileID: 11400000, guid: a3795d152263e45bd8e346d723364604, type: 2}
@@ -1693,6 +1701,46 @@ PrefabInstance:
       propertyPath: InventorySlots.Array.size
       value: 26
       objectReference: {fileID: 0}
+    - target: {fileID: 357495710430154597, guid: d6ac981f49e56419f9e7031f5aa674a3, type: 3}
+      propertyPath: itemsToPickup.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: c2c66de5b27b04e22abf0413f2746fd8, type: 2}
+    - target: {fileID: 357495710430154597, guid: d6ac981f49e56419f9e7031f5aa674a3, type: 3}
+      propertyPath: itemsToPickup.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 95481f7a3e06f4257b58e3e507fee06d, type: 2}
+    - target: {fileID: 357495710430154597, guid: d6ac981f49e56419f9e7031f5aa674a3, type: 3}
+      propertyPath: itemsToPickup.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 1f19813f224b847e99c672f7627b8a54, type: 2}
+    - target: {fileID: 357495710430154597, guid: d6ac981f49e56419f9e7031f5aa674a3, type: 3}
+      propertyPath: itemsToPickup.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: 8b0f42283a4b54dda8c21f6ebae43d4e, type: 2}
+    - target: {fileID: 357495710430154597, guid: d6ac981f49e56419f9e7031f5aa674a3, type: 3}
+      propertyPath: itemsToPickup.Array.data[4]
+      value: 
+      objectReference: {fileID: 11400000, guid: e355158cd04514909822513705df6e5b, type: 2}
+    - target: {fileID: 357495710430154597, guid: d6ac981f49e56419f9e7031f5aa674a3, type: 3}
+      propertyPath: itemsToPickup.Array.data[5]
+      value: 
+      objectReference: {fileID: 11400000, guid: a3795d152263e45bd8e346d723364604, type: 2}
+    - target: {fileID: 357495710430154597, guid: d6ac981f49e56419f9e7031f5aa674a3, type: 3}
+      propertyPath: itemsToPickup.Array.data[6]
+      value: 
+      objectReference: {fileID: 11400000, guid: 32fbd20f5aeb64daa9cfffa59ee53f2b, type: 2}
+    - target: {fileID: 357495710430154597, guid: d6ac981f49e56419f9e7031f5aa674a3, type: 3}
+      propertyPath: itemsToPickup.Array.data[7]
+      value: 
+      objectReference: {fileID: 11400000, guid: 432f2a5438a75495cb6ec0dbd85ef066, type: 2}
+    - target: {fileID: 357495710430154597, guid: d6ac981f49e56419f9e7031f5aa674a3, type: 3}
+      propertyPath: itemsToPickup.Array.data[8]
+      value: 
+      objectReference: {fileID: 11400000, guid: dec088066b50849a5b541797d2f60ab3, type: 2}
+    - target: {fileID: 357495710430154597, guid: d6ac981f49e56419f9e7031f5aa674a3, type: 3}
+      propertyPath: itemsToPickup.Array.data[9]
+      value: 
+      objectReference: {fileID: 11400000, guid: 7f6d45024819f4fbbb95e01c8e79ac4c, type: 2}
     - target: {fileID: 357495710430154597, guid: d6ac981f49e56419f9e7031f5aa674a3, type: 3}
       propertyPath: InventorySlots.Array.data[0]
       value: 
@@ -1733,6 +1781,14 @@ PrefabInstance:
       propertyPath: InventorySlots.Array.data[9]
       value: 
       objectReference: {fileID: 2035897811}
+    - target: {fileID: 357495710430154597, guid: d6ac981f49e56419f9e7031f5aa674a3, type: 3}
+      propertyPath: itemsToPickup.Array.data[10]
+      value: 
+      objectReference: {fileID: 11400000, guid: 67bc62bd3714a469f9ba3485a7c53bbf, type: 2}
+    - target: {fileID: 357495710430154597, guid: d6ac981f49e56419f9e7031f5aa674a3, type: 3}
+      propertyPath: itemsToPickup.Array.data[11]
+      value: 
+      objectReference: {fileID: 11400000, guid: 5d347de88ecb645fe9aa7cfc2ee8e7cb, type: 2}
     - target: {fileID: 357495710430154597, guid: d6ac981f49e56419f9e7031f5aa674a3, type: 3}
       propertyPath: InventorySlots.Array.data[10]
       value: 
@@ -3329,10 +3385,11 @@ MonoBehaviour:
   droppedItem: {fileID: 11400000, guid: c2c66de5b27b04e22abf0413f2746fd8, type: 2}
   toDrop: 0
   objectToDestroy: {fileID: 0}
-  <ResourceCount>k__BackingField: 5
   <ResourceNode>k__BackingField: {fileID: 8747512372127376780}
   <ps>k__BackingField: {fileID: 6321581787426783633}
   hasDropped: 0
+  currentHealh: 0
+  <maxHealth>k__BackingField: 5
 --- !u!4 &6301620384272779334
 Transform:
   m_ObjectHideFlags: 0
