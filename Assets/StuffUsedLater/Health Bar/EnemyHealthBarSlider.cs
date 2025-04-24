@@ -1,16 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HealthBar : MonoBehaviour
+public class EnemyHealthBarSlider : MonoBehaviour
 {
-
     public Slider slider;
     public Gradient gradient;
     public Image fill;
 
-    public void SetMaxHealth(int health)
+    public void SetMaxEnemyHealth(int health)
     {
         slider.maxValue = health;
         slider.value = health;
@@ -18,16 +15,16 @@ public class HealthBar : MonoBehaviour
         fill.color = gradient.Evaluate(1f);
     }
 
-    public void SetHealth(int health)
+    public void SetEnemyHealth(int health)
     {
         slider.value = health;
 
         fill.color = gradient.Evaluate(slider.normalizedValue);
     }
-    
+
     // Update the health bar when the screen resolution changes.
     void OnRectTransformDimensionsChange()
     {
-        SetHealth((int)slider.value);
+        SetEnemyHealth((int)slider.value);
     }
 }
