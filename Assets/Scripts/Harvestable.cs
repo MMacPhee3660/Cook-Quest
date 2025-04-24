@@ -10,7 +10,7 @@ using UnityEngine;
 
 public class Harvestable : MonoBehaviour
 {
-    public enum ResourceType{Rock, Tree, Enemy}
+    public enum ResourceType{Resource,Enemy}
     [SerializeField] ResourceType resourceType;
     public InventoryManager inventoryManager;
     [SerializeField] Animator animator;
@@ -40,7 +40,7 @@ public class Harvestable : MonoBehaviour
         GetSelectedItem();
 
         switch (resourceType){
-            case ResourceType.Rock:
+            case ResourceType.Resource:
                 if(amountToSpawn > 0 && receivedItem.actionType == droppedItem.actionType && receivedItem.itemType == ItemType.Tool){
                 ps.Emit(amountToSpawn);
                 amountHarvested += amountToSpawn;
@@ -51,16 +51,6 @@ public class Harvestable : MonoBehaviour
                 Debug.Log("Current health: " + currentHealh);
 
                 if(amountHarvested >= maxHealth){
-                    Destroy(this.gameObject);
-                }
-                }
-            break;
-            case ResourceType.Tree:
-            if(amountToSpawn > 0 && receivedItem.actionType == droppedItem.actionType && receivedItem.itemType == ItemType.Tool){
-                ps.Emit(amount);
-                amountHarvested += amountToSpawn;
-                animator.SetTrigger("hit");
-                  if(amountHarvested >= maxHealth){
                     Destroy(this.gameObject);
                 }
                 }
