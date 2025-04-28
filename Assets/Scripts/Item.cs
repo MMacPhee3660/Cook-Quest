@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Microsoft.Unity.VisualStudio.Editor;
 using UnityEngine;
+using TMPro;
 
 public enum ItemType{Material, Tool, Head, Chest, Legs, Boots}
 public enum ActionType{None, Attack, Chop, Mine}
@@ -17,9 +18,12 @@ public class Item : ScriptableObject
     public ActionType actionType;
     public ItemType itemType;
     public Vector3Int range = new Vector3Int(2,3);
+    public int power;
 
     [Header("Only UI")]
     public bool stackable = true;
+    public string itemName;
+
     
     
     [Header("Both")]

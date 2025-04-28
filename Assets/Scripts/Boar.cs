@@ -48,6 +48,7 @@ public class Boar : DefaultEnemy
 
     protected override void Chase()
     {
+        animator.SetBool("Chase",true);
         dest = targetPos;
     }
     protected override void TrySpecial()
@@ -64,6 +65,7 @@ public class Boar : DefaultEnemy
                 {
                     isSpecial = false;
                     animator.SetBool("Rush",false);
+                    animator.SetBool("Chase",true);
                     specialPause = 0f;
                 }
         }
@@ -71,6 +73,7 @@ public class Boar : DefaultEnemy
         {
             isSpecial = true;
             specialTime = 0f;
+            animator.SetBool("Chase",false);
             animator.SetBool("Rush",true);
             dest = targetPos + (targetPos - pos).normalized * 5f;
         }

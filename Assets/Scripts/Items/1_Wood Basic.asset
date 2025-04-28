@@ -17,5 +17,6 @@ MonoBehaviour:
   itemType: 0
   range: {x: 2, y: 3, z: 0}
   stackable: 1
+  itemName: Simple Wood
   image: {fileID: 21300000, guid: 6821a732825994b34bef1f17e534c802, type: 3}
   price: 3

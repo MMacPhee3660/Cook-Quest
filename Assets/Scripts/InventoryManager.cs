@@ -12,7 +12,7 @@ public class InventoryManager : MonoBehaviour
     public Item[] itemsToPickup;
     public Item[] startItems;
 
-    int selectedSlot = -1;
+    public int selectedSlot = -1;
     
     void ChangeSelectedSlot(int newValue){
         if(selectedSlot >=0){

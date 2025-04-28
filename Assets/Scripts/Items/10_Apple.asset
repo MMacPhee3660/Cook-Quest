@@ -17,5 +17,6 @@ MonoBehaviour:
   itemType: 0
   range: {x: 2, y: 3, z: 0}
   stackable: 1
+  itemName: Apple
   image: {fileID: 21300000, guid: c3ed5d3c7360e43c7831915bc71852e4, type: 3}
   price: 2
