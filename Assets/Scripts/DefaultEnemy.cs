@@ -94,13 +94,10 @@ public abstract class DefaultEnemy : MonoBehaviour
 
     public void FindDirection()
     {
-        if (agent.velocity.x > 0)
+        if (agent.velocity != Vector3.zero)
         {
-
-        }
-        else 
-        {
-            
+            animator.SetFloat("Vx", agent.velocity.x);
+            animator.SetFloat("Vy", agent.velocity.y);
         }
     }
 }
