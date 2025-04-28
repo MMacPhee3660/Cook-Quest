@@ -41,6 +41,10 @@ public abstract class DefaultEnemy : MonoBehaviour
     protected void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        if (GetComponent<Animator>())
+        {
+            animator = GetComponent<Animator>();
+        }
         origin = transform.position;
         dest = origin;
         path = new NavMeshPath();
@@ -96,8 +100,13 @@ public abstract class DefaultEnemy : MonoBehaviour
     {
         if (agent.velocity != Vector3.zero)
         {
+            animator.SetBool("Moving", true);
             animator.SetFloat("Vx", agent.velocity.x);
-            animator.SetFloat("Vy", agent.velocity.y);
+            animator.SetFloat("Vy", agent.velocity.z);
+        }
+        else
+        {
+            animator.SetBool("Moving", false);
         }
     }
 }
