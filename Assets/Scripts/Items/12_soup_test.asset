@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: 12
   actionType: 0
-  itemType: 0
+  itemType: 6
   range: {x: 2, y: 3, z: 0}
   power: 0
   stackable: 1

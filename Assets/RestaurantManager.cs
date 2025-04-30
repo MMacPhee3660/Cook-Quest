@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RestaurantManager : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public Item[] menu;
     void Start()
     {
         

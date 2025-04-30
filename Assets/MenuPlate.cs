@@ -15,6 +15,9 @@ public class MenuPlate : MonoBehaviour
     GameObject inventoryManagerObj;
     InventoryManager inventoryManager;
     SpriteRenderer spriteRenderer; //the sprite that is displayed
+
+    [SerializeField] RestaurantManager restaurantManager;
+
     void Start()
     {
         testE = E;
@@ -43,17 +46,20 @@ public class MenuPlate : MonoBehaviour
         }
          if(Input.GetKeyDown(KeyCode.E) && distance <= 2f){
             SetMenuItem(inventoryManager.GetSelectedItem());
+           
+         }
+    }
+
+    public void SetMenuItem(Item receivedItem){
+        displayItem = receivedItem;
+        if(receivedItem.itemType == ItemType.Food){
+            spriteRenderer.sprite = displayItem.image;
             selectedItem = inventoryManager.GetSelectedItemSlot();
             selectedItem.count --;
             selectedItem.RefreshCount();
             if(selectedItem.count == 0){
                 Destroy(selectedItem.gameObject);
             }
-         }
-    }
-
-    public void SetMenuItem(Item receivedItem){
-        displayItem = receivedItem;
-        spriteRenderer.sprite = displayItem.image;
+        }
     }
 }
