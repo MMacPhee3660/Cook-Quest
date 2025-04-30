@@ -48,7 +48,6 @@ public class Boar : DefaultEnemy
 
     protected override void Chase()
     {
-        animator.SetBool("Chase",true);
         dest = targetPos;
     }
     protected override void TrySpecial()
@@ -59,22 +58,22 @@ public class Boar : DefaultEnemy
             specialPause += Time.deltaTime;
             if (specialPause >= specialWindup)
             {
+                animator.SetBool("Windup", false);
+                animator.SetBool("Special", true);
                 agent.speed = speed + 100f;
             }
             if (agent.velocity == Vector3.zero && specialPause >= specialWindup + 0.5f)
                 {
                     isSpecial = false;
-                    animator.SetBool("Rush",false);
-                    animator.SetBool("Chase",true);
+                    animator.SetBool("Special", true);
                     specialPause = 0f;
                 }
         }
         if ((!isSpecial) && (targetDistance > specialRange && specialTime >= specialCooldown) && LineOfSight())
         {
             isSpecial = true;
+            animator.SetBool("Windup", true);
             specialTime = 0f;
-            animator.SetBool("Chase",false);
-            animator.SetBool("Rush",true);
             dest = targetPos + (targetPos - pos).normalized * 5f;
         }
     }
