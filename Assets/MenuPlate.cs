@@ -46,7 +46,6 @@ public class MenuPlate : MonoBehaviour
         }
          if(Input.GetKeyDown(KeyCode.E) && distance <= 2f){
             SetMenuItem(inventoryManager.GetSelectedItem());
-           
          }
     }
 
@@ -57,6 +56,7 @@ public class MenuPlate : MonoBehaviour
             selectedItem = inventoryManager.GetSelectedItemSlot();
             selectedItem.count --;
             selectedItem.RefreshCount();
+            restaurantManager.menu.Add(displayItem);
             if(selectedItem.count == 0){
                 Destroy(selectedItem.gameObject);
             }
