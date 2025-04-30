@@ -2,34 +2,33 @@ using UnityEngine;
 
 public class EnemyHealthBar : MonoBehaviour
 {
- public int maxHealth = 100;
- public int currentHealth;
+
+ public Harvestable harvestable; // Reference to the Harvestable script if needed
  public EnemyHealthBarSlider healthBarSlider;
     void Start()
     {
-        currentHealth = maxHealth;
-        healthBarSlider.SetMaxEnemyHealth(maxHealth);
-        healthBarSlider.SetEnemyHealth(currentHealth);
+        healthBarSlider.SetMaxEnemyHealth(harvestable.maxHealth);
+        healthBarSlider.SetEnemyHealth(harvestable.currentHealh);
     }
 
-    public void TakeDamage(int damage)
-    {
-        currentHealth -= damage;
-        if (currentHealth < 0)
-        {
-            currentHealth = 0;
-        }
-        healthBarSlider.SetEnemyHealth(currentHealth);
-    }
+    // public void TakeDamage(int damage)
+    // {
+    //     amountHarvested -= damage;
+    //     if (amountHarvested < 0)
+    //     {
+    //         amountHarvested = 0;
+    //     }
+    //     healthBarSlider.SetEnemyHealth(amountHarvested);
+    // }
 
     public void Heal(int amount)
     {
-        currentHealth += amount;
-        if (currentHealth > maxHealth)
+        harvestable.currentHealh += amount;
+        if (harvestable.currentHealh > harvestable.maxHealth)
         {
-            currentHealth = maxHealth;
+            harvestable.currentHealh = harvestable.maxHealth;
         }
-        healthBarSlider.SetEnemyHealth(currentHealth);
+        healthBarSlider.SetEnemyHealth(harvestable.currentHealh);
     }
 }
    
