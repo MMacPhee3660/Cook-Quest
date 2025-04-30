@@ -88,4 +88,12 @@ public class InventoryManager : MonoBehaviour
         }
         return null;
     }
+    public InventoryItem GetSelectedItemSlot(){
+        InventorySlot slot = InventorySlots[selectedSlot];
+        InventoryItem itemInSlot = slot.GetComponentInChildren<InventoryItem>();
+        if(itemInSlot != null){
+            return itemInSlot;
+        }
+        return null;
+    }
 }

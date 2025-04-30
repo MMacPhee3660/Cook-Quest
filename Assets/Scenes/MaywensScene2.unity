@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1968649925}
-  m_IndirectSpecularColor: {r: 0.18358329, g: 0.22910038, b: 0.30545363, a: 1}
+  m_IndirectSpecularColor: {r: 0.18358327, g: 0.22910038, b: 0.30545363, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -527,7 +527,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 88.4}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &94083868
@@ -2182,15 +2182,15 @@ PrefabInstance:
       objectReference: {fileID: 2070518386}
     - target: {fileID: 1087902515251946115, guid: d6067a62a156b4673aa218542b110a46, type: 3}
       propertyPath: x
-      value: 0
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1087902515251946115, guid: d6067a62a156b4673aa218542b110a46, type: 3}
       propertyPath: y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1087902515251946115, guid: d6067a62a156b4673aa218542b110a46, type: 3}
       propertyPath: z
-      value: -8.5
+      value: -8
       objectReference: {fileID: 0}
     - target: {fileID: 1087902515251946115, guid: d6067a62a156b4673aa218542b110a46, type: 3}
       propertyPath: scene
@@ -2206,15 +2206,15 @@ PrefabInstance:
       objectReference: {fileID: 237172710}
     - target: {fileID: 2644868241442967509, guid: d6067a62a156b4673aa218542b110a46, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.14
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2644868241442967509, guid: d6067a62a156b4673aa218542b110a46, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.807
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 2644868241442967509, guid: d6067a62a156b4673aa218542b110a46, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 31.34
+      value: 31.5
       objectReference: {fileID: 0}
     - target: {fileID: 2644868241442967509, guid: d6067a62a156b4673aa218542b110a46, type: 3}
       propertyPath: m_LocalRotation.w
@@ -5804,7 +5804,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 25, y: 0}
+  m_AnchoredPosition: {x: -313.4, y: -49.5}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1696240244
@@ -6901,11 +6901,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
-  m_ScreenMatchMode: 0
+  m_ScreenMatchMode: 1
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
@@ -7313,7 +7313,7 @@ Transform:
   m_GameObject: {fileID: 2113775362}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.93, y: 1.5, z: 30.64}
+  m_LocalPosition: {x: 7.76, y: 1.5, z: 31.48}
   m_LocalScale: {x: 9.47077, y: 2.8963206, z: 8.328525}
   m_ConstrainProportionsScale: 0
   m_Children: []
