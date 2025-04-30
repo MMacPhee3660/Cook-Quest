@@ -4,7 +4,7 @@ using Microsoft.Unity.VisualStudio.Editor;
 using UnityEngine;
 using TMPro;
 
-public enum ItemType{Material, Tool, Head, Chest, Legs, Boots}
+public enum ItemType{Material, Tool, Head, Chest, Legs, Boots, Food}
 public enum ActionType{None, Attack, Chop, Mine}
 
 [CreateAssetMenu(menuName = "Scriptable object/Item")]

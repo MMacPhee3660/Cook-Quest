@@ -16,6 +16,7 @@ MonoBehaviour:
   actionType: 1
   itemType: 1
   range: {x: 2, y: 3, z: 0}
+  power: 1
   stackable: 1
   itemName: Rusty Sword
   image: {fileID: 21300000, guid: 09dcdb2efed944ac7b7492df8f1926da, type: 3}
