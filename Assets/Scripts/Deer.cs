@@ -40,7 +40,6 @@ public class Deer : DefaultEnemy
             if (!isSpecial)
             {
                 Chase();
-                animator.SetBool("Running",true);
             }
         }
         agent.SetDestination(dest);
@@ -60,7 +59,7 @@ public class Deer : DefaultEnemy
             if (agent.velocity == Vector3.zero && specialPause > specialWindup + 0.5f)
                 {
                     isSpecial = false;
-                    animator.SetBool("Rush",false);
+                    animator.SetBool("Special", false);
                     specialPause = 0f;
                 }
         }
@@ -68,7 +67,8 @@ public class Deer : DefaultEnemy
         {
             isSpecial = true;
             specialTime = 0f;
-            animator.SetBool("Rush",true);
+            animator.SetBool("Special",true);
+            animator.SetBool("Windup", false);
             Vector3 perpVector = Vector3.Cross(targetPos - pos, Vector3.up).normalized * 10;
             if (Random.value < 0.5)
             {
