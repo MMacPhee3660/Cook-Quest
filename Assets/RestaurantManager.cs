@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
@@ -5,7 +6,7 @@ using UnityEngine;
 
 public class RestaurantManager : MonoBehaviour
 {
-    public List<Item> menu = new List<Item>();
+    public List<Tuple<Item, int>> menuItems = new List<Tuple<Item, int>>();
     
     void Start()
     {
