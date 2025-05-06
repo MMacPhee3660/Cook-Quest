@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8148224849045600651}
   - component: {fileID: 876977299944322680}
-  - component: {fileID: 7277448846734385118}
+  - component: {fileID: 4509300321589279341}
   m_Layer: 0
   m_Name: Magic Door
   m_TagString: Untagged
@@ -85,7 +85,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7277448846734385118
+--- !u!114 &4509300321589279341
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -94,8 +94,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 5309494681435083274}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a98007735fc184400be68a874f43774a, type: 3}
+  m_Script: {fileID: 11500000, guid: 3dd22daddf0684e39aab1e8b9e300422, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scene: General_Store
-  E: {fileID: 970285419536332687, guid: 322d6c306fbca45ef8741650693a0a18, type: 3}
+  scene: 
+  E: {fileID: 0}
+  x: 0
+  y: 0
+  z: 0
+  spawnPoint: {fileID: 0}
+  state: {fileID: 0}
+  transition: {fileID: 0}
+  animTime: 1

@@ -17,6 +17,19 @@ public class EnemyHealthBar : MonoBehaviour
         healthBarSlider.SetMaxEnemyHealth(harvestable.maxHealth);
         healthBarSlider.SetEnemyHealth(harvestable.currentHealh);
     }
+    void Update()
+    {
+        if (harvestable.currentHealh <= 0)
+        {
+            healthBarSlider.gameObject.SetActive(false);
+        }
+        else
+        {
+            healthBarSlider.gameObject.SetActive(true);
+            healthBarSlider.SetEnemyHealth(harvestable.currentHealh);
+        }
+        
+    }
 
     public void Heal(int amount)
     {
