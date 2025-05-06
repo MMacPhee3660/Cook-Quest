@@ -13,7 +13,7 @@ public class FileDataHandler : MonoBehaviour
 
     private readonly string encryptionCodeWord = "word";
 
-    public FileDataHandler(string dataDirPath, string dataFileName, bool useEncryption)
+    public void Initialize(string dataDirPath, string dataFileName, bool useEncryption)
     {
         this.dataDirPath = dataDirPath;
         this.dataFileName = dataFileName;

@@ -59,6 +59,7 @@ public class Harvestable : MonoBehaviour
             if(amountToSpawn > 0 && receivedItem.actionType == droppedItem.actionType && receivedItem.itemType == ItemType.Tool){
                 toDrop = toDrop + 1;
                 amountHarvested += amountToSpawn;
+                currentHealh -= amountToSpawn;
                 // animator.SetTrigger("hit");
                 if(amountHarvested >= maxHealth){
                     ps.Emit(toDrop);

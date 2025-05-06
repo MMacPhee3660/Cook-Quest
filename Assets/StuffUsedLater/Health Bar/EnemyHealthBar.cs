@@ -1,35 +1,44 @@
 using UnityEngine;
-
 public class EnemyHealthBar : MonoBehaviour
 {
- public int maxHealth = 100;
- public int currentHealth;
- public EnemyHealthBarSlider healthBarSlider;
-    void Start()
+    public Harvestable harvestable; // Reference to the Harvestable script if needed
+    public EnemyHealthBarSlider healthBarSlider;
+
+    void Awake()
     {
-        currentHealth = maxHealth;
-        healthBarSlider.SetMaxEnemyHealth(maxHealth);
-        healthBarSlider.SetEnemyHealth(currentHealth);
+        if (harvestable == null)
+            harvestable = GetComponentInParent<Harvestable>();
+        if (healthBarSlider == null)
+            healthBarSlider = GetComponentInChildren<EnemyHealthBarSlider>();
     }
 
-    public void TakeDamage(int damage)
+    void Start()
     {
-        currentHealth -= damage;
-        if (currentHealth < 0)
+        healthBarSlider.SetMaxEnemyHealth(harvestable.maxHealth);
+        healthBarSlider.SetEnemyHealth(harvestable.currentHealh);
+    }
+    void Update()
+    {
+        if (harvestable.currentHealh <= 0)
         {
-            currentHealth = 0;
+            healthBarSlider.gameObject.SetActive(false);
         }
-        healthBarSlider.SetEnemyHealth(currentHealth);
+        else
+        {
+            healthBarSlider.gameObject.SetActive(true);
+            healthBarSlider.SetEnemyHealth(harvestable.currentHealh);
+        }
+        
     }
 
     public void Heal(int amount)
     {
-        currentHealth += amount;
-        if (currentHealth > maxHealth)
+        harvestable.currentHealh += amount;
+        if (harvestable.currentHealh > harvestable.maxHealth)
         {
-            currentHealth = maxHealth;
+            harvestable.currentHealh = harvestable.maxHealth;
         }
-        healthBarSlider.SetEnemyHealth(currentHealth);
+        healthBarSlider.SetEnemyHealth(harvestable.currentHealh);
     }
 }
    

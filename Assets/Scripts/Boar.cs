@@ -65,7 +65,7 @@ public class Boar : DefaultEnemy
             if (agent.velocity == Vector3.zero && specialPause >= specialWindup + 0.5f)
                 {
                     isSpecial = false;
-                    animator.SetBool("Special", true);
+                    animator.SetBool("Special", false);
                     specialPause = 0f;
                 }
         }

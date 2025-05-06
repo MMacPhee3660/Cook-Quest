@@ -55,6 +55,8 @@ public class Deer : DefaultEnemy
             if (specialPause >= specialWindup)
             {
                 agent.speed = speed + 10f;
+                animator.SetBool("Special",true);
+                animator.SetBool("Windup",false);
             }
             if (agent.velocity == Vector3.zero && specialPause > specialWindup + 0.5f)
                 {
@@ -67,8 +69,7 @@ public class Deer : DefaultEnemy
         {
             isSpecial = true;
             specialTime = 0f;
-            animator.SetBool("Special",true);
-            animator.SetBool("Windup", false);
+            animator.SetBool("Windup",true);
             Vector3 perpVector = Vector3.Cross(targetPos - pos, Vector3.up).normalized * 10;
             if (Random.value < 0.5)
             {
