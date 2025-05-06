@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class RestaurantManager : MonoBehaviour
 {
-    public Item[] menu;
+    public List<Item> menu = new List<Item>();
+    
     void Start()
     {
         
