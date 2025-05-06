@@ -247,8 +247,8 @@ MonoBehaviour:
   obstacleLayer:
     serializedVersion: 2
     m_Bits: 4294967295
-  minPause: 3
-  maxPause: 2
+  minPause: 4
+  maxPause: 8
   specialCooldown: 5
   specialWindup: 0.5
 --- !u!195 &1198718513198794501

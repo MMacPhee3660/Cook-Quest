@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Microsoft.Unity.VisualStudio.Editor;
 using UnityEngine;
+
 
 public class MenuPlate : MonoBehaviour
 {
@@ -11,6 +13,7 @@ public class MenuPlate : MonoBehaviour
     GameObject testE;
     GameObject childE;
     public Item displayItem;
+    
     public InventoryItem selectedItem;
     GameObject inventoryManagerObj;
     InventoryManager inventoryManager;
@@ -56,10 +59,11 @@ public class MenuPlate : MonoBehaviour
             selectedItem = inventoryManager.GetSelectedItemSlot();
             selectedItem.count --;
             selectedItem.RefreshCount();
-            restaurantManager.menu.Add(displayItem);
+            restaurantManager.menuItems.Add(new Tuple<Item, int>(displayItem, displayItem.servingSize));
             if(selectedItem.count == 0){
                 Destroy(selectedItem.gameObject);
             }
+            
         }
     }
 }

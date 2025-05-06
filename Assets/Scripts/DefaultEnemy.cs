@@ -28,6 +28,7 @@ public abstract class DefaultEnemy : MonoBehaviour
     public LayerMask obstacleLayer;
     protected float patrolTime = 0f;
     protected float specialTime = 0f;
+    protected float pause;
     protected float specialPause = 0f;
     [SerializeField] public float minPause = 3f;
     [SerializeField] public float maxPause = 2f;
@@ -61,15 +62,19 @@ public abstract class DefaultEnemy : MonoBehaviour
 
     protected void Patrol()
     {
+        
         if (agent.remainingDistance < 0.1)
         {
-            patrolTime += Time.deltaTime;
-            patrolDir += (float) Math.PI + 0.1f;
+            if (patrolTime == 0)
+            {
+                pause = Random.Range(minPause, maxPause);
+            }
             float mag = Random.Range(patrolRadius / 4, patrolRadius);
             float x = (float)(Math.Cos(patrolDir) * mag);
             float y = (float)(Math.Sin(patrolDir) * mag);
             Vector3 tempDest = new Vector3(origin.x + x, origin.y, origin.z + y);
-            float pause = Random.Range(minPause, maxPause);
+            patrolTime += Time.deltaTime;
+            patrolDir += (float) Math.PI + 0.1f;
             
             if (agent.CalculatePath(tempDest, path) && patrolTime >= pause)
             {
