@@ -9,6 +9,11 @@ public class FileDataHandler : MonoBehaviour
     private string dataDirPath = "";
     private string dataFileName;
 
+    public FileDataHandler(string dataDirPath, string dataFileName, bool useEncryption)
+    {
+        Initialize(dataDirPath, dataFileName, useEncryption);
+    }
+
     private bool useEncryption = false;
 
     private readonly string encryptionCodeWord = "word";
