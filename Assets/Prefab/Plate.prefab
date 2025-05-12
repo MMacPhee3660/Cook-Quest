@@ -127,7 +127,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   E: {fileID: 0}
-  displayItem: {fileID: 11400000, guid: c2c66de5b27b04e22abf0413f2746fd8, type: 2}
+  displayItem: {fileID: 0}
   selectedItem: {fileID: 0}
   restaurantManager: {fileID: 0}
 --- !u!222 &1211186646678328523

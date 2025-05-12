@@ -13,6 +13,7 @@ public class MenuPlate : MonoBehaviour
     GameObject testE;
     GameObject childE;
     public Item displayItem;
+    public int servingsLeft;
     
     public InventoryItem selectedItem;
     GameObject inventoryManagerObj;
@@ -23,6 +24,7 @@ public class MenuPlate : MonoBehaviour
 
     void Start()
     {
+        
         testE = E;
         childE = E;
         inventoryManagerObj = GameObject.FindGameObjectWithTag("InventoryManager");
@@ -32,7 +34,6 @@ public class MenuPlate : MonoBehaviour
         childE = Instantiate(testE, transform.position,Quaternion.identity);
         childE.transform.position += Vector3.up * 1f;
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
-      
 
     }
 
@@ -50,10 +51,15 @@ public class MenuPlate : MonoBehaviour
          if(Input.GetKeyDown(KeyCode.E) && distance <= 2f){
             SetMenuItem(inventoryManager.GetSelectedItem());
          }
+         if(displayItem != null && servingsLeft <= 0){
+             Destroy(displayItem);
+             spriteRenderer.sprite = null;
+         }
     }
 
     public void SetMenuItem(Item receivedItem){
         displayItem = receivedItem;
+        servingsLeft = displayItem.servingSize;
         if(receivedItem.itemType == ItemType.Food){
             spriteRenderer.sprite = displayItem.image;
             selectedItem = inventoryManager.GetSelectedItemSlot();

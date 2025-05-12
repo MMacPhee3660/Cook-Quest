@@ -11,7 +11,6 @@ public enum ActionType{None, Attack, Chop, Mine}
 [CreateAssetMenu(menuName = "Scriptable object/Item")]
 public class Item : ScriptableObject
 {
-   
     [Header("Internal")] 
     public int ID;
    
