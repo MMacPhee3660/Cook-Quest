@@ -923,11 +923,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4250627500159080342, guid: 3f3815351a7564baea6d77adb3e5dbce, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9396927
+      value: 0.9957489
       objectReference: {fileID: 0}
     - target: {fileID: 4250627500159080342, guid: 3f3815351a7564baea6d77adb3e5dbce, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.3420201
+      value: 0.09210987
       objectReference: {fileID: 0}
     - target: {fileID: 4250627500159080342, guid: 3f3815351a7564baea6d77adb3e5dbce, type: 3}
       propertyPath: m_LocalRotation.y
@@ -939,7 +939,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4250627500159080342, guid: 3f3815351a7564baea6d77adb3e5dbce, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 40
+      value: 10.57
       objectReference: {fileID: 0}
     - target: {fileID: 4250627500159080342, guid: 3f3815351a7564baea6d77adb3e5dbce, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -1157,9 +1157,9 @@ MonoBehaviour:
   - {fileID: 2199803799251473919, guid: 370a3e03625ec44419139c4c7745480d, type: 3}
   enemySpawnData:
   - enemyPrefab: {fileID: 3388002248035379958, guid: 9b40cfbe6fbc34382bf292ad1a061bd2, type: 3}
-    numToSpawn: 2
+    numToSpawn: 10
   - enemyPrefab: {fileID: 5742268853372452390, guid: c9a1e09c28c5742cab2bdc58056275ea, type: 3}
-    numToSpawn: 2
+    numToSpawn: 10
   spawnChance: 0.025
   distanceBetweenChecks: 1
   heightOfCheck: 0
