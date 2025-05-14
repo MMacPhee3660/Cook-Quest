@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 9091922508086786184}
   - component: {fileID: 7486369906965402115}
   - component: {fileID: 582988925200328868}
+  - component: {fileID: -8565533430677565749}
   m_Layer: 3
   m_Name: Tree 1
   m_TagString: Resource
@@ -4868,6 +4869,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ObjectPrefab: {fileID: 0}
+--- !u!208 &-8565533430677565749
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6274453871170489963}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &8270642997957801325
 GameObject:
   m_ObjectHideFlags: 0
@@ -5009,10 +5026,11 @@ MonoBehaviour:
   droppedItem: {fileID: 11400000, guid: 95481f7a3e06f4257b58e3e507fee06d, type: 2}
   toDrop: 0
   objectToDestroy: {fileID: 6274453871170489963}
-  <ResourceCount>k__BackingField: 5
   <ResourceNode>k__BackingField: {fileID: 8270642997957801325}
   <ps>k__BackingField: {fileID: 9091922508086786184}
   hasDropped: 0
+  currentHealh: 0
+  <maxHealth>k__BackingField: 0
 --- !u!95 &3030236581704095183
 Animator:
   serializedVersion: 5

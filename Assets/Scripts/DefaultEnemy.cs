@@ -26,6 +26,7 @@ public abstract class DefaultEnemy : MonoBehaviour
     protected NavMeshPath path;
     protected NavMeshSurface surface;
     public LayerMask obstacleLayer;
+    protected float time = 0f;
     protected float patrolTime = 0f;
     protected float specialTime = 0f;
     protected float pause;
@@ -55,7 +56,19 @@ public abstract class DefaultEnemy : MonoBehaviour
     // Update is called once per frame
     protected void Update()
     {
+        agent.speed = speed;
+        specialTime += Time.deltaTime;
+        pos = transform.position;
+        targetPos = target.transform.position;
+        targetDistance = Vector3.Distance(pos, targetPos);
+        Vector3 lastDest = dest;
         PathLoop();
+        time += Time.deltaTime;
+        if (lastDest != dest)
+        {
+            agent.SetDestination(dest);
+        }
+        FindDirection();
     }
 
     protected abstract void PathLoop();
