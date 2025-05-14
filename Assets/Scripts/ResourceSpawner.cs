@@ -8,6 +8,7 @@ public class ResourceSpawner : MonoBehaviour
   [Header("Spawn Settings")]
   public GameObject[] resourcePrefabs; 
   public GameObject[] decorativeObjectsPrefab;
+  public EnemySpawnData[] enemySpawnData;
   public float spawnChance;
 
   [Header("Raycast Settings")]
@@ -59,5 +60,29 @@ public class ResourceSpawner : MonoBehaviour
 
          }
 
+    }
+
+    void SpawnEnemies()
+    {
+      foreach (EnemySpawnData enemy in enemySpawnData)
+      {
+        for (int n = 0; n < enemy.numToSpawn; n++)
+        {
+          Vector2 pos = new Vector2(Random.Range(negativePosition.x, positivePosition.x), Random.Range(negativePosition.y, positivePosition.y));
+          RaycastHit hit;
+          if(Physics.Raycast(new Vector3(pos.x, heightOfCheck, pos.y), Vector3.down, out hit, rangOfCheck, layerMask))
+          {
+            Instantiate(enemy.enemyPrefab, hit.point, Quaternion.Euler(new Vector3(0,0,0)), transform);
+          }
+          
+        }
+      }
+    }
+
+    [System.Serializable]
+    public class EnemySpawnData
+    {
+      public GameObject enemyPrefab;
+      public int numToSpawn = 1;
     }
 }
