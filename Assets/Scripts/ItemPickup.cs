@@ -28,8 +28,11 @@ public class ItemPickup : MonoBehaviour
     }
 
     public void PickupItem(int id){
-        Destroy(gameObject);
-        inventoryManager.AddItem(inventoryManager.itemsToPickup[id]);
-        
+        if (id >= 0 && id < inventoryManager.itemsToPickup.Length) {
+            inventoryManager.AddItem(inventoryManager.itemsToPickup[id]);
+            Destroy(gameObject);
+        } else {
+            Debug.LogError("Invalid item id: " + id);
+        }
     }
 }

@@ -752,6 +752,7 @@ MonoBehaviour:
   - {fileID: 3510349722152682674, guid: 4a8da26c55ecf45f2a86b4ce97e57fbb, type: 3}
   - {fileID: 5328201758687282901, guid: 1e353825e1f4346fbb18afe6fbdfff05, type: 3}
   - {fileID: 2199803799251473919, guid: 370a3e03625ec44419139c4c7745480d, type: 3}
+  - {fileID: 6274453871170489963, guid: f7cc7648162e5429682a8b15d08defed, type: 3}
   spawnChance: 0.001
   distanceBetweenChecks: 4
   heightOfCheck: 0
@@ -1364,8 +1365,8 @@ Transform:
   m_GameObject: {fileID: 549317416}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.426, y: 2.228, z: -5.226825}
-  m_LocalScale: {x: 4.3961024, y: 3.9400365, z: 1}
+  m_LocalPosition: {x: 5.08, y: 0.86, z: -7.536}
+  m_LocalScale: {x: 10.035422, y: 9.313064, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1713001884}
@@ -1403,8 +1404,8 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 0.15586895
+  m_Center: {x: 0.051052086, y: 0.04532558, z: 0.14926863}
 --- !u!198 &549317421
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -7763,8 +7764,8 @@ Transform:
   m_GameObject: {fileID: 1713001883}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 226.85005, y: -0.8446622, z: 6.5068254}
-  m_LocalScale: {x: 0.22747424, y: 0.25380474, z: 1}
+  m_LocalPosition: {x: 0.046563867, y: 0.09644583, z: -0.0031747818}
+  m_LocalScale: {x: 0.6303158, y: 0.60637337, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 549317417}
@@ -7779,11 +7780,11 @@ NavMeshObstacle:
   m_Enabled: 1
   serializedVersion: 3
   m_Shape: 1
-  m_Extents: {x: 0.96, y: 0.615, z: 0.12}
+  m_Extents: {x: 0.32000002, y: 0.32000002, z: 0.1}
   m_MoveThreshold: 0.1
   m_Carve: 1
   m_CarveOnlyStationary: 1
-  m_Center: {x: -0.23, y: 0.89, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
   m_TimeToStationary: 0.5
 --- !u!95 &1713001886
 Animator:
@@ -7818,16 +7819,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4683bc642b6b04e2b8a437c6b9d3f4bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resourceType: 0
+  resourceType: 1
   inventoryManager: {fileID: 1026013365}
-  animator: {fileID: 0}
+  animator: {fileID: 1713001886}
   droppedItem: {fileID: 11400000, guid: a14d9792db7a94eca8a2e694e2d46506, type: 2}
   toDrop: 0
   objectToDestroy: {fileID: 549317416}
   <ResourceNode>k__BackingField: {fileID: 1713001883}
   <ps>k__BackingField: {fileID: 549317421}
   hasDropped: 0
-  currentHealh: 0
+  currentHealh: 5
   <maxHealth>k__BackingField: 5
 --- !u!65 &1713001888
 BoxCollider:
@@ -7848,8 +7849,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.19, y: 0.88, z: 0.14}
-  m_Center: {x: -0.24, y: 0.6, z: 4.9161464e-10}
+  m_Size: {x: 0.53849244, y: 0.4631092, z: 0.18883973}
+  m_Center: {x: -0.0035837225, y: -0.04550587, z: -0.024419874}
 --- !u!114 &1713001889
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14464,7 +14465,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1896709077625760300, guid: 7f6dd018bdb424162a8bc3d708a666c1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.71
+      value: 1.61
       objectReference: {fileID: 0}
     - target: {fileID: 1896709077625760300, guid: 7f6dd018bdb424162a8bc3d708a666c1, type: 3}
       propertyPath: m_LocalPosition.y
