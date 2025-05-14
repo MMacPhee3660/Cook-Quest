@@ -20,10 +20,18 @@ public class ItemPickup : MonoBehaviour
         this.spriteRenderer.sprite = item.image;
 
     }
-    public void OnTriggerEnter(Collider other){
-        if(other.tag == "Player"){
-            PickupItem(item.ID); 
-            
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            if (item != null && inventoryManager != null)
+            {
+                PickupItem(item.ID);
+            }
+            else
+            {
+                Debug.LogWarning("Item or InventoryManager is not assigned on " + gameObject.name);
+            }
         }
     }
 

@@ -1400,7 +1400,7 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -8263,7 +8263,7 @@ PrefabInstance:
       objectReference: {fileID: 895329292}
     - target: {fileID: 4509300321589279341, guid: 84b294d83e6b243bc8259d40f7b9eb93, type: 3}
       propertyPath: scene
-      value: OscarScene
+      value: wasteland
       objectReference: {fileID: 0}
     - target: {fileID: 4509300321589279341, guid: 84b294d83e6b243bc8259d40f7b9eb93, type: 3}
       propertyPath: state
