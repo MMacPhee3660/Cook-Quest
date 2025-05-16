@@ -18,12 +18,12 @@ public class ResourceSpawner : MonoBehaviour
   public Vector2 positivePosition, negativePosition;
 
   private void Start(){
-    Debug.Log(spawnChance);
     resourcePrefabs = GameObject.FindGameObjectsWithTag("Resource");
     if (resourcePrefabs.Length > 0)
     {
       SpawnResources();
       SpawnCosResources();
+      SpawnEnemies();
     }
     
   }
@@ -66,16 +66,21 @@ public class ResourceSpawner : MonoBehaviour
     {
       foreach (EnemySpawnData enemy in enemySpawnData)
       {
-        for (int n = 0; n < enemy.numToSpawn; n++)
+        bool spawned = false;
+        while (!spawned)
         {
-          Vector2 pos = new Vector2(Random.Range(negativePosition.x, positivePosition.x), Random.Range(negativePosition.y, positivePosition.y));
-          RaycastHit hit;
-          if(Physics.Raycast(new Vector3(pos.x, heightOfCheck, pos.y), Vector3.down, out hit, rangOfCheck, layerMask))
+          for (int n = 0; n < enemy.numToSpawn; n++)
           {
-            Instantiate(enemy.enemyPrefab, hit.point, Quaternion.Euler(new Vector3(0,0,0)), transform);
+            Vector2 pos = new Vector2(Random.Range(negativePosition.x, positivePosition.x), Random.Range(negativePosition.y, positivePosition.y));
+            RaycastHit hit;
+            if(Physics.Raycast(new Vector3(pos.x, heightOfCheck, pos.y), Vector3.down, out hit, rangOfCheck, layerMask))
+            {
+              Instantiate(enemy.enemyPrefab, hit.point, Quaternion.Euler(new Vector3(0,0,0)), transform);
+              spawned = true;
+            }
           }
-          
         }
+        
       }
     }
 

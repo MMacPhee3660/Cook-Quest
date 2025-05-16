@@ -12,12 +12,6 @@ public class Deer : DefaultEnemy
 {
     protected override void PathLoop()
     {
-        agent.speed = speed;
-        specialTime += Time.deltaTime;
-        pos = transform.position;
-        targetPos = target.transform.position;
-        targetDistance = Vector3.Distance(pos, targetPos);
-        
         if (LineOfSight())
         {
             canSeeTarget = true;
@@ -42,8 +36,6 @@ public class Deer : DefaultEnemy
                 Chase();
             }
         }
-        agent.SetDestination(dest);
-        FindDirection();
     }
 
     protected override void TrySpecial()
