@@ -7,7 +7,7 @@ using UnityEngine;
 
 public class RestaurantManager : MonoBehaviour
 {
-    public List<Tuple<Item, int>> menuItems = new List<Tuple<Item, int>>();
+    public List<Tuple<Item, int, GameObject>> menuItems = new List<Tuple<Item, int, GameObject>>();
     public List<GameObject> seats = new List<GameObject>();
     public GameObject player;
     public PlayerStats playerStats;
@@ -25,22 +25,26 @@ public class RestaurantManager : MonoBehaviour
     }
     public IEnumerator GenerateOrder()
     {
+        if (menuItems.Count == 0)
+        {
+            yield break;
+        }
         int randomIndex = UnityEngine.Random.Range(0, menuItems.Count);
         Item item = menuItems[randomIndex].Item1;
-        int amount = menuItems[randomIndex].Item2;
-        Debug.Log(item.itemName + " " + amount);
+        GameObject menuPlate = menuItems[randomIndex].Item3;
+        MenuPlate menuPlateScript = menuPlate.GetComponent<MenuPlate>();
         foreach (GameObject seat in seats)
         {
             servingsLeft = item.servingSize;
             Restaurantseat restaurantSeat = seat.GetComponent<Restaurantseat>();
             if (!restaurantSeat.isOccupied && item.servingSize > 0)
             {
-                MenuPlate menuPlate = item.GetComponentInParent<MenuPlate>();
                 restaurantSeat.orderedItem = item;
                 restaurantSeat.isOccupied = true;
                 restaurantSeat.spriteRenderer.sprite = item.image;
                 playerStats.money += item.price;
-                menuPlate.servingsLeft--;
+                menuPlateScript.servingsLeft--;
+                menuPlateScript.callbackIndex = randomIndex;
                 break;
             }
         }

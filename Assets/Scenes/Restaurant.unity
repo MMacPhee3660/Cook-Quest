@@ -3759,6 +3759,13 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1f19813f224b847e99c672f7627b8a54, type: 2}
   startItems:
   - {fileID: 11400000, guid: af33479e4ca94437da4b3ef3f0ded0aa, type: 2}
+  - {fileID: 11400000, guid: af33479e4ca94437da4b3ef3f0ded0aa, type: 2}
+  - {fileID: 11400000, guid: 432f2a5438a75495cb6ec0dbd85ef066, type: 2}
+  - {fileID: 11400000, guid: 432f2a5438a75495cb6ec0dbd85ef066, type: 2}
+  - {fileID: 11400000, guid: dec088066b50849a5b541797d2f60ab3, type: 2}
+  - {fileID: 11400000, guid: af127bb210f4943b7b9ecbbb2804e04e, type: 2}
+  - {fileID: 11400000, guid: af127bb210f4943b7b9ecbbb2804e04e, type: 2}
+  - {fileID: 11400000, guid: af127bb210f4943b7b9ecbbb2804e04e, type: 2}
   selectedSlot: -1
 --- !u!4 &1223802318
 Transform:
