@@ -1155,7 +1155,11 @@ MonoBehaviour:
   - {fileID: 3510349722152682674, guid: 4a8da26c55ecf45f2a86b4ce97e57fbb, type: 3}
   - {fileID: 5328201758687282901, guid: 1e353825e1f4346fbb18afe6fbdfff05, type: 3}
   - {fileID: 2199803799251473919, guid: 370a3e03625ec44419139c4c7745480d, type: 3}
-  enemySpawnData: []
+  enemySpawnData:
+  - enemyPrefab: {fileID: 3388002248035379958, guid: 9b40cfbe6fbc34382bf292ad1a061bd2, type: 3}
+    numToSpawn: 2
+  - enemyPrefab: {fileID: 5742268853372452390, guid: c9a1e09c28c5742cab2bdc58056275ea, type: 3}
+    numToSpawn: 2
   spawnChance: 0.025
   distanceBetweenChecks: 1
   heightOfCheck: 0
@@ -3092,6 +3096,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1192713555719589307, guid: 9b40cfbe6fbc34382bf292ad1a061bd2, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1564840000962841377, guid: 9b40cfbe6fbc34382bf292ad1a061bd2, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.867061
