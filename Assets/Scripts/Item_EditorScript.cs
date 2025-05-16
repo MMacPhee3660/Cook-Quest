@@ -30,8 +30,10 @@ public class Item_EditorScript : Editor
             item.actionType = (ActionType) EditorGUILayout.EnumPopup("Action Type", item.actionType);
             item.power = EditorGUILayout.IntField("Power", item.power);
         }
-        if(item.itemType == ItemType.Material){
-            
+        if (item.itemType == ItemType.Material)
+        {
+            item.stackable = true;
+            item.actionType = (ActionType) EditorGUILayout.EnumPopup("Action Type", item.actionType); // action type
             
         }
     

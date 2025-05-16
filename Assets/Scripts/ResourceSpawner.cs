@@ -35,10 +35,24 @@ public class ResourceSpawner : MonoBehaviour
              for( float z = negativePosition.y; z < positivePosition.y; z += distanceBetweenChecks){
 
               RaycastHit hit;
-              if(Physics.Raycast(new Vector3(x,heightOfCheck,z), Vector3.down, out hit, rangOfCheck, layerMask)){
-                  if(spawnChance > Random.Range(0,101)){
-                    Instantiate(resourcePrefabs[Random.Range(0,resourcePrefabs.Length)], hit.point, Quaternion.Euler(new Vector3(0,0,0)),transform);
-                  }
+              if(Physics.Raycast(new Vector3(x, heightOfCheck, z), Vector3.down, out hit, rangOfCheck, layerMask)){
+                if(spawnChance > Random.Range(0,101)){
+                Vector3 spawnPosition = hit.point;
+
+                // Add a small random vertical offset for more natural placement
+                spawnPosition.y += Random.Range(0.1f, 0.7f);
+
+                // Optionally, add a small random horizontal offset
+                spawnPosition.x += Random.Range(-0.3f, 0.3f);
+                spawnPosition.z += Random.Range(-0.3f, 0.3f);
+
+                Instantiate(
+                  resourcePrefabs[Random.Range(0, resourcePrefabs.Length)],
+                  spawnPosition,
+                  Quaternion.Euler(0, Random.Range(0, 360), 0), // random Y rotation for variety
+                  transform
+                );
+                }
               }
             }
 
