@@ -993,7 +993,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: 41a9c5a562560404fb6fea3b59bce2d6, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 88c676fa69eb449c0bba963751df01ff, type: 2}
   m_BuildHeightMesh: 0
 --- !u!23 &254722276
 MeshRenderer:
@@ -1172,11 +1172,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4250627500159080342, guid: 3f3815351a7564baea6d77adb3e5dbce, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9957489
+      value: 0.7660445
       objectReference: {fileID: 0}
     - target: {fileID: 4250627500159080342, guid: 3f3815351a7564baea6d77adb3e5dbce, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.09210987
+      value: 0.6427876
       objectReference: {fileID: 0}
     - target: {fileID: 4250627500159080342, guid: 3f3815351a7564baea6d77adb3e5dbce, type: 3}
       propertyPath: m_LocalRotation.y
@@ -1188,7 +1188,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4250627500159080342, guid: 3f3815351a7564baea6d77adb3e5dbce, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 10.57
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 4250627500159080342, guid: 3f3815351a7564baea6d77adb3e5dbce, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
