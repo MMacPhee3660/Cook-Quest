@@ -196,6 +196,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d504e79621f64fc683cee65f1492b5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inventoryManager: {fileID: 0}
+  animator: {fileID: 0}
 --- !u!95 &7470116360536007864
 Animator:
   serializedVersion: 5
@@ -229,7 +231,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f4e4bdcfe7ab4c6baae64349b6f06f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 7470116360536007864}
   velocity: 0
 --- !u!1 &7485027437932800351
 GameObject:

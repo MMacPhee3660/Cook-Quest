@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fcbbd225286904fbe8e88a79ab6be999, type: 3}
-  m_Name: 8_Salt
+  m_Name: 18_Iron_Sword
   m_EditorClassIdentifier: 
-  ID: 8
+  ID: 18
   isMenuItem: 0
-  actionType: 0
-  itemType: 0
-  power: 0
-  stackable: 1
-  itemName: Salt
+  actionType: 1
+  itemType: 1
+  power: 2
+  stackable: 0
+  itemName: Iron Sword
   servingSize: 0
-  image: {fileID: 21300000, guid: ad910a4ac589746d9bb9b873a06913b2, type: 3}
-  price: 5
+  image: {fileID: 21300000, guid: 0409ee54060a4474994e8d8a3c1b74b0, type: 3}
+  price: 10

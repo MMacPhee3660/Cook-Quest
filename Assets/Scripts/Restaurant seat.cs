@@ -2,20 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ToolAnimator : MonoBehaviour
+public class Restaurantseat : MonoBehaviour
 {
-   
-    [SerializeField] float velocity;
+
+    public bool isOccupied;
+    public Item orderedItem;
+    public SpriteRenderer spriteRenderer;
     void Start()
     {
         
     }
 
-    // Update is called once per frame
     void Update()
     {
-
         
     }
-
 }

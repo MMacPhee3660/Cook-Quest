@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Microsoft.Unity.VisualStudio.Editor;
+using Unity.VisualScripting;
 using UnityEngine;
 
 
@@ -13,6 +14,9 @@ public class MenuPlate : MonoBehaviour
     GameObject testE;
     GameObject childE;
     public Item displayItem;
+    public int servingsLeft;
+    public GameObject plateObj;
+    public int callbackIndex;
     
     public InventoryItem selectedItem;
     GameObject inventoryManagerObj;
@@ -23,6 +27,7 @@ public class MenuPlate : MonoBehaviour
 
     void Start()
     {
+        plateObj = this.gameObject;
         testE = E;
         childE = E;
         inventoryManagerObj = GameObject.FindGameObjectWithTag("InventoryManager");
@@ -32,7 +37,6 @@ public class MenuPlate : MonoBehaviour
         childE = Instantiate(testE, transform.position,Quaternion.identity);
         childE.transform.position += Vector3.up * 1f;
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
-      
 
     }
 
@@ -50,16 +54,21 @@ public class MenuPlate : MonoBehaviour
          if(Input.GetKeyDown(KeyCode.E) && distance <= 2f){
             SetMenuItem(inventoryManager.GetSelectedItem());
          }
+         if(displayItem != null && servingsLeft <= 0 && restaurantManager.menuItems.Count > 0){
+            spriteRenderer.sprite = null;
+            restaurantManager.menuItems.RemoveAt(callbackIndex);
+         }
     }
 
     public void SetMenuItem(Item receivedItem){
         displayItem = receivedItem;
+        servingsLeft = displayItem.servingSize;
         if(receivedItem.itemType == ItemType.Food){
             spriteRenderer.sprite = displayItem.image;
             selectedItem = inventoryManager.GetSelectedItemSlot();
             selectedItem.count --;
             selectedItem.RefreshCount();
-            restaurantManager.menuItems.Add(new Tuple<Item, int>(displayItem, displayItem.servingSize));
+            restaurantManager.menuItems.Add(new Tuple<Item, int, GameObject>(displayItem, displayItem.servingSize, plateObj));
             if(selectedItem.count == 0){
                 Destroy(selectedItem.gameObject);
             }
