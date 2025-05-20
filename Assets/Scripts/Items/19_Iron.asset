@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fcbbd225286904fbe8e88a79ab6be999, type: 3}
-  m_Name: 8_Salt
+  m_Name: 19_Iron
   m_EditorClassIdentifier: 
-  ID: 8
+  ID: 19
   isMenuItem: 0
   actionType: 0
   itemType: 0
   power: 0
   stackable: 1
-  itemName: Salt
+  itemName: Iron Ore
   servingSize: 0
-  image: {fileID: 21300000, guid: ad910a4ac589746d9bb9b873a06913b2, type: 3}
-  price: 5
+  image: {fileID: 21300000, guid: 250c48a2d9ab0471a9e85a0f9ff79dc3, type: 3}
+  price: 12
