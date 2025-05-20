@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fcbbd225286904fbe8e88a79ab6be999, type: 3}
-  m_Name: 8_Salt
+  m_Name: 21_Iron_Pickaxe
   m_EditorClassIdentifier: 
-  ID: 8
+  ID: 21
   isMenuItem: 0
-  actionType: 0
-  itemType: 0
-  power: 0
-  stackable: 1
-  itemName: Salt
+  actionType: 3
+  itemType: 1
+  power: 2
+  stackable: 0
+  itemName: Iron Pickaxe
   servingSize: 0
-  image: {fileID: 21300000, guid: ad910a4ac589746d9bb9b873a06913b2, type: 3}
-  price: 5
+  image: {fileID: 21300000, guid: a52392cf2d4304fa5a4e2384713bec69, type: 3}
+  price: 10
