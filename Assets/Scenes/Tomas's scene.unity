@@ -872,10 +872,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerMove
       objectReference: {fileID: 0}
-    - target: {fileID: 7485027437932800351, guid: 782cbead201354ab49bfbd2f236e3178, type: 3}
-      propertyPath: m_Layer
-      value: 11
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1344,6 +1340,7 @@ MonoBehaviour:
   - {fileID: 3510349722152682674, guid: 4a8da26c55ecf45f2a86b4ce97e57fbb, type: 3}
   - {fileID: 5328201758687282901, guid: 1e353825e1f4346fbb18afe6fbdfff05, type: 3}
   - {fileID: 2199803799251473919, guid: 370a3e03625ec44419139c4c7745480d, type: 3}
+  enemySpawnData: []
   spawnChance: 0.025
   distanceBetweenChecks: 1
   heightOfCheck: 0

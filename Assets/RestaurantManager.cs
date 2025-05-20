@@ -25,6 +25,7 @@ public class RestaurantManager : MonoBehaviour
     }
     public IEnumerator GenerateOrder()
     {
+        Debug.Log(menuItems.Count);
         if (menuItems.Count == 0)
         {
             yield break;
@@ -45,6 +46,7 @@ public class RestaurantManager : MonoBehaviour
                 playerStats.money += item.price;
                 menuPlateScript.servingsLeft--;
                 menuPlateScript.callbackIndex = randomIndex;
+                Debug.Log("did it");
                 break;
             }
         }

@@ -39,8 +39,8 @@ public class ResourceSpawner : MonoBehaviour
                 if(spawnChance > Random.Range(0,101)){
                 Vector3 spawnPosition = hit.point;
 
-                // Add a small random vertical offset for more natural placement
-                spawnPosition.y += Random.Range(0.1f, 0.7f);
+            // Add a small random vertical offset for more natural placement
+            spawnPosition.y = -1;
 
                 // Optionally, add a small random horizontal offset
                 spawnPosition.x += Random.Range(-0.3f, 0.3f);
