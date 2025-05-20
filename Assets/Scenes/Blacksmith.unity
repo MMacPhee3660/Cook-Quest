@@ -955,6 +955,11 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 7450416399330120311, guid: 2428aa74e088541fcbf1669e2590b38f, type: 3}
   m_PrefabInstance: {fileID: 213946531}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &213946534 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4104312287209376210, guid: 2428aa74e088541fcbf1669e2590b38f, type: 3}
+  m_PrefabInstance: {fileID: 213946531}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &213946537 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3408407407642221056, guid: 2428aa74e088541fcbf1669e2590b38f, type: 3}
@@ -1864,9 +1869,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scene: Maywensscene2
   E: {fileID: 1455628289}
-  x: -15.87
+  x: -27.22
   y: 1
-  z: 2.33
+  z: 3.596
   spawnPoint: {fileID: 1985169964}
   state: {fileID: 0}
   transition: {fileID: 1026928112}
@@ -3858,6 +3863,7 @@ GameObject:
   - component: {fileID: 1800101913}
   - component: {fileID: 1800101912}
   - component: {fileID: 1800101911}
+  - component: {fileID: 1800101914}
   m_Layer: 9
   m_Name: Upper Right Display (2)
   m_TagString: Untagged
@@ -3951,6 +3957,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1800101909}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1800101914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1800101909}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58cf3c8d72ee748538cc164a37df731d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  E: {fileID: 1455628289}
+  testE: {fileID: 1455628289}
+  childE: {fileID: 1455628289}
+  menu: {fileID: 213946534}
 --- !u!1 &1843916760
 GameObject:
   m_ObjectHideFlags: 0
