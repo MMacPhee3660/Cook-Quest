@@ -76,6 +76,10 @@ public class Deer : DefaultEnemy
     }
     protected override void Chase()
     {
-        dest = 2 * pos - targetPos;
+        if (time >= nextChase)
+        {
+            dest = 2 * pos - targetPos;
+            nextChase = time + chaseInterval;
+        }
     }
 }

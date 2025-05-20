@@ -40,7 +40,11 @@ public class Boar : DefaultEnemy
 
     protected override void Chase()
     {
-        dest = targetPos;
+        if (time >= nextChase)
+        {
+            dest = targetPos;
+            nextChase = time + chaseInterval;
+        }
     }
     protected override void TrySpecial()
     {
