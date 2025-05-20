@@ -225,6 +225,7 @@ MonoBehaviour:
   obstacleLayer:
     serializedVersion: 2
     m_Bits: 4294967295
+  chaseInterval: 0.5
   minPause: 4
   maxPause: 8
   specialCooldown: 5
