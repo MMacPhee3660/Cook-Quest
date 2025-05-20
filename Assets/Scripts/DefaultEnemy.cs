@@ -16,25 +16,27 @@ public abstract class DefaultEnemy : MonoBehaviour
     protected NavMeshAgent agent;
     protected GameObject target;
     protected Vector3 origin;
-    [SerializeField] public int patrolRadius = 10;
+    [SerializeField] protected int patrolRadius = 10;
     protected Vector3 pos;
     protected Vector3 targetPos;
     protected Vector3 dest;
     protected float targetDistance;
-    [SerializeField] public float sightRange = 10;
-    [SerializeField] public float specialRange = 5;
+    [SerializeField] protected float sightRange = 10;
+    [SerializeField] protected float specialRange = 5;
     protected NavMeshPath path;
     protected NavMeshSurface surface;
     public LayerMask obstacleLayer;
     protected float time = 0f;
+    protected float nextChase;
+    [SerializeField] protected float chaseInterval = 0.1f;
     protected float patrolTime = 0f;
     protected float specialTime = 0f;
     protected float pause;
     protected float specialPause = 0f;
-    [SerializeField] public float minPause = 3f;
-    [SerializeField] public float maxPause = 2f;
-    [SerializeField] public float specialCooldown = 5f;
-    [SerializeField] public float specialWindup = 0.5f;
+    [SerializeField] protected float minPause = 3f;
+    [SerializeField] protected float maxPause = 2f;
+    [SerializeField] protected float specialCooldown = 5f;
+    [SerializeField] protected float specialWindup = 0.5f;
     protected float speed;
     protected bool canSeeTarget = false;
     protected bool isSpecial = false;
@@ -67,6 +69,7 @@ public abstract class DefaultEnemy : MonoBehaviour
         if (lastDest != dest)
         {
             agent.SetDestination(dest);
+            print("h");
         }
         FindDirection();
     }
