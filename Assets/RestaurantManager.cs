@@ -44,6 +44,7 @@ public class RestaurantManager : MonoBehaviour
                     restaurantSeat.spriteRenderer.sprite = item.image;
                     playerStats.money += item.price;
                     menuPlateScript.servingsLeft--;
+                    menuPlateScript.RefreshServingCount();
                     menuPlateScript.callbackIndex = randomIndex;
                     break;
                 }
