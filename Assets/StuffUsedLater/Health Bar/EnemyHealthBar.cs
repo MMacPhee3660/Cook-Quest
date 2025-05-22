@@ -19,6 +19,9 @@ public class EnemyHealthBar : MonoBehaviour
     }
     void Update()
     {
+        if (healthBarSlider == null)
+            return;
+
         if (harvestable.currentHealh <= 0)
         {
             healthBarSlider.gameObject.SetActive(false);
