@@ -143,6 +143,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: -876546973899608171, guid: f2a515e38c7f24d4ea21f1315689c5da, type: 3}
+    - target: {fileID: 4509300321589279341, guid: 84b294d83e6b243bc8259d40f7b9eb93, type: 3}
+      propertyPath: E
+      value: 
+      objectReference: {fileID: 111531609}
     - target: {fileID: 5309494681435083274, guid: 84b294d83e6b243bc8259d40f7b9eb93, type: 3}
       propertyPath: m_Name
       value: Magic Door
@@ -460,6 +464,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3294402815066488407, guid: 782cbead201354ab49bfbd2f236e3178, type: 3}
   m_PrefabInstance: {fileID: 1002348176}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &280261615 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 357495710430154597, guid: d6ac981f49e56419f9e7031f5aa674a3, type: 3}
+  m_PrefabInstance: {fileID: 1637661801}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cc551c2375624f28915109db261c1c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &542325878
 GameObject:
   m_ObjectHideFlags: 0
@@ -3939,7 +3954,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resourceType: 0
-  inventoryManager: {fileID: 0}
+  inventoryManager: {fileID: 280261615}
   animator: {fileID: 8747512372127376781}
   droppedItem: {fileID: 11400000, guid: c2c66de5b27b04e22abf0413f2746fd8, type: 2}
   toDrop: 0
