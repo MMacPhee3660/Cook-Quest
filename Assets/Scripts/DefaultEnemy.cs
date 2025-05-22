@@ -70,7 +70,6 @@ public abstract class DefaultEnemy : MonoBehaviour
         {
             lastDest = dest;
             agent.SetDestination(dest);
-            print("h");
         }
         FindDirection();
     }
@@ -120,6 +119,10 @@ public abstract class DefaultEnemy : MonoBehaviour
 
     public void FindDirection()
     {
+        if (animator == null)
+        {
+            return;
+        }
         if (agent.velocity != Vector3.zero)
         {
             animator.SetBool("Moving", true);
