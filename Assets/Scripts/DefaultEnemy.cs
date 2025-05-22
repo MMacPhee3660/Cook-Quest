@@ -20,6 +20,7 @@ public abstract class DefaultEnemy : MonoBehaviour
     protected Vector3 pos;
     protected Vector3 targetPos;
     protected Vector3 dest;
+    protected Vector3 lastDest = Vector3.zero;
     protected float targetDistance;
     [SerializeField] protected float sightRange = 10;
     [SerializeField] protected float specialRange = 5;
@@ -63,11 +64,11 @@ public abstract class DefaultEnemy : MonoBehaviour
         pos = transform.position;
         targetPos = target.transform.position;
         targetDistance = Vector3.Distance(pos, targetPos);
-        Vector3 lastDest = dest;
         PathLoop();
         time += Time.deltaTime;
-        if (lastDest != dest)
+        if (Vector3.Distance(lastDest, dest) > 0.1f)
         {
+            lastDest = dest;
             agent.SetDestination(dest);
             print("h");
         }
