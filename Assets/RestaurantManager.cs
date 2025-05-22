@@ -26,6 +26,7 @@ public class RestaurantManager : MonoBehaviour
     }
     public IEnumerator GenerateOrder()
     {
+        Debug.Log(menuItems.Count);
         if (menuItems.Count != 0)
         {
 
@@ -45,7 +46,10 @@ public class RestaurantManager : MonoBehaviour
                     playerStats.money += item.price;
                     menuPlateScript.servingsLeft--;
                     menuPlateScript.RefreshServingCount();
-                    menuPlateScript.callbackIndex = randomIndex;
+                    if (menuPlateScript.servingsLeft <= 0)
+                    {
+                        menuItems.RemoveAt(randomIndex);
+                    }
                     break;
                 }
             }
@@ -54,7 +58,7 @@ public class RestaurantManager : MonoBehaviour
         {
             Debug.Log("no items");
         }
-        yield return new WaitForSeconds(UnityEngine.Random.Range(4,7));
+        yield return new WaitForSeconds(UnityEngine.Random.Range(1,3));
         StartCoroutine(GenerateOrder());
     }
 

@@ -13,12 +13,10 @@ public class MenuPlate : MonoBehaviour
     private float distance;
     [SerializeField] GameObject E;
     GameObject player;
-    GameObject testE;
     GameObject childE;
     public Item displayItem;
     public int servingsLeft;
     public GameObject plateObj;
-    public int callbackIndex;
     public TextMeshPro servingLeftText;
 
 
@@ -32,13 +30,13 @@ public class MenuPlate : MonoBehaviour
     void Start()
     {
         plateObj = this.gameObject;
-        testE = E;
         childE = E;
         inventoryManagerObj = GameObject.FindGameObjectWithTag("InventoryManager");
         inventoryManager = inventoryManagerObj.GetComponent<InventoryManager>();
         player = GameObject.Find("PlayerMove");
-        E.SetActive(false);
-        childE = Instantiate(testE, transform.position, Quaternion.identity);
+       
+        childE = Instantiate(E, transform.position, Quaternion.identity);
+         E.SetActive(false);
         childE.transform.position += Vector3.up * 1f;
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
 
@@ -50,7 +48,8 @@ public class MenuPlate : MonoBehaviour
         if (distance <= 2f)
         {
             E.transform.position = transform.position;
-            childE.SetActive(true);
+            // childE.SetActive(true);
+            player.GetComponent<PlayerInteraction>().GetClosestInteractable().SetActive(true);
             Debug.DrawLine(transform.position, player.transform.position, Color.green);
         }
         else
@@ -61,10 +60,9 @@ public class MenuPlate : MonoBehaviour
         {
             SetMenuItem(inventoryManager.GetSelectedItem());
         }
-        if (displayItem != null && servingsLeft <= 0 && restaurantManager.menuItems.Count > 0)
+        if (displayItem != null && servingsLeft <= 0  )
         {
             spriteRenderer.sprite = null;
-            restaurantManager.menuItems.RemoveAt(callbackIndex);
         }
     }
 
