@@ -26,7 +26,6 @@ public class RestaurantManager : MonoBehaviour
     }
     public IEnumerator GenerateOrder()
     {
-        Debug.Log(menuItems.Count);
         if (menuItems.Count != 0)
         {
 

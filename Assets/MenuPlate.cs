@@ -45,18 +45,17 @@ public class MenuPlate : MonoBehaviour
     void Update()
     {
         float distance = Vector3.Distance(transform.position, player.transform.position);
-        if (distance <= 2f)
+        if (distance <= 2f && this.gameObject == player.GetComponent<PlayerInteraction>().GetClosestInteractable())
         {
             E.transform.position = transform.position;
-            // childE.SetActive(true);
-            player.GetComponent<PlayerInteraction>().GetClosestInteractable().SetActive(true);
+            childE.SetActive(true);
             Debug.DrawLine(transform.position, player.transform.position, Color.green);
         }
         else
         {
             childE.SetActive(false);
         }
-        if (Input.GetKeyDown(KeyCode.E) && distance <= 2f)
+        if (Input.GetKeyDown(KeyCode.E) && distance <= 2f && this.gameObject == player.GetComponent<PlayerInteraction>().GetClosestInteractable())
         {
             SetMenuItem(inventoryManager.GetSelectedItem());
         }
