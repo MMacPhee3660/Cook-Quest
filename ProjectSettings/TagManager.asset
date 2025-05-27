@@ -12,6 +12,7 @@ TagManager:
   - spawnPoint
   - HealthPotion
   - Seat
+  - E
   layers:
   - Default
   - TransparentFX

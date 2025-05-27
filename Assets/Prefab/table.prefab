@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 1809198017364396642}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.38, y: 0.942, z: 1.248}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -72,12 +72,12 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -5177388603050735206, guid: 8884154dfe85442a3a3578be807dbcdf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
-  m_DrawMode: 2
+  m_DrawMode: 0
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
@@ -132,6 +132,7 @@ MonoBehaviour:
   isOccupied: 0
   orderedItem: {fileID: 0}
   spriteRenderer: {fileID: 4803730724422367515}
+  customerSprite: {fileID: 1501233870, guid: f37cc37bb629e48f0a681463ae4f3bae, type: 3}
 --- !u!1 &2245108809164651558
 GameObject:
   m_ObjectHideFlags: 0
@@ -158,7 +159,7 @@ Transform:
   m_GameObject: {fileID: 2245108809164651558}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.903, z: -1.141}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -204,12 +205,12 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -5177388603050735206, guid: 8884154dfe85442a3a3578be807dbcdf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
-  m_DrawMode: 2
+  m_DrawMode: 0
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
@@ -288,12 +289,12 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -5177388603050735206, guid: 8884154dfe85442a3a3578be807dbcdf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
-  m_DrawMode: 2
+  m_DrawMode: 0
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
@@ -348,6 +349,7 @@ MonoBehaviour:
   isOccupied: 0
   orderedItem: {fileID: 0}
   spriteRenderer: {fileID: 4990913168217591877}
+  customerSprite: {fileID: 1998434922, guid: fbfe51597a6594aa785f420543679b5f, type: 3}
 --- !u!1 &3849986924379509394
 GameObject:
   m_ObjectHideFlags: 0
@@ -396,6 +398,7 @@ MonoBehaviour:
   isOccupied: 0
   orderedItem: {fileID: 0}
   spriteRenderer: {fileID: 887787904384773738}
+  customerSprite: {fileID: 1501233870, guid: f37cc37bb629e48f0a681463ae4f3bae, type: 3}
 --- !u!1 &4222386556750493040
 GameObject:
   m_ObjectHideFlags: 0
@@ -422,7 +425,7 @@ Transform:
   m_GameObject: {fileID: 4222386556750493040}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.24, y: 0.94, z: -1.129}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -468,12 +471,12 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -5177388603050735206, guid: 8884154dfe85442a3a3578be807dbcdf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
-  m_DrawMode: 2
+  m_DrawMode: 0
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
@@ -506,7 +509,7 @@ Transform:
   m_GameObject: {fileID: 7494925475117049204}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.29, y: 0.33171022, z: -1.878}
+  m_LocalPosition: {x: -2.14, y: 1.248, z: -0.683}
   m_LocalScale: {x: 1.9230771, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -528,6 +531,7 @@ MonoBehaviour:
   isOccupied: 0
   orderedItem: {fileID: 0}
   spriteRenderer: {fileID: 7278194749961174289}
+  customerSprite: {fileID: 1998434922, guid: fbfe51597a6594aa785f420543679b5f, type: 3}
 --- !u!1001 &5578052373985477125
 PrefabInstance:
   m_ObjectHideFlags: 0
